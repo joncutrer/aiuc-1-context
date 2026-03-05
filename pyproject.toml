@@ -1,0 +1,10 @@
+[project]
+name = "aiuc-1-context"
+version = "0.1.0"
+description = "Fetch, archive, and analyze the AIUC-1 standard from aiuc-1.com"
+requires-python = ">=3.11"
+dependencies = [
+    "requests",
+    "html2text",
+    "python-dateutil",
+]

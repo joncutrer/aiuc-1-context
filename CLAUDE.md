@@ -272,15 +272,16 @@ aiuc-1-context/
 
 | Script | Purpose | Usage |
 |---|---|---|
-| `fetch_spec.py` | Fetch a full spec version from aiuc-1.com | `python src/fetch_spec.py <YYYY-QN>` |
-| `diff_specs.py` | Diff two spec versions and write report | `python src/diff_specs.py <v1> <v2>` |
-| `fetch_news.py` | Fetch/digest research articles | `python src/fetch_news.py [--since YYYY-MM-DD]` |
-| `build_ai_context.py` | Compile all data into AI context doc | `python src/build_ai_context.py` |
-| `build_agent_skills.py` | Generate agent skill definitions | `python src/build_agent_skills.py` |
+| `fetch_spec.py` | Fetch a full spec version from aiuc-1.com | `uv run src/fetch_spec.py <YYYY-QN>` |
+| `diff_specs.py` | Diff two spec versions and write report | `uv run src/diff_specs.py <v1> <v2>` |
+| `fetch_news.py` | Fetch/digest research articles | `uv run src/fetch_news.py [--since YYYY-MM-DD]` |
+| `build_ai_context.py` | Compile all data into AI context doc | `uv run src/build_ai_context.py` |
+| `build_agent_skills.py` | Generate agent skill definitions | `uv run src/build_agent_skills.py` |
+| `run_periodic.py` | Run all tasks in order (for schedulers) | `uv run src/run_periodic.py [--force]` |
 
 All scripts are written in Python 3. Install dependencies with:
 ```bash
-pip install -r requirements.txt
+uv sync
 ```
 
 ---
