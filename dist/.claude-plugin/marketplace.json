@@ -1,0 +1,32 @@
+{
+  "name": "aiuc-1-skills",
+  "description": "Role-based Claude skills for AIUC-1 AI agent compliance: pre-certification assessment, formal audit, control implementation, and strategic advisory.",
+  "version": "1.0.0",
+  "repository": "https://github.com/joncutrer/aiuc-1-context",
+  "skills": [
+    {
+      "name": "aiuc-1-advisor",
+      "path": "aiuc-1-advisor",
+      "displayName": "AIUC-1 Advisor",
+      "description": "Strategic AI compliance advisor for AIUC-1 adoption. Produces compliance roadmaps, vendor questionnaires, framework crosswalk mappings, executive summaries, and scoping guidance."
+    },
+    {
+      "name": "aiuc-1-assessor",
+      "path": "aiuc-1-assessor",
+      "displayName": "AIUC-1 Assessor",
+      "description": "Assess AI agent systems for readiness against the AIUC-1 security, safety, and reliability standard. Produces gap analyses, evidence checklists, and prioritized remediation plans."
+    },
+    {
+      "name": "aiuc-1-auditor",
+      "path": "aiuc-1-auditor",
+      "displayName": "AIUC-1 Auditor",
+      "description": "Conduct formal AIUC-1 certification audits. Verify evidence artifacts against controls, assess conformance, apply review frequency rules, and produce structured audit findings."
+    },
+    {
+      "name": "aiuc-1-implementer",
+      "path": "aiuc-1-implementer",
+      "displayName": "AIUC-1 Implementer",
+      "description": "Implement AIUC-1 controls in AI systems. Provides concrete technical guidance, implementation patterns, policy templates, and evidence artifact generation for each requirement."
+    }
+  ]
+}

@@ -10,11 +10,11 @@ Usage:
     --force   Re-fetch spec even if the current version already exists.
 
 Execution order:
-    1. fetch_spec        — detect and fetch the latest spec version
-    2. fetch_news        — harvest articles from the current month
-    3. diff_specs        — generate a diff if a new version was fetched
-    4. build_ai_context  — always rebuild the AI context document
-    5. build_agent_skills — always rebuild the agent skill library
+    1. fetch_spec          — detect and fetch the latest spec version
+    2. fetch_news          — harvest articles from the current month
+    3. diff_specs          — generate a diff if a new version was fetched
+    4. build_ai_context    — always rebuild the AI context document
+    5. build_skills_dist   — always rebuild the skills bundle in dist/
 """
 
 import argparse
@@ -172,15 +172,15 @@ def main():
         failures.append("build_ai_context")
 
     # ------------------------------------------------------------------
-    # Step 5: Build agent skills
+    # Step 5: Build skills dist bundle
     # ------------------------------------------------------------------
-    build_agent_skills = _load_module("build_agent_skills")
+    build_skills_dist = _load_module("build_skills_dist")
     ok = run_step(
-        "build_agent_skills — generate agent skill library",
-        build_agent_skills.main,
+        "build_skills_dist — assemble skills bundle in dist/",
+        build_skills_dist.main,
     )
     if not ok:
-        failures.append("build_agent_skills")
+        failures.append("build_skills_dist")
 
     # ------------------------------------------------------------------
     # Summary
