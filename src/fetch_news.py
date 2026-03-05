@@ -66,39 +66,40 @@ def _parse_articles(md: str) -> list[dict]:
     """
     articles = []
 
-    # Look for markdown links that appear to be article links
-    # Pattern: [Title](URL) followed by description text
-    # We look for links containing date-like slugs or known article patterns
+    # On the homepage, each article card is rendered as an h4 markdown link:
+    #   #### [Title text concatenated with excerpt](/research/slug)
+    # followed by a separate "Read more" link to the same URL.
+    # We match h4 headings that link to /research/ paths.
     link_pattern = re.compile(
-        r"\[([^\]]{10,120})\]\((https?://[^\)]+)\)"
+        r"^#{1,4}\s*\[(.+?)\]\(((?:https?://(?:www\.)?aiuc-1\.com)?/research/[^\)]+)\)",
+        re.MULTILINE,
     )
 
-    # Track URLs we've already seen to avoid duplicates
     seen_urls = set()
 
     for match in link_pattern.finditer(md):
-        title = match.group(1).strip()
-        url = match.group(2).strip()
+        raw_text = match.group(1).strip()
+        raw_url = match.group(2).strip()
 
-        # Filter to aiuc-1.com links that look like articles (not navigation)
-        if BASE_URL not in url:
-            continue
+        # Normalise relative URLs to absolute
+        url = raw_url if raw_url.startswith("http") else f"{BASE_URL}{raw_url}"
+
         if url in seen_urls:
             continue
 
-        # Skip navigation/utility pages
-        skip_patterns = [
-            "/faq", "/scoping", "/contact", "/changelog", "/crosswalks",
-            "/legal/", "/consortium", "/certification", "/auditors",
-            "/evidence", "/contribute", "/certificate",
-            BASE_URL + "/",
-        ]
-        if any(url.rstrip("/") == BASE_URL + p.rstrip("/") for p in skip_patterns):
-            continue
-        if url == BASE_URL or url == BASE_URL + "/":
-            continue
-
         seen_urls.add(url)
+
+        # The h4 text concatenates title + excerpt without a separator.
+        # Derive a clean title from the URL slug as a reliable fallback,
+        # but also keep the full text for context.
+        slug = url.rstrip("/").split("/")[-1]
+        title_from_slug = slug.replace("-", " ").title()
+        # Heuristic: take text up to the first sentence boundary (., !, ?)
+        # if it's reasonably short; otherwise fall back to the slug-derived title.
+        m_sentence = re.match(r"(.{10,120}?[.!?])\s+[A-Z]", raw_text)
+        title = m_sentence.group(1).strip() if m_sentence else (
+            raw_text[:120] if len(raw_text) <= 120 else title_from_slug
+        )
 
         # Try to infer a category from context (simple heuristic)
         category = "Research"

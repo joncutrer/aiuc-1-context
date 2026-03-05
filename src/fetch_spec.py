@@ -80,26 +80,46 @@ def _date_to_quarter(date_str: str) -> str:
 def detect_latest_version() -> str:
     """
     Fetch /changelog, find the most recent release date, and return YYYY-QN.
-    Release dates are: Jan 15, Apr 15, Jul 15, Oct 15.
+
+    The changelog page states the most recent release in natural language:
+      "The most recent version of AIUC-1 was released on **January 15, 2026**."
+    It also has section headers like:
+      "## January 15, 2026 release"
+    We parse these with dateutil since the page does not use ISO date format.
     """
+    from dateutil import parser as dateutil_parser
+
     print("Detecting latest version from /changelog ...")
     html = fetch_url(f"{BASE_URL}/changelog")
     md = html_to_markdown(html)
 
-    # Look for YYYY-MM-DD date patterns in the changelog content
-    dates = re.findall(r"\b(20\d{2}-(?:01|04|07|10)-15)\b", md)
-    if not dates:
-        # Fallback: any YYYY-MM-DD date
-        dates = re.findall(r"\b(20\d{2}-\d{2}-\d{2})\b", md)
+    # Priority 1: explicit "released on **Month DD, YYYY**" sentence
+    m = re.search(r"released on \*?\*?([A-Z][a-z]+ \d{1,2},? \d{4})\*?\*?", md, re.IGNORECASE)
+    if m:
+        dt = dateutil_parser.parse(m.group(1))
+        version = f"{dt.year}-Q{(dt.month - 1) // 3 + 1}"
+        print(f"  → Detected latest version: {version} (from '{m.group(0).strip()}')")
+        return version
 
-    if not dates:
-        raise RuntimeError("Could not detect a release date from /changelog")
+    # Priority 2: section headers "## Month DD, YYYY release"
+    headers = re.findall(r"^#{1,3}\s+([A-Z][a-z]+ \d{1,2},? \d{4}) release", md, re.MULTILINE | re.IGNORECASE)
+    if headers:
+        parsed = sorted([dateutil_parser.parse(h) for h in headers], reverse=True)
+        dt = parsed[0]
+        version = f"{dt.year}-Q{(dt.month - 1) // 3 + 1}"
+        print(f"  → Detected latest version: {version} (from section header '{headers[0]}')")
+        return version
 
-    # Sort descending and take the most recent
-    latest = sorted(dates, reverse=True)[0]
-    version = _date_to_quarter(latest)
-    print(f"  → Detected latest version: {version} (release date {latest})")
-    return version
+    # Fallback: any ISO date in the content, pick the most recent
+    dates = re.findall(r"\b(20\d{2}-\d{2}-\d{2})\b", md)
+    if dates:
+        latest = sorted(dates, reverse=True)[0]
+        dt = datetime.strptime(latest, "%Y-%m-%d")
+        version = f"{dt.year}-Q{(dt.month - 1) // 3 + 1}"
+        print(f"  → Detected latest version: {version} (ISO date fallback: {latest})")
+        return version
+
+    raise RuntimeError("Could not detect a release date from /changelog")
 
 
 # ---------------------------------------------------------------------------

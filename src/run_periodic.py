@@ -145,20 +145,16 @@ def main():
         ver_a = all_versions[-2]
         ver_b = all_versions[-1]
         diff_specs = _load_module("diff_specs")
-        ok = run_step(
-            f"diff_specs — generate diff {ver_a} → {ver_b}",
-            lambda: diff_specs.main(),
-        )
-        if not ok:
-            failures.append("diff_specs")
-        # Patch sys.argv so diff_specs.main() picks up the right versions
+        # Patch sys.argv so diff_specs.main() picks up the version args
         _orig_argv = sys.argv[:]
         sys.argv = ["diff_specs.py", ver_a, ver_b]
-        run_step(
+        ok = run_step(
             f"diff_specs — generate diff {ver_a} → {ver_b}",
             diff_specs.main,
         )
         sys.argv = _orig_argv
+        if not ok:
+            failures.append("diff_specs")
     elif new_version_fetched:
         log("Only one version available — skipping diff (need at least two versions).")
     else:
