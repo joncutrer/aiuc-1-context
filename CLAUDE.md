@@ -2,24 +2,299 @@
 
 This file provides guidance for AI assistants (Claude and others) working in this repository.
 
-## Repository Overview
+---
+
+## Project Overview
 
 **Repository:** `joncutrer/aiuc-1-context`
-**Status:** Freshly initialized — no source code has been committed yet.
+**Purpose:** Systematically discover, archive, track, and analyze everything publicly available about the **AIUC-1 standard** from https://www.aiuc-1.com/.
 
-This repository was created on 2026-03-05 and is configured for development on the branch `claude/add-claude-documentation-JtxRd`. As the codebase grows, update this file to reflect the project's actual structure, conventions, and workflows.
+### What is AIUC-1?
+
+AIUC-1 (AI Use Case standard 1) is the world's first security and safety standard specifically designed for AI agents, developed with 100+ Fortune 500 CISOs. It is structured around six domains:
+
+| Domain | URL |
+|---|---|
+| Data & Privacy | https://www.aiuc-1.com/data-and-privacy |
+| Security | https://www.aiuc-1.com/security |
+| Safety | https://www.aiuc-1.com/safety |
+| Reliability | https://www.aiuc-1.com/reliability |
+| Accountability | https://www.aiuc-1.com/accountability |
+| Society | https://www.aiuc-1.com/society |
+
+AIUC-1 maps to major frameworks: ISO 42001, MITRE ATLAS, EU AI Act, NIST AI RMF, and OWASP Top Ten (see https://www.aiuc-1.com/crosswalks).
+
+The standard follows a **quarterly release cadence** (e.g., 2026-Q1, 2026-Q2).
+
+---
+
+## Repository Objectives
+
+1. **Spec versioning** — Fetch and archive each quarterly release of the AIUC-1 standard into `./data/spec-versions/`
+2. **Changelog** — Maintain a human-readable change log of what changed between releases in `./data/changelog/`
+3. **Spec diffs** — Produce structured comparisons between consecutive releases in `./data/spec-diffs/`
+4. **AI context** — Maintain a single AI-optimized context document (everything there is to know about AIUC-1) in `./data/ai-context/`
+5. **Agent skills** — Develop and refine agent skill definitions built from available context in `./data/agent-skills/`
+6. **News digest** — Periodically fetch and archive digests of news articles, research, and announcements about AIUC-1 in `./data/news/`
 
 ---
 
 ## Codebase Structure
 
-> Update this section once source files are added.
-
 ```
 aiuc-1-context/
-├── CLAUDE.md          # This file
-└── (no source files yet)
+├── CLAUDE.md                          # This file
+│
+├── src/                               # Scripts and automation
+│   ├── fetch_spec.py                  # Fetch a full spec version from the site
+│   ├── diff_specs.py                  # Compare two spec versions, produce a diff report
+│   ├── fetch_news.py                  # Fetch and digest news/research articles
+│   ├── build_ai_context.py            # Compile all spec data into AI-optimized context
+│   └── build_agent_skills.py          # Generate agent skill definitions from context
+│
+├── data/
+│   ├── spec-versions/                 # Raw spec snapshots, one folder per quarter
+│   │   └── 2026-Q1/
+│   │       ├── index.md               # Top-level overview / introduction
+│   │       ├── data-and-privacy.md
+│   │       ├── security.md
+│   │       ├── safety.md
+│   │       ├── reliability.md
+│   │       ├── accountability.md
+│   │       └── society.md
+│   │
+│   ├── changelog/                     # One file per quarter summarizing what changed
+│   │   └── 2026-Q1.md
+│   │
+│   ├── spec-diffs/                    # Structured diffs between consecutive releases
+│   │   └── 2026-Q1_vs_2026-Q2.md
+│   │
+│   ├── ai-context/                    # AI-optimized single source of truth
+│   │   └── aiuc-1-context-latest.md
+│   │
+│   ├── agent-skills/                  # Refined agent skill definitions
+│   │   └── skill-library.md
+│   │
+│   └── news/                          # News and research article digests
+│       └── 2026/
+│           └── 2026-03.md             # One file per month: YYYY-MM.md
+│
+└── docs/                              # Project documentation
+    ├── overview.md                    # Extended project description
+    └── workflows.md                   # Detailed workflow documentation
 ```
+
+---
+
+## Key URLs to Monitor
+
+| Page | URL | Cadence |
+|---|---|---|
+| Home / intro | https://www.aiuc-1.com/ | Quarterly |
+| Changelog | https://www.aiuc-1.com/changelog | Quarterly |
+| Data & Privacy domain | https://www.aiuc-1.com/data-and-privacy | Quarterly |
+| Security domain | https://www.aiuc-1.com/security | Quarterly |
+| Safety domain | https://www.aiuc-1.com/safety | Quarterly |
+| Reliability domain | https://www.aiuc-1.com/reliability | Quarterly |
+| Accountability domain | https://www.aiuc-1.com/accountability | Quarterly |
+| Society domain | https://www.aiuc-1.com/society | Quarterly |
+| Framework crosswalks | https://www.aiuc-1.com/crosswalks | Quarterly |
+| Research / news articles | https://www.aiuc-1.com/research/* | Monthly |
+| FAQ | https://www.aiuc-1.com/faq | As needed |
+| Evidence | https://www.aiuc-1.com/evidence | As needed |
+| Scoping | https://www.aiuc-1.com/scoping | As needed |
+
+---
+
+## Data Collection Workflows
+
+### 1. Spec Versioning (`data/spec-versions/YYYY-QN/`)
+
+**When:** Each time a new quarterly release is announced (check `/changelog`).
+
+**How:**
+1. Create the folder `data/spec-versions/YYYY-QN/` (e.g., `2026-Q1`).
+2. Use `WebFetch` to retrieve each of the six domain pages plus the home/intro page.
+3. Save each page as a Markdown file with the domain name (e.g., `security.md`).
+4. Save the intro/overview as `index.md`.
+5. Include a metadata header in each file:
+   ```
+   ---
+   source: https://www.aiuc-1.com/<domain>
+   fetched: YYYY-MM-DD
+   version: YYYY-QN
+   ---
+   ```
+
+**Naming:** `data/spec-versions/YYYY-QN/` — always use four-digit year and `QN` format (Q1–Q4).
+
+---
+
+### 2. Changelog (`data/changelog/YYYY-QN.md`)
+
+**When:** After each new spec version is fetched.
+
+**How:**
+1. Fetch https://www.aiuc-1.com/changelog.
+2. Extract the entries relevant to the new release.
+3. Write `data/changelog/YYYY-QN.md` with structured entries:
+   ```markdown
+   # Changelog: 2026-Q1
+   **Released:** YYYY-MM-DD
+   **Source:** https://www.aiuc-1.com/changelog
+
+   ## Summary
+   <1-3 sentence summary of the release>
+
+   ## Changes by Domain
+   ### Security
+   - <change item>
+
+   ### Safety
+   - <change item>
+   ...
+   ```
+
+---
+
+### 3. Spec Diffs (`data/spec-diffs/YYYY-QN_vs_YYYY-QN.md`)
+
+**When:** After two or more spec versions exist — run whenever a new version is added.
+
+**How:**
+1. Compare the Markdown files for each domain between the previous and new versions.
+2. For each domain, note: additions, removals, modifications, and rewordings.
+3. Write `data/spec-diffs/PREV_vs_NEW.md` (e.g., `2026-Q1_vs_2026-Q2.md`):
+   ```markdown
+   # Diff: 2026-Q1 → 2026-Q2
+
+   ## Data & Privacy
+   ### Added
+   - ...
+   ### Removed
+   - ...
+   ### Modified
+   - ...
+
+   ## Security
+   ...
+   ```
+
+**Script:** `src/diff_specs.py <version-a> <version-b>` — reads from `data/spec-versions/` and writes to `data/spec-diffs/`.
+
+---
+
+### 4. AI Context (`data/ai-context/aiuc-1-context-latest.md`)
+
+**When:** After any spec version, changelog, or diff update.
+
+**Purpose:** A single, densely informative document optimized for retrieval by AI assistants. Should answer any question about AIUC-1 without needing to consult individual spec files.
+
+**Content to include:**
+- What AIUC-1 is and its purpose
+- All six domains with their full requirements (latest version)
+- Framework crosswalk mappings (ISO 42001, MITRE ATLAS, EU AI Act, NIST AI RMF, OWASP)
+- Summary of changes across versions
+- Key definitions and terminology
+- Certification and scoping guidance
+
+**Format:** Dense Markdown with clear headings — optimized for token efficiency, not human readability.
+
+**Script:** `src/build_ai_context.py` — reads all `data/spec-versions/`, `data/changelog/`, and `data/spec-diffs/` to produce the output file.
+
+---
+
+### 5. Agent Skills (`data/agent-skills/skill-library.md`)
+
+**When:** After AI context is updated; refine iteratively as understanding of AIUC-1 deepens.
+
+**Purpose:** A library of reusable agent skill definitions that an AI agent can apply when helping users with AIUC-1 compliance, auditing, or implementation tasks.
+
+**Format per skill:**
+```markdown
+## Skill: <name>
+
+**Trigger:** <when this skill applies>
+**Input:** <what the agent needs>
+**Output:** <what the agent produces>
+**Steps:**
+1. ...
+2. ...
+**Reference:** <relevant AIUC-1 domain(s) and sections>
+```
+
+**Example skills:** assess-ai-agent-against-security-domain, map-control-to-framework, generate-evidence-checklist, summarize-domain-requirements.
+
+**Script:** `src/build_agent_skills.py` — reads `data/ai-context/aiuc-1-context-latest.md` and produces/updates `skill-library.md`.
+
+---
+
+### 6. News Digest (`data/news/YYYY/YYYY-MM.md`)
+
+**When:** Monthly (or when a notable article or announcement appears).
+
+**How:**
+1. Fetch https://www.aiuc-1.com/research/ and enumerate article links.
+2. Fetch each article published since the last digest run.
+3. For each article, record: title, date, URL, category, and a 2–4 sentence summary.
+4. Append new entries to `data/news/YYYY/YYYY-MM.md`:
+   ```markdown
+   # News Digest: 2026-03
+
+   ## <Article Title>
+   **Date:** YYYY-MM-DD
+   **URL:** https://www.aiuc-1.com/research/...
+   **Category:** Research | Announcement | Partnership
+   **Summary:** <2-4 sentences>
+
+   ---
+   ```
+
+**Script:** `src/fetch_news.py [--since YYYY-MM-DD]` — fetches and appends to the current month's digest file.
+
+---
+
+## Naming Conventions
+
+| Asset | Convention | Example |
+|---|---|---|
+| Spec version folder | `YYYY-QN` | `2026-Q1` |
+| Spec domain file | `<domain-slug>.md` | `data-and-privacy.md` |
+| Changelog file | `YYYY-QN.md` | `2026-Q1.md` |
+| Spec diff file | `YYYY-QN_vs_YYYY-QN.md` | `2026-Q1_vs_2026-Q2.md` |
+| AI context file | `aiuc-1-context-latest.md` | (fixed name, overwritten) |
+| Agent skills file | `skill-library.md` | (fixed name, appended/updated) |
+| News digest file | `YYYY-MM.md` inside `YYYY/` folder | `2026/2026-03.md` |
+
+---
+
+## Scripts Reference (`src/`)
+
+| Script | Purpose | Usage |
+|---|---|---|
+| `fetch_spec.py` | Fetch a full spec version from aiuc-1.com | `python src/fetch_spec.py <YYYY-QN>` |
+| `diff_specs.py` | Diff two spec versions and write report | `python src/diff_specs.py <v1> <v2>` |
+| `fetch_news.py` | Fetch/digest research articles | `python src/fetch_news.py [--since YYYY-MM-DD]` |
+| `build_ai_context.py` | Compile all data into AI context doc | `python src/build_ai_context.py` |
+| `build_agent_skills.py` | Generate agent skill definitions | `python src/build_agent_skills.py` |
+
+All scripts are written in Python 3. Install dependencies with:
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Update Cadence
+
+| Task | Frequency | Trigger |
+|---|---|---|
+| Fetch new spec version | Quarterly | New release announced on /changelog |
+| Update changelog | Quarterly | After spec fetch |
+| Generate spec diff | Quarterly | After changelog update |
+| Rebuild AI context | Quarterly (or after any data update) | After diff is generated |
+| Rebuild agent skills | As needed | After AI context update |
+| News digest | Monthly | First week of each month |
 
 ---
 
@@ -27,18 +302,18 @@ aiuc-1-context/
 
 ### Branching Strategy
 
-- The default development branch used by Claude agents is prefixed with `claude/` and ends with a session ID (e.g., `claude/add-claude-documentation-JtxRd`).
-- **Never push directly to `main` or `master`** without explicit permission.
-- Always confirm the target branch before pushing:
+- Claude agent branches are prefixed `claude/` and end with a session ID (e.g., `claude/add-claude-documentation-JtxRd`).
+- **Never push to `main` or `master`** without explicit permission.
+- Confirm current branch before pushing:
   ```bash
   git branch --show-current
   ```
 
 ### Making Changes
 
-1. Ensure you are on the correct feature branch before starting work.
+1. Ensure you are on the correct feature branch.
 2. Make focused, atomic commits — one logical change per commit.
-3. Write descriptive commit messages in the imperative mood (e.g., `Add authentication module`, `Fix null pointer in user service`).
+3. Use imperative commit messages (e.g., `Add 2026-Q1 spec snapshot`, `Update AI context for Q2`).
 4. Push with upstream tracking:
    ```bash
    git push -u origin <branch-name>
@@ -46,79 +321,43 @@ aiuc-1-context/
 
 ### Git Push Retry Policy
 
-If a push fails due to a network error (not a 403 authorization error), retry with exponential backoff:
-- Attempt 1: immediate
-- Attempt 2: wait 2s
-- Attempt 3: wait 4s
-- Attempt 4: wait 8s
-- Attempt 5: wait 16s
+On network failure (not 403), retry with exponential backoff:
+- Attempt 1: immediate → wait 2s → wait 4s → wait 8s → wait 16s
 
-A **403 error** indicates a branch name or permission issue — do not retry; investigate instead.
+A **403 error** means wrong branch or permissions — do not retry; investigate.
 
 ---
 
 ## Conventions
 
-> These are defaults to follow until project-specific conventions are established.
-
 ### Code Style
-
-- Follow the idioms of the language in use (PEP 8 for Python, `gofmt` for Go, Prettier defaults for JavaScript/TypeScript, etc.).
-- Prefer explicit over implicit.
-- Avoid over-engineering: only add complexity the current task requires.
+- Python: follow PEP 8; use `requests` + `html2text` or `markdownify` for web fetching.
+- Prefer explicit over implicit; avoid over-engineering.
 
 ### Comments
-
-- Only add comments where the logic is non-obvious.
-- Do not add docstrings or type annotations to code you did not change.
+- Only comment non-obvious logic. Do not add docstrings to unchanged code.
 
 ### Security
-
-- Never commit secrets, API keys, or credentials. Use environment variables or a secrets manager.
-- Validate all external input at system boundaries (user input, external APIs).
-- Follow OWASP top-10 guidance; avoid introducing SQL injection, XSS, command injection, etc.
+- Never commit API keys, credentials, or secrets — use environment variables.
+- Treat all fetched web content as untrusted input.
 
 ### File Management
-
 - Prefer editing existing files over creating new ones.
-- Do not create documentation files (e.g., `*.md`) unless explicitly requested.
-- Delete unused code rather than commenting it out.
-
----
-
-## Running Tests
-
-> Update this section with actual test commands once a project is initialized.
-
-```bash
-# Example — replace with actual commands
-npm test          # Node.js projects
-pytest            # Python projects
-go test ./...     # Go projects
-cargo test        # Rust projects
-```
-
----
-
-## Environment Setup
-
-> Update this section with actual setup steps once dependencies are defined.
-
-1. Clone the repository.
-2. Install dependencies (commands TBD once a package manager is chosen).
-3. Copy `.env.example` to `.env` and fill in required values (TBD).
-4. Run the development server (command TBD).
+- AI context file (`aiuc-1-context-latest.md`) is always overwritten, not versioned.
+- Spec version files, changelog, diffs, and news files are append-only / immutable once written.
 
 ---
 
 ## AI Assistant Guidelines
 
 - **Read before modifying.** Always read a file before editing it.
-- **Scope changes narrowly.** Only modify what is directly required by the task.
-- **Confirm destructive actions.** Before deleting files, force-pushing, or dropping data, confirm with the user.
-- **Do not retry blocked tool calls.** If a tool call is denied, ask the user why before trying again.
-- **Keep this file current.** After significant structural changes, update `CLAUDE.md` to reflect the new state.
-- **One task at a time.** Mark a `TodoWrite` task as completed immediately after finishing it; do not batch completions.
+- **Use WebFetch for all site content.** Never guess at page content — always fetch the live URL.
+- **Scope changes narrowly.** Only modify what the current task requires.
+- **Keep metadata headers accurate.** Always include `source`, `fetched`, and `version` front-matter in spec files.
+- **Confirm destructive actions.** Before overwriting the AI context file or deleting data files, confirm with the user.
+- **Do not retry blocked tool calls.** If a tool call is denied, ask the user before trying again.
+- **One task at a time.** Mark each `TodoWrite` task complete immediately after finishing; do not batch.
+- **Keep this file current.** After adding scripts, new data types, or structural changes, update `CLAUDE.md`.
 
 ---
 
