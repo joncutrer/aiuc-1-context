@@ -34,6 +34,11 @@ DOMAIN_SLUGS = [
     "crosswalks",
 ]
 
+EVIDENCE_SLUGS = [
+    "evidence-requirements",
+    "evidence-controls",
+]
+
 # ---------------------------------------------------------------------------
 # Utilities
 # ---------------------------------------------------------------------------
@@ -176,6 +181,25 @@ def build_changelog_section() -> str:
     return "".join(sections)
 
 
+def build_evidence_section(latest_version: str) -> str:
+    version_dir = os.path.join(SPEC_DIR, latest_version)
+    parts = ["## Evidence & Controls\n\n"]
+    found_any = False
+
+    for slug in EVIDENCE_SLUGS:
+        path = os.path.join(version_dir, f"{slug}.md")
+        content = _strip_frontmatter(read_file(path))
+        if content.strip():
+            parts.append(content.strip() + "\n\n")
+            found_any = True
+
+    if not found_any:
+        return "## Evidence & Controls\n\n_Not yet fetched. Run fetch_spec to download._\n\n---\n\n"
+
+    parts.append("---\n\n")
+    return "".join(parts)
+
+
 def build_diff_section() -> str:
     diff_path = _latest_diff_file()
     if not diff_path:
@@ -205,6 +229,7 @@ def main():
 
     if latest_version:
         parts.append(build_spec_sections(latest_version))
+        parts.append(build_evidence_section(latest_version))
 
     parts.append(build_changelog_section())
     parts.append(build_diff_section())
