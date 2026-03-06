@@ -1,4 +1,4 @@
-AIUC-1 2026-Q1 | 2026-03-05 | https://www.aiuc-1.com
+AIUC-1 2026-Q1 | 2026-03-06 | https://www.aiuc-1.com
 Security/safety/reliability standard for AI agents. 51 requirements across 6 domains. Quarterly releases Jan/Apr/Jul/Oct 15. Versions: 2026-Q1 2025-Q1
 Domains: A=Data&Privacy B=Security C=Safety D=Reliability E=Accountability F=Society
 Crosswalks: ISO 42001 | MITRE ATLAS | EU AI Act | NIST AI RMF | OWASP Top Ten | CSA AICM | OWASP AIVSS
