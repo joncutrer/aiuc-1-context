@@ -108,12 +108,27 @@ def build_skill(skill_name: str, context_text: str) -> dict:
     with open(ref_path, "w", encoding="utf-8") as f:
         f.write(context_text)
 
+    # Copy commands/ directory if present
+    src_commands_dir = os.path.join(src_skill_dir, "commands")
+    command_count = 0
+    if os.path.isdir(src_commands_dir):
+        dst_commands_dir = os.path.join(dst_skill_dir, "commands")
+        ensure_dir(dst_commands_dir)
+        for fname in os.listdir(src_commands_dir):
+            if fname.endswith(".md"):
+                shutil.copy2(
+                    os.path.join(src_commands_dir, fname),
+                    os.path.join(dst_commands_dir, fname),
+                )
+                command_count += 1
+
     # Read metadata from SKILL.md for marketplace.json
     name = read_frontmatter_name(src_skill_md)
     description = read_frontmatter_description(src_skill_md)
 
     skill_size = os.path.getsize(dst_skill_md) + os.path.getsize(ref_path)
-    print(f"  ✓ {skill_name:<28} SKILL.md + {len(context_text):,} char spec ref  ({skill_size:,} bytes total)")
+    cmd_note = f"  {command_count} command(s)" if command_count else ""
+    print(f"  ✓ {skill_name:<28} SKILL.md + spec ref + {command_count} command(s)  ({skill_size:,} bytes)")
 
     return {
         "name": skill_name,
@@ -179,11 +194,12 @@ def main():
 
     write_marketplace_json(skills_meta)
 
-    total_bytes = sum(
-        os.path.getsize(os.path.join(DIST_DIR, s, f))
-        for s in skills
-        for f in ("SKILL.md", os.path.join("references", "aiuc-1-spec.md"))
-    )
+    total_bytes = 0
+    for s in skills:
+        skill_dir = os.path.join(DIST_DIR, s)
+        for root, _, files in os.walk(skill_dir):
+            for fname in files:
+                total_bytes += os.path.getsize(os.path.join(root, fname))
 
     print()
     print(f"dist/ built: {len(skills)} skills, {total_bytes:,} bytes total")
