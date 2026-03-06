@@ -1,14 +1,13 @@
 """
-build_ai_context.py — Compile all AIUC-1 spec data into a single AI-optimized
-context document.
+build_ai_context.py — Compile AIUC-1 spec data into a single AI-optimized context document.
+
+Optimized for LLM consumption: dense, minimal redundancy, no decorative formatting.
+No nav junk, no marketing sections, no repeated requirement text.
 
 Usage:
     python src/build_ai_context.py
 
 Output: data/ai-context/aiuc-1-context-latest.md  (always overwritten)
-
-The output is a dense Markdown document optimized for retrieval by AI assistants.
-It should answer any question about AIUC-1 without needing to consult individual files.
 """
 
 import os
@@ -24,14 +23,12 @@ CONTEXT_DIR = os.path.join(REPO_ROOT, "data", "ai-context")
 OUT_PATH = os.path.join(CONTEXT_DIR, "aiuc-1-context-latest.md")
 
 DOMAIN_SLUGS = [
-    "index",
     "data-and-privacy",
     "security",
     "safety",
     "reliability",
     "accountability",
     "society",
-    "crosswalks",
 ]
 
 # ---------------------------------------------------------------------------
@@ -63,7 +60,6 @@ def _strip_frontmatter(text: str) -> str:
 
 
 def _sorted_versions() -> list[str]:
-    """Return version folder names sorted chronologically (oldest first)."""
     if not os.path.isdir(SPEC_DIR):
         return []
     pattern = re.compile(r"^\d{4}-Q[1-4]$")
@@ -91,98 +87,233 @@ def _sorted_changelogs() -> list[str]:
 
 
 def _latest_diff_file() -> str | None:
-    """Return the most recently generated diff file path, or None."""
     if not os.path.isdir(DIFF_DIR):
         return None
     files = [f for f in os.listdir(DIFF_DIR) if f.endswith(".md")]
     if not files:
         return None
-    # Sort by filename; format is YYYY-QN_vs_YYYY-QN.md
     files.sort(reverse=True)
     return os.path.join(DIFF_DIR, files[0])
 
 
 # ---------------------------------------------------------------------------
-# Build sections
+# Content extraction helpers
 # ---------------------------------------------------------------------------
 
-def build_intro_section() -> str:
+def _strip_page_chrome(md: str) -> str:
+    """
+    Strip nav menus, footers, and marketing sections from a converted webpage.
+    Keeps content from the first top-level # heading through the last
+    meaningful line before marketing/footer sections begin.
+    """
+    # Start from the first # heading (skip nav block before it)
+    m = re.search(r"^# ", md, re.MULTILINE)
+    if m:
+        md = md[m.start():]
+
+    # Cut at marketing/footer anchors
+    cutoffs = [
+        r"^## AIUC-1 is built with industry leaders",
+        r"^Stay up to date with AIUC-1",
+        r"^\[AIUC-1\.COM\]",
+        r"^© 20\d\d",
+    ]
+    for pat in cutoffs:
+        cut = re.search(pat, md, re.MULTILINE)
+        if cut:
+            md = md[:cut.start()]
+
+    # Remove stray empty image links like [](/) left by the nav
+    md = re.sub(r"^\[\]\([^\)]*\)\n?", "", md, flags=re.MULTILINE)
+
+    # Collapse excessive blank lines
+    md = re.sub(r"\n{3,}", "\n\n", md)
+
+    return md.strip()
+
+
+def _extract_keywords(domain_md: str) -> dict[str, list[str]]:
+    """
+    Extract {req_id: [keyword, ...]} from a domain page markdown.
+
+    Domain pages have requirement blocks structured as:
+        ### [Title →A001·Mandatory](url)
+        description
+        Keywords
+        Keyword One
+        Keyword Two
+        Capabilities
+        Universal
+    """
+    result = {}
+    for block in re.split(r"^### ", domain_md, flags=re.MULTILINE):
+        id_match = re.search(r"→([A-Z]\d{3})[··]", block)
+        if not id_match:
+            continue
+        req_id = id_match.group(1)
+        kw_match = re.search(r"\bKeywords\b\s*\n(.*?)\nCapabilities\b", block, re.DOTALL)
+        if kw_match:
+            keywords = [kw.strip() for kw in kw_match.group(1).splitlines() if kw.strip()]
+            if keywords:
+                result[req_id] = keywords
+    return result
+
+
+# ---------------------------------------------------------------------------
+# Section builders
+# ---------------------------------------------------------------------------
+
+def build_header(latest_version: str, versions: list[str]) -> str:
+    """4-line dense header: version, facts, domain index, crosswalk list."""
+    versions_str = " ".join(reversed(versions))
     return (
-        "# AIUC-1 AI Context — Complete Reference\n\n"
-        f"**Generated:** {date.today().isoformat()}  \n"
-        "**Source:** https://www.aiuc-1.com/\n\n"
-        "This document is an AI-optimized single source of truth for the AIUC-1 standard.\n"
-        "It is compiled from archived spec versions, changelogs, and diff reports.\n\n"
-        "---\n\n"
-        "## What is AIUC-1?\n\n"
-        "AIUC-1 (AI Use Case standard 1) is the world's first security and safety standard\n"
-        "designed specifically for AI agents. It was developed with 100+ Fortune 500 CISOs\n"
-        "to enable enterprise adoption of AI agents.\n\n"
-        "**Release cadence:** Quarterly (January 15, April 15, July 15, October 15)\n\n"
-        "**Six domains:**\n"
-        "- A: Data & Privacy\n"
-        "- B: Security\n"
-        "- C: Safety\n"
-        "- D: Reliability\n"
-        "- E: Accountability\n"
-        "- F: Society\n\n"
-        "**Framework crosswalks:** ISO 42001, MITRE ATLAS, EU AI Act, NIST AI RMF, OWASP Top Ten, CSA AICM\n\n"
-        "**Requirement structure per control:**\n"
-        "ID & Title | Status (Mandatory/Optional) | Summary | Shoulds | Mays | Keywords | "
-        "Metadata | Crosswalks | Evidence Requirements\n\n"
-        "---\n\n"
+        f"AIUC-1 {latest_version} | {date.today().isoformat()} | https://www.aiuc-1.com\n"
+        f"Security/safety/reliability standard for AI agents. 51 requirements across 6 domains. "
+        f"Quarterly releases Jan/Apr/Jul/Oct 15. Versions: {versions_str}\n"
+        f"Domains: A=Data&Privacy B=Security C=Safety D=Reliability E=Accountability F=Society\n"
+        f"Crosswalks: ISO 42001 | MITRE ATLAS | EU AI Act | NIST AI RMF | OWASP Top Ten | CSA AICM | OWASP AIVSS\n\n"
     )
 
 
-def build_spec_sections(latest_version: str) -> str:
+def build_requirements_section(latest_version: str) -> str:
+    """
+    Requirements table from the spreadsheet snapshot, with a Keywords column
+    injected from the domain page markdown files.
+    """
     version_dir = os.path.join(SPEC_DIR, latest_version)
-    sections = [f"## Spec Content — {latest_version}\n\n"]
+
+    # Collect keywords across all domain pages
+    all_keywords: dict[str, list[str]] = {}
+    for slug in DOMAIN_SLUGS:
+        path = os.path.join(version_dir, f"{slug}.md")
+        domain_md = _strip_frontmatter(read_file(path))
+        if domain_md:
+            all_keywords.update(_extract_keywords(domain_md))
+
+    req_path = os.path.join(version_dir, "evidence-requirements.md")
+    req_content = _strip_frontmatter(read_file(req_path))
+    if not req_content.strip():
+        return "# Requirements\n\n_Not yet fetched._\n\n"
+
+    out = ["# Requirements\n\n"]
+    in_table = False
+
+    for line in req_content.splitlines():
+        # Skip the H1 and blank line that follows it from the source file
+        if line.startswith("# AIUC-1 Requirements") or (not in_table and line == ""):
+            continue
+        # Table header row — inject Keywords column
+        if line.startswith("| Domain |") and not in_table:
+            out.append(line.rstrip() + " Keywords |\n")
+            in_table = True
+            continue
+        # Separator row — extend it
+        if in_table and line.startswith("|---"):
+            out.append(line.rstrip() + "---|\n")
+            continue
+        # Data rows — look up keywords by req ID (column index 2)
+        if in_table and line.startswith("| "):
+            parts = [p.strip() for p in line.split("|")]
+            req_id = parts[2] if len(parts) > 2 else ""
+            keywords = ", ".join(all_keywords.get(req_id, []))
+            out.append(line.rstrip() + f" {keywords} |\n")
+            continue
+        out.append(line + "\n")
+
+    return "".join(out) + "\n"
+
+
+def build_controls_section(latest_version: str) -> str:
+    """Controls & evidence from the spreadsheet snapshot."""
+    ev_path = os.path.join(SPEC_DIR, latest_version, "evidence-controls.md")
+    content = _strip_frontmatter(read_file(ev_path))
+    if not content.strip():
+        return "# Controls & Evidence\n\n_Not yet fetched._\n\n"
+    # Drop the H1 from the file; we supply our own heading
+    content = re.sub(r"^# AIUC-1 Controls.*?\n\n", "", content, count=1)
+    return "# Controls & Evidence\n\n" + content.strip() + "\n\n"
+
+
+def build_domain_descriptions_section(latest_version: str) -> str:
+    """
+    One heading + one-line description per domain.
+    Requirement details are omitted here — they're in the Requirements table.
+    """
+    version_dir = os.path.join(SPEC_DIR, latest_version)
+    lines = ["# Domain Descriptions\n\n"]
 
     for slug in DOMAIN_SLUGS:
         path = os.path.join(version_dir, f"{slug}.md")
-        content = _strip_frontmatter(read_file(path))
-        if content.strip():
-            sections.append(f"### Domain: {slug}\n\n{content.strip()}\n\n---\n\n")
-        else:
-            sections.append(f"### Domain: {slug}\n\n_Not yet fetched._\n\n---\n\n")
+        md = _strip_page_chrome(_strip_frontmatter(read_file(path)))
+        if not md:
+            continue
+        heading = re.search(r"^# (.+)$", md, re.MULTILINE)
+        if not heading:
+            continue
+        title = heading.group(1).strip()
+        after = md[heading.end():].lstrip("\n")
+        subtitle_m = re.match(r"^(.+)$", after, re.MULTILINE)
+        subtitle = subtitle_m.group(1).strip() if subtitle_m else ""
+        lines.append(f"## {title}\n{subtitle}\n\n")
 
-    return "".join(sections)
-
-
-def build_version_history_section(versions: list[str]) -> str:
-    if not versions:
-        return "## Version History\n\n_No versions archived yet._\n\n---\n\n"
-
-    lines = ["## Version History\n\n"]
-    for ver in reversed(versions):  # newest first
-        lines.append(f"- **{ver}** — archived in `data/spec-versions/{ver}/`\n")
-
-    lines.append("\n---\n\n")
     return "".join(lines)
 
 
+def build_crosswalks_section(latest_version: str) -> str:
+    """Crosswalks page stripped of nav and marketing."""
+    path = os.path.join(SPEC_DIR, latest_version, "crosswalks.md")
+    md = _strip_page_chrome(_strip_frontmatter(read_file(path)))
+    if not md:
+        return ""
+    # Drop the page's own H1 — we supply our own heading
+    md = re.sub(r"^# .+\n\n?", "", md, count=1)
+    # Remove standalone crosswalk framework links (nav artifacts)
+    md = re.sub(r"^\[[^\]]+\]\(/crosswalks/[^\)]+\)\n?", "", md, flags=re.MULTILINE)
+    # Remove bare UI label lines like "AIUC-1 is built on" / "AIUC-1 does not duplicate"
+    md = re.sub(r"^AIUC-1 (is built on|does not duplicate)\n?", "", md, flags=re.MULTILINE)
+    # Remove stray regional/sector legislation lines left by UI labels
+    md = re.sub(r"^(Regional AI|Sector-specific|OECD AI Principles)\b.*\n?", "", md, flags=re.MULTILINE)
+    # Remove trailing marketing tagline that leaks through chrome strip
+    md = re.sub(r"\nThe Security, Safety, and Reliability standard.*$", "", md, flags=re.DOTALL)
+    md = re.sub(r"\n{3,}", "\n\n", md).strip()
+    return "# Framework Crosswalks\n\n" + md + "\n\n"
+
+
 def build_changelog_section() -> str:
+    """All archived changelogs, newest first. Omitted if none exist."""
     files = _sorted_changelogs()
     if not files:
-        return "## Changelogs\n\n_No changelogs archived yet._\n\n---\n\n"
-
-    sections = ["## Changelogs\n\n"]
-    for fname in reversed(files):  # newest first
-        path = os.path.join(CHANGELOG_DIR, fname)
-        content = read_file(path).strip()
+        return ""
+    parts = ["# Changelogs\n\n"]
+    for fname in reversed(files):
+        content = read_file(os.path.join(CHANGELOG_DIR, fname)).strip()
         if content:
-            sections.append(f"{content}\n\n---\n\n")
-
-    return "".join(sections)
+            parts.append(content + "\n\n")
+    return "".join(parts) if len(parts) > 1 else ""
 
 
 def build_diff_section() -> str:
+    """Latest spec diff. Omitted if none exists. Strips verbose metadata header."""
     diff_path = _latest_diff_file()
     if not diff_path:
-        return "## Latest Spec Diff\n\n_No diffs generated yet._\n\n---\n\n"
-
+        return ""
     content = read_file(diff_path).strip()
-    return f"## Latest Spec Diff\n\n{content}\n\n---\n\n"
+    if not content:
+        return ""
+    # Strip the generated metadata block (Generated/From/To + --- separator)
+    content = re.sub(r"\*\*Generated:\*\*.*?\n---\n\n?", "", content, flags=re.DOTALL)
+    # Collect no-change sections, then remove them (handle 1–3 trailing newlines)
+    no_change_sections = re.findall(r"^## (.+)\n\n_No changes\._", content, re.MULTILINE)
+    content = re.sub(r"^## .+\n\n_No changes\._\n*", "", content, flags=re.MULTILINE)
+    content = content.strip()
+    if not content or content == re.sub(r"^# .+", "", content, count=1).strip() == "":
+        # Nothing left but the heading — all unchanged
+        title_m = re.match(r"^(# .+)", content)
+        title = title_m.group(1) if title_m else "# Diff"
+        return f"{title}\nAll sections unchanged.\n\n"
+    if no_change_sections:
+        content += f"\n\nUnchanged: {', '.join(no_change_sections)}"
+    return content.strip() + "\n\n"
 
 
 # ---------------------------------------------------------------------------
@@ -194,20 +325,27 @@ def main():
 
     if not versions:
         print("WARNING: No spec versions found in data/spec-versions/.")
-        print("Run 'python src/fetch_spec.py' first to fetch a spec version.")
-        latest_version = None
-    else:
-        latest_version = versions[-1]
-        print(f"Latest spec version: {latest_version}")
+        print("Run 'python src/fetch_spec.py' first.")
+        sys.exit(1)
 
-    parts = [build_intro_section()]
-    parts.append(build_version_history_section(versions))
+    latest_version = versions[-1]
+    print(f"Latest spec version: {latest_version}")
 
-    if latest_version:
-        parts.append(build_spec_sections(latest_version))
+    parts = [
+        build_header(latest_version, versions),
+        build_requirements_section(latest_version),
+        build_controls_section(latest_version),
+        build_domain_descriptions_section(latest_version),
+        build_crosswalks_section(latest_version),
+    ]
 
-    parts.append(build_changelog_section())
-    parts.append(build_diff_section())
+    changelog = build_changelog_section()
+    if changelog:
+        parts.append(changelog)
+
+    diff = build_diff_section()
+    if diff:
+        parts.append(diff)
 
     output = "".join(parts)
 

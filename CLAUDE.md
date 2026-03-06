@@ -34,7 +34,7 @@ The standard follows a **quarterly release cadence** (e.g., 2026-Q1, 2026-Q2).
 2. **Changelog** — Maintain a human-readable change log of what changed between releases in `./data/changelog/`
 3. **Spec diffs** — Produce structured comparisons between consecutive releases in `./data/spec-diffs/`
 4. **AI context** — Maintain a single AI-optimized context document (everything there is to know about AIUC-1) in `./data/ai-context/`
-5. **Agent skills** — Develop and refine agent skill definitions built from available context in `./data/agent-skills/`
+5. **Agent skills** — Develop and refine role-based Claude Agent Skills in `./skills/` and distribute the built bundle from `./dist/`
 6. **News digest** — Periodically fetch and archive digests of news articles, research, and announcements about AIUC-1 in `./data/news/`
 
 ---
@@ -50,7 +50,29 @@ aiuc-1-context/
 │   ├── diff_specs.py                  # Compare two spec versions, produce a diff report
 │   ├── fetch_news.py                  # Fetch and digest news/research articles
 │   ├── build_ai_context.py            # Compile all spec data into AI-optimized context
-│   └── build_agent_skills.py          # Generate agent skill definitions from context
+│   ├── build_skills_dist.py           # Assemble skill bundle into dist/
+│   └── run_periodic.py               # Orchestrate all tasks in order
+│
+├── skills/                            # Authored skill source files (templates)
+│   ├── aiuc-1-assessor/
+│   │   └── SKILL.md                  # Pre-certification readiness assessment role
+│   ├── aiuc-1-auditor/
+│   │   └── SKILL.md                  # Formal certification audit role
+│   ├── aiuc-1-implementer/
+│   │   └── SKILL.md                  # Engineering implementation role
+│   └── aiuc-1-advisor/
+│       └── SKILL.md                  # Strategic compliance advisory role
+│
+├── dist/                              # Built skill bundle — committed, installable
+│   ├── .claude-plugin/
+│   │   └── marketplace.json          # Marketplace config for claude plugin install
+│   ├── aiuc-1-assessor/
+│   │   ├── SKILL.md                  # Copied from skills/
+│   │   └── references/
+│   │       └── aiuc-1-spec.md        # Injected from data/ai-context/
+│   ├── aiuc-1-auditor/  (same structure)
+│   ├── aiuc-1-implementer/  (same structure)
+│   └── aiuc-1-advisor/  (same structure)
 │
 ├── data/
 │   ├── spec-versions/                 # Raw spec snapshots, one folder per quarter
@@ -71,9 +93,6 @@ aiuc-1-context/
 │   │
 │   ├── ai-context/                    # AI-optimized single source of truth
 │   │   └── aiuc-1-context-latest.md
-│   │
-│   ├── agent-skills/                  # Refined agent skill definitions
-│   │   └── skill-library.md
 │   │
 │   └── news/                          # News and research article digests
 │       └── 2026/
@@ -204,28 +223,30 @@ aiuc-1-context/
 
 ---
 
-### 5. Agent Skills (`data/agent-skills/skill-library.md`)
+### 5. Skills Distribution (`dist/`)
 
-**When:** After AI context is updated; refine iteratively as understanding of AIUC-1 deepens.
+**When:** After AI context is updated (`build_ai_context.py` must run first).
 
-**Purpose:** A library of reusable agent skill definitions that an AI agent can apply when helping users with AIUC-1 compliance, auditing, or implementation tasks.
+**Purpose:** Role-based Claude Agent Skills that users can install via `claude plugin install`. Each skill embeds the full AIUC-1 spec as a reference file so Claude has complete context when the skill is active.
 
-**Format per skill:**
-```markdown
-## Skill: <name>
+**Four skills:**
+- `aiuc-1-assessor` — Pre-certification readiness assessment: gap analysis, evidence checklist, remediation priorities
+- `aiuc-1-auditor` — Formal certification audit: verify evidence artifacts, apply frequency rules, produce audit findings
+- `aiuc-1-implementer` — Engineering implementation: concrete controls, policy templates, evidence artifact generation
+- `aiuc-1-advisor` — Strategic advisory: compliance roadmap, vendor questionnaire, framework crosswalk, exec summaries
 
-**Trigger:** <when this skill applies>
-**Input:** <what the agent needs>
-**Output:** <what the agent produces>
-**Steps:**
-1. ...
-2. ...
-**Reference:** <relevant AIUC-1 domain(s) and sections>
+**Source files:** `skills/<skill-name>/SKILL.md` — hand-authored role instructions (YAML frontmatter + markdown body per the Claude Agent Skills spec)
+
+**Build output:** `dist/<skill-name>/SKILL.md` + `dist/<skill-name>/references/aiuc-1-spec.md` (injected from `data/ai-context/`)
+
+**Script:** `src/build_skills_dist.py` — copies `skills/*/SKILL.md`, injects the AI context doc as `references/aiuc-1-spec.md`, writes `dist/.claude-plugin/marketplace.json`
+
+**Installation:**
+```bash
+claude plugin marketplace add joncutrer/aiuc-1-context/dist
+claude plugin install aiuc-1-assessor@aiuc-1-skills
+# (repeat for auditor, implementer, advisor)
 ```
-
-**Example skills:** assess-ai-agent-against-security-domain, map-control-to-framework, generate-evidence-checklist, summarize-domain-requirements.
-
-**Script:** `src/build_agent_skills.py` — reads `data/ai-context/aiuc-1-context-latest.md` and produces/updates `skill-library.md`.
 
 ---
 
@@ -263,7 +284,9 @@ aiuc-1-context/
 | Changelog file | `YYYY-QN.md` | `2026-Q1.md` |
 | Spec diff file | `YYYY-QN_vs_YYYY-QN.md` | `2026-Q1_vs_2026-Q2.md` |
 | AI context file | `aiuc-1-context-latest.md` | (fixed name, overwritten) |
-| Agent skills file | `skill-library.md` | (fixed name, appended/updated) |
+| Skill source file | `skills/<name>/SKILL.md` | `skills/aiuc-1-assessor/SKILL.md` |
+| Skill dist file | `dist/<name>/SKILL.md` | `dist/aiuc-1-assessor/SKILL.md` |
+| Skill reference | `dist/<name>/references/aiuc-1-spec.md` | (injected, overwritten each build) |
 | News digest file | `YYYY-MM.md` inside `YYYY/` folder | `2026/2026-03.md` |
 
 ---
@@ -276,7 +299,7 @@ aiuc-1-context/
 | `diff_specs.py` | Diff two spec versions and write report | `uv run src/diff_specs.py <v1> <v2>` |
 | `fetch_news.py` | Fetch/digest research articles | `uv run src/fetch_news.py [--since YYYY-MM-DD]` |
 | `build_ai_context.py` | Compile all data into AI context doc | `uv run src/build_ai_context.py` |
-| `build_agent_skills.py` | Generate agent skill definitions | `uv run src/build_agent_skills.py` |
+| `build_skills_dist.py` | Assemble skill bundle into dist/ | `uv run src/build_skills_dist.py` |
 | `run_periodic.py` | Run all tasks in order (for schedulers) | `uv run src/run_periodic.py [--force]` |
 
 All scripts are written in Python 3. Install dependencies with:
@@ -294,7 +317,7 @@ uv sync
 | Update changelog | Quarterly | After spec fetch |
 | Generate spec diff | Quarterly | After changelog update |
 | Rebuild AI context | Quarterly (or after any data update) | After diff is generated |
-| Rebuild agent skills | As needed | After AI context update |
+| Rebuild skills dist | Quarterly (or after AI context update) | After AI context rebuild |
 | News digest | Monthly | First week of each month |
 
 ---
@@ -345,6 +368,8 @@ A **403 error** means wrong branch or permissions — do not retry; investigate.
 ### File Management
 - Prefer editing existing files over creating new ones.
 - AI context file (`aiuc-1-context-latest.md`) is always overwritten, not versioned.
+- `dist/` is always rebuilt from scratch by `build_skills_dist.py` — do not hand-edit files in `dist/`.
+- `skills/*/SKILL.md` files are the source of truth for skill instructions — edit these, then rebuild.
 - Spec version files, changelog, diffs, and news files are append-only / immutable once written.
 
 ---
