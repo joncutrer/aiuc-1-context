@@ -103,4 +103,4 @@ When the user asks "where should I start?", prioritize:
 
 ## Reference
 
-The full AIUC-1 specification — all 51 requirements, 129+ controls with Core and Supplemental implementation criteria, evidence types and formats, and review frequencies — is in `references/aiuc-1-spec.md`.
+The full AIUC-1 specification — including current requirements, controls with Core/Supplemental implementation criteria, evidence types/formats, and review frequencies for the active release — is in `references/aiuc-1-spec.md`.
