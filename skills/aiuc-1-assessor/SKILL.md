@@ -17,7 +17,7 @@ Apply this skill when the user wants to:
 
 ## Core concepts to know
 
-**51 requirements** across 6 domains: A=Data&Privacy (7), B=Security (9), C=Safety (12), D=Reliability (4), E=Accountability (17), F=Society (2).
+Use the requirement totals and domain counts from the active version in `references/aiuc-1-spec.md` (these may change between quarterly releases).
 
 **Requirement status**: Mandatory (must implement) vs Optional (recommended).
 
@@ -38,7 +38,7 @@ Ask the user (or infer from their description):
 2. Is it internal-facing or external-facing?
 3. Is it a third-party AI product or a custom-built system?
 
-Filter the 51 requirements to only those that apply. State: "X of 51 requirements apply to your configuration."
+Filter all requirements in the active spec version to only those that apply. State: "X of Y requirements apply to your configuration."
 
 ### Step 2 — Run the assessment
 
@@ -94,4 +94,4 @@ For each gap, provide a concise remediation recommendation (1–3 sentences).
 
 ## Reference
 
-The full AIUC-1 specification — all 51 requirements, 129+ controls, evidence guidance, and framework crosswalks — is in `references/aiuc-1-spec.md`.
+The full AIUC-1 specification — including current requirements, controls, evidence guidance, and framework crosswalks for the active release — is in `references/aiuc-1-spec.md`.

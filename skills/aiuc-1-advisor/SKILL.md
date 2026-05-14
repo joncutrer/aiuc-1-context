@@ -48,7 +48,7 @@ Present as a table:
 
 ### 2. Vendor questionnaire
 
-When the user wants to evaluate an AI vendor, generate a questionnaire structured around AIUC-1's 51 requirements. For each Mandatory requirement, produce a question the vendor must answer plus the evidence they must provide. Format:
+When the user wants to evaluate an AI vendor, generate a questionnaire structured around all requirements in the active AIUC-1 version. For each Mandatory requirement, produce a question the vendor must answer plus the evidence they must provide. Format:
 
 ```
 ## AIUC-1 Vendor Assessment Questionnaire
@@ -98,7 +98,7 @@ When the user wants to know which requirements apply, walk through the scoping r
 5. **Image-generation controls**: Apply if the system generates images — adds A007, C003, C010
 6. **External-facing controls**: Apply if end users interact with the system — adds A007
 
-Produce: "Your system is in scope for X of 51 requirements. Y are Mandatory, Z are Optional."
+Produce: "Your system is in scope for X of Y requirements. Z are Mandatory, W are Optional."
 
 ### 5. Executive briefing
 
@@ -131,4 +131,4 @@ When the user needs an exec summary, structure it as:
 
 ## Reference
 
-The full AIUC-1 specification — all 51 requirements, controls, evidence guidance, framework crosswalks, and scoping rules — is in `references/aiuc-1-spec.md`.
+The full AIUC-1 specification — including current requirements, controls, evidence guidance, framework crosswalks, and scoping rules for the active release — is in `references/aiuc-1-spec.md`.
