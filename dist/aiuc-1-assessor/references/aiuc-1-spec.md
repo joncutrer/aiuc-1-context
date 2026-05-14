@@ -1,5 +1,5 @@
-AIUC-1 2026-Q1 | 2026-03-06 | https://www.aiuc-1.com
-Security/safety/reliability standard for AI agents. 51 requirements across 6 domains. Quarterly releases Jan/Apr/Jul/Oct 15. Versions: 2026-Q1 2025-Q1
+AIUC-1 2026-Q2 | 2026-05-14 | https://www.aiuc-1.com
+Security/safety/reliability standard for AI agents. 51 requirements across 6 domains. Quarterly releases Jan/Apr/Jul/Oct 15. Versions: 2026-Q2 2026-Q1 2025-Q1
 Domains: A=Data&Privacy B=Security C=Safety D=Reliability E=Accountability F=Society
 Crosswalks: ISO 42001 | MITRE ATLAS | EU AI Act | NIST AI RMF | OWASP Top Ten | CSA AICM | OWASP AIVSS
 
@@ -7,57 +7,57 @@ Crosswalks: ISO 42001 | MITRE ATLAS | EU AI Act | NIST AI RMF | OWASP Top Ten | 
 
 | Domain | ID | Title | Full Requirement | Status | Frequency | Capabilities | Keywords |
 |---|---|---|---|---|---|---|---|
-| Data & Privacy | A001 | Establish input data policy | Establish and communicate AI input data policies covering how customer data is used for model training, inference processing, data retention periods, and customer data rights | Mandatory | Every 12 months | Universal | Data Retention, Model Training Data, Opt-Out |
-| Data & Privacy | A002 | Establish output data policy | Establish AI output ownership, usage, opt-out and deletion policies to customers and communicate these policies | Mandatory | Every 12 months | Universal | Data Ownership, Usage, Deletion, Consent, Opt-Out |
-| Data & Privacy | A003 | Limit AI agent data collection | Implement safeguards to limit AI agent data access to task-relevant information based on user roles and context | Mandatory | Every 12 months | Universal | Data Collection, Data Access, Agent Permissions, Access Permissions |
-| Data & Privacy | A004 | Protect IP & trade secrets | Implement safeguards or technical controls to prevent AI systems from leaking company intellectual property or confidential information | Mandatory | Every 12 months | Universal | Intellectual Property, Confidential Information, Data Protections |
-| Data & Privacy | A005 | Prevent cross-customer data exposure | Implement safeguards to prevent cross-customer data exposure when combining customer data from multiple sources | Mandatory | Every 12 months | Universal | Cross-Customer Data, Model Training, Data Rights |
-| Data & Privacy | A006 | Prevent PII leakage | Establish safeguards to prevent personal data leakage through AI outputs | Mandatory | Every 12 months | Universal | Personal Data Leakage |
-| Data & Privacy | A007 | Prevent IP violations | Implement safeguards and technical controls to prevent AI outputs from violating copyrights, trademarks, or other third-party intellectual property rights | Mandatory | Every 12 months | Text-generation, Voice-generation, Image-generation | Intellectual Property, Copyright Protection |
-| Security | B001 | Third-party testing of adversarial robustness | Implement adversarial testing program to validate system resilience against adversarial inputs and prompt injection attempts in line with adversarial threat taxonomy | Mandatory | Every 3 months | Universal | Adversarial Testing, Red Teaming, Prompt Injection, Jailbreak |
-| Security | B002 | Detect adversarial input | Implement monitoring capabilities to detect and respond to adversarial inputs and prompt injection attempts | Optional | Every 3 months | Universal | Monitor, Adversarial, Jailbreak, Prompt Injection |
-| Security | B003 | Manage public release of technical details | Implement controls to prevent over-disclosure of technical information about AI systems and organizational details that could enable adversarial targeting | Optional | Every 12 months | Universal | Public Disclosure, Open-Source, External Threats |
-| Security | B004 | Prevent AI endpoint scraping | Implement safeguards to prevent probing or scraping of external AI endpoints | Mandatory | Every 12 months | Universal | Scraping, Probing, Rate Limiting, Query Quotas, Zero Trust |
-| Security | B005 | Implement real-time input filtering | Implement real-time input filtering using automated moderation tools | Optional | Every 12 months | Text-generation, Voice-generation, Image-generation | Prompt Injection, Jailbreak, Adversarial Input Protection |
-| Security | B006 | Prevent unauthorized AI agent actions | Implement safeguards to limit AI agent system access based on context and declared objectives | Mandatory | Every 12 months | Automation | Access Permissions, Agent Permissions |
-| Security | B007 | Enforce user access privileges to AI systems | Establish and maintain user access controls and admin privileges for AI systems in line with policy | Mandatory | Every 3 months | Universal | Access Controls, Organizational Policy |
-| Security | B008 | Protect model deployment environment | Implement security measures for AI model deployment environments including encryption, access controls and authorization | Mandatory | Every 12 months | Universal | Model Environment, Encryption, Access Controls |
-| Security | B009 | Limit output over-exposure | Implement output limitations and obfuscation techniques to safeguard against information leakage | Mandatory | Every 12 months | Text-generation, Voice-generation | Output Obfuscation, Fidelity Reduction, Information Leakage, Adversarial Use, Response Filtering |
-| Safety | C001 | Define AI risk taxonomy | Establish a risk taxonomy that categorizes risks within harmful, out-of-scope, and hallucinated outputs, tool calls, and other risks based on application-specific usage | Mandatory | Every 3 months | Universal | Risk Taxonomy, Severity Rating |
-| Safety | C002 | Conduct pre-deployment testing | Conduct internal testing of AI systems prior to deployment across risk categories for system changes requiring formal review or approval | Mandatory | Every 12 months | Universal | Internal Testing, Pre-Deployment Testing |
-| Safety | C003 | Prevent harmful outputs | Implement safeguards or technical controls to prevent harmful outputs including distressed outputs, angry responses, high-risk advice, offensive content, bias, and deception | Mandatory | Every 12 months | Text-generation, Voice-generation, Image-generation | Harmful Outputs, Distressed, Angry, Advice, Offensive, Bias |
-| Safety | C004 | Prevent out-of-scope outputs | Implement safeguards or technical controls to prevent out-of-scope outputs (e.g. political discussion, healthcare advice) | Mandatory | Every 12 months | Text-generation, Voice-generation | Out-of-Scope, Political Discussion, Technical Controls |
-| Safety | C005 | Prevent customer-defined high risk outputs | Implement safeguards or technical controls to prevent additional high risk outputs as defined in risk taxonomy | Mandatory | Every 12 months | Universal | High-Risk Outputs, Risk Taxonomy, Technical Controls |
-| Safety | C006 | Prevent output vulnerabilities | Implement safeguards to prevent security vulnerabilities in outputs from impacting users | Mandatory | Every 3 months | Universal | Harmful Outputs, Code Injection, Data Exfiltration |
-| Safety | C007 | Flag high risk outputs | Implement an alerting system that flags high-risk outputs for human review | Optional | Every 12 months | Universal | Human Review, Escalation |
-| Safety | C008 | Monitor AI risk categories | Implement monitoring of AI systems across risk categories | Optional | Every 12 months | Universal | Monitoring, High-Risk Outputs |
-| Safety | C009 | Enable real-time feedback and intervention | Implement mechanisms to enable real-time user feedback collection and intervention mechanisms | Optional | Every 3 months | Universal | Feedback, Intervention, User Control, Transparency |
-| Safety | C010 | Third-party testing for harmful outputs | Appoint expert third parties to evaluate system robustness to harmful outputs including distressed outputs, angry responses, high-risk advice, offensive content, bias, and deception at least every 3 months | Mandatory | Every 3 months | Text-generation, Voice-generation, Image-generation | Harmful Outputs, Distressed, Angry, Advice, Offensive, Bias, Risk Severity, Toxigen, Third-Party Testing |
-| Safety | C011 | Third-party testing for out-of-scope outputs | Appoint expert third parties to evaluate system robustness to out-of-scope outputs at least every 3 months (e.g. political discussion, healthcare advice) | Mandatory | Every 3 months | Text-generation, Voice-generation | Out-of-Scope, Political Discussion, Third-Party Testing |
-| Safety | C012 | Third-party testing for customer-defined risk | Appoint expert third-parties to evaluate system robustness to additional high-risk outputs as defined in risk taxonomy at least every 3 months | Mandatory | Every 3 months | Universal | High-Risk Outputs, Risk Taxonomy, Third-Party Testing |
-| Reliability | D001 | Prevent hallucinated outputs | Implement safeguards or technical controls to prevent hallucinated outputs | Mandatory | Every 12 months | Text-generation, Voice-generation | Hallucinations, Technical Controls |
-| Reliability | D002 | Third-party testing for hallucinations | Appoint expert third-parties to evaluate hallucinated outputs at least every 3 months | Mandatory | Every 3 months | Text-generation, Voice-generation | Hallucinations, Third-Party Testing |
-| Reliability | D003 | Restrict unsafe tool calls | Implement safeguards or technical controls to prevent tool calls in AI systems from executing unauthorized actions, accessing restricted information, or making decisions beyond their intended scope | Mandatory | Every 12 months | Automation | Tool Calls, Tool Selection, Technical Controls |
-| Reliability | D004 | Third-party testing of tool calls | Appoint expert third-parties to evaluate tool calls in AI systems, including executing unauthorized actions, accessing restricted information, or making decisions beyond their intended scope at least every 3 months | Mandatory | Every 3 months | Automation | Tool Calls, Tool Selection, Third-Party Testing |
-| Accountability | E001 | AI failure plan for security breaches | Document AI failure plan for AI privacy and security breaches assigning accountable owners and establishing notification and remediation with third-party support as needed (e.g. legal, PR, insurers) | Mandatory | Every 12 months | Universal | Incident Response, Security, Privacy, Regulatory Deadlines |
-| Accountability | E002 | AI failure plan for harmful outputs | Document AI failure plan for harmful AI outputs that cause significant customer harm assigning accountable owners and establishing remediation with third-party support as needed (e.g. legal, PR, insurers) | Mandatory | Every 12 months | Text-generation, Voice-generation, Image-generation | Incident Response, Emergency Response, Harmful Outputs, Hallucinations, Vendors |
-| Accountability | E003 | AI failure plan for hallucinations | Document AI failure plan for hallucinated AI outputs that cause substantial customer financial loss assigning accountable owners and establishing remediation with third-party support as needed (e.g. legal, PR, insurers) | Mandatory | Every 12 months | Text-generation, Voice-generation | Hallucinations, Incident Response, Customer Loss |
-| Accountability | E004 | Assign accountability | Document which AI system changes across the development & deployment lifecycle require formal review or approval, assign a lead accountable for each, and document their approval with supporting evidence | Mandatory | Every 12 months | Universal | Decision Owners, Deployment |
-| Accountability | E005 | Assess cloud vs on-prem processing | Establish criteria for selecting cloud provider, and circumstances for on-premises processing considering data sensitivity, regulatory requirements, security controls, and operational needs | Mandatory | Every 12 months | Universal | Deployment, Cloud Security, On-Premise Security, Data Residency |
-| Accountability | E006 | Conduct vendor due diligence | Establish AI vendor due diligence processes for foundation and upstream model providers covering data handling, PII controls, security and compliance | Mandatory | Every 12 months | Universal | Vendor Due Diligence, Open-Source, Foundation Models, Upstream Models |
-| Accountability | E007 | [Retired] Document system change approvals | Merged with E004 - see changelog (Q1 2026 update) | Optional | Every 12 months | Universal | Approvals, Workflows |
-| Accountability | E008 | Review internal processes | Establish regular internal reviews of key processes and document review records and approvals | Mandatory | Every 12 months | Universal | Internal Reviews, Documentation |
-| Accountability | E009 | Monitor third-party access | Implement systems to monitor third party access | Optional | Every 12 months | Universal | Access, Logins |
-| Accountability | E010 | Establish AI acceptable use policy | Establish and implement an AI acceptable use policy | Mandatory | Every 12 months | Universal | Acceptable Use, Breach |
-| Accountability | E011 | Record processing locations | Document AI data processing locations | Mandatory | Every 12 months | Universal | Data Processing, Storage Location, Data Protections |
-| Accountability | E012 | Document regulatory compliance | Document applicable AI laws and standards, required data protections, and strategies for compliance | Mandatory | Every 6 months | Universal | Regulatory, EU, NY, NIST, ISO, GDPR |
-| Accountability | E013 | Implement quality management system | Establish a quality management system for AI systems proportionate to the size of the organization | Optional | Every 12 months | Universal | EU, Quality management, Regulatory |
-| Accountability | E014 | Share transparency reports | Merged with E017 - see changelog (Q1 2026 update) | Optional | Every 12 months | Universal | Transparency |
-| Accountability | E015 | Log model activity | Maintain logs of AI system processes, actions, and model outputs where permitted to support incident investigation, auditing, and explanation of AI system behavior | Mandatory | Every 12 months | Universal | Explainability, Logs |
-| Accountability | E016 | Implement AI disclosure mechanisms | Implement clear disclosure mechanisms to inform users when they are interacting with AI systems rather than humans | Mandatory | Every 12 months | Universal | Labelling, Transparency |
-| Accountability | E017 | Document system transparency policy | Establish a system transparency policy and maintain a repository of model cards, datasheets, and interpretability reports for major systems | Optional | Every 12 months | Universal | Transparency, System Cards |
-| Society | F001 | Prevent AI cyber misuse | Implement or document guardrails to prevent AI-enabled misuse for cyber attacks and exploitation | Mandatory | Every 12 months | Text-generation, Automation, Voice-generation | Cyber Attacks |
-| Society | F002 | Prevent catastrophic misuse | Implement or document guardrails to prevent AI-enabled catastrophic system misuse (chemical / bio / radio / nuclear) | Mandatory | Every 12 months | Text-generation, Voice-generation, Image-generation | CBRN, Chemical, Bioweapon, Radioactive, Nuclear |
+| Data & Privacy | A001 | Establish input data policy | Establish and communicate AI input data policies covering how customer data is used for model training, inference processing, data retention periods, and customer data rights | Mandatory | Every 12 months | Universal |  |
+| Data & Privacy | A002 | Establish output data policy | Establish AI output ownership, usage, opt-out and deletion policies to customers and communicate these policies | Mandatory | Every 12 months | Universal |  |
+| Data & Privacy | A003 | Limit AI agent data collection | Implement safeguards to limit AI agent data access to task-relevant information based on user roles and context | Mandatory | Every 12 months | Universal |  |
+| Data & Privacy | A004 | Protect IP & trade secrets | Implement safeguards or technical controls to prevent AI systems from leaking company intellectual property or confidential information | Mandatory | Every 12 months | Universal |  |
+| Data & Privacy | A005 | Prevent cross-customer data exposure | Implement safeguards to prevent cross-customer data exposure when combining customer data from multiple sources | Mandatory | Every 12 months | Universal |  |
+| Data & Privacy | A006 | Prevent PII leakage | Establish safeguards to prevent personal data leakage through AI outputs | Mandatory | Every 12 months | Universal |  |
+| Data & Privacy | A007 | Prevent IP violations | Implement safeguards and technical controls to prevent AI outputs from violating copyrights, trademarks, or other third-party intellectual property rights | Mandatory | Every 12 months | Text-generation, Voice-generation, Image-generation |  |
+| Security | B001 | Third-party testing of adversarial robustness | Implement adversarial testing program to validate system resilience against adversarial inputs and prompt injection attempts in line with adversarial threat taxonomy | Mandatory | Every 3 months | Universal |  |
+| Security | B002 | Detect adversarial input | Implement monitoring capabilities to detect and respond to adversarial inputs and prompt injection attempts | Optional | Every 3 months | Universal |  |
+| Security | B003 | Manage public release of technical details | Implement controls to prevent over-disclosure of technical information about AI systems and organizational details that could enable adversarial targeting | Optional | Every 12 months | Universal |  |
+| Security | B004 | Prevent AI endpoint scraping | Implement safeguards to prevent probing or scraping of external AI endpoints | Mandatory | Every 12 months | Universal |  |
+| Security | B005 | Implement real-time input filtering | Implement real-time input filtering using automated moderation tools | Optional | Every 12 months | Text-generation, Voice-generation, Image-generation |  |
+| Security | B006 | Prevent unauthorized AI agent actions | Implement safeguards to limit AI agent system access based on context and declared objectives | Mandatory | Every 12 months | Automation |  |
+| Security | B007 | Enforce user access privileges to AI systems | Establish and maintain user access controls and admin privileges for AI systems in line with policy | Mandatory | Every 3 months | Universal |  |
+| Security | B008 | Protect model deployment environment | Implement security measures for AI model deployment environments including encryption, access controls and authorization | Mandatory | Every 12 months | Universal |  |
+| Security | B009 | Limit output over-exposure | Implement output limitations and obfuscation techniques to safeguard against information leakage | Mandatory | Every 12 months | Text-generation, Voice-generation |  |
+| Safety | C001 | Define AI risk taxonomy | Establish a risk taxonomy that categorizes risks within harmful, out-of-scope, and hallucinated outputs, tool calls, and other risks based on application-specific usage | Mandatory | Every 3 months | Universal |  |
+| Safety | C002 | Conduct pre-deployment testing | Conduct internal testing of AI systems prior to deployment across risk categories for system changes requiring formal review or approval | Mandatory | Every 12 months | Universal |  |
+| Safety | C003 | Prevent harmful outputs | Implement safeguards or technical controls to prevent harmful outputs including distressed outputs, angry responses, high-risk advice, offensive content, bias, and deception | Mandatory | Every 12 months | Text-generation, Voice-generation, Image-generation |  |
+| Safety | C004 | Prevent out-of-scope outputs | Implement safeguards or technical controls to prevent out-of-scope outputs (e.g. political discussion, healthcare advice) | Mandatory | Every 12 months | Text-generation, Voice-generation |  |
+| Safety | C005 | Prevent customer-defined high risk outputs | Implement safeguards or technical controls to prevent additional high risk outputs as defined in risk taxonomy | Mandatory | Every 12 months | Universal |  |
+| Safety | C006 | Prevent output vulnerabilities | Implement safeguards to prevent security vulnerabilities in outputs from impacting users | Mandatory | Every 3 months | Universal |  |
+| Safety | C007 | Flag high risk outputs | Implement an alerting system that flags high-risk outputs for human review | Optional | Every 12 months | Universal |  |
+| Safety | C008 | Monitor AI risk categories | Implement monitoring of AI systems across risk categories | Optional | Every 12 months | Universal |  |
+| Safety | C009 | Enable real-time feedback and intervention | Implement mechanisms to enable real-time user feedback collection and intervention mechanisms | Optional | Every 3 months | Universal |  |
+| Safety | C010 | Third-party testing for harmful outputs | Appoint expert third parties to evaluate system robustness to harmful outputs including distressed outputs, angry responses, high-risk advice, offensive content, bias, and deception at least every 3 months | Mandatory | Every 3 months | Text-generation, Voice-generation, Image-generation |  |
+| Safety | C011 | Third-party testing for out-of-scope outputs | Appoint expert third parties to evaluate system robustness to out-of-scope outputs at least every 3 months (e.g. political discussion, healthcare advice) | Mandatory | Every 3 months | Text-generation, Voice-generation |  |
+| Safety | C012 | Third-party testing for customer-defined risk | Appoint expert third-parties to evaluate system robustness to additional high-risk outputs as defined in risk taxonomy at least every 3 months | Mandatory | Every 3 months | Universal |  |
+| Reliability | D001 | Prevent hallucinated outputs | Implement safeguards or technical controls to prevent hallucinated outputs | Mandatory | Every 12 months | Text-generation, Voice-generation |  |
+| Reliability | D002 | Third-party testing for hallucinations | Appoint expert third-parties to evaluate hallucinated outputs at least every 3 months | Mandatory | Every 3 months | Text-generation, Voice-generation |  |
+| Reliability | D003 | Restrict unsafe tool calls | Implement safeguards or technical controls to prevent tool calls in AI systems from executing unauthorized actions, accessing restricted information, or making decisions beyond their intended scope | Mandatory | Every 12 months | Automation |  |
+| Reliability | D004 | Third-party testing of tool calls | Appoint expert third-parties to evaluate tool calls in AI systems, including executing unauthorized actions, accessing restricted information, or making decisions beyond their intended scope at least every 3 months | Mandatory | Every 3 months | Automation |  |
+| Accountability | E001 | AI failure plan for security breaches | Document AI failure plan for AI privacy and security breaches assigning accountable owners and establishing notification and remediation with third-party support as needed (e.g. legal, PR, insurers) | Mandatory | Every 12 months | Universal |  |
+| Accountability | E002 | AI failure plan for harmful outputs | Document AI failure plan for harmful AI outputs that cause significant customer harm assigning accountable owners and establishing remediation with third-party support as needed (e.g. legal, PR, insurers) | Mandatory | Every 12 months | Text-generation, Voice-generation, Image-generation |  |
+| Accountability | E003 | AI failure plan for hallucinations | Document AI failure plan for hallucinated AI outputs that cause substantial customer financial loss assigning accountable owners and establishing remediation with third-party support as needed (e.g. legal, PR, insurers) | Mandatory | Every 12 months | Text-generation, Voice-generation |  |
+| Accountability | E004 | Assign accountability | Document which AI system changes across the development & deployment lifecycle require formal review or approval, assign a lead accountable for each, and document their approval with supporting evidence | Mandatory | Every 12 months | Universal |  |
+| Accountability | E005 | Assess cloud vs on-prem processing | Establish criteria for selecting cloud provider, and circumstances for on-premises processing considering data sensitivity, regulatory requirements, security controls, and operational needs | Mandatory | Every 12 months | Universal |  |
+| Accountability | E006 | Conduct vendor due diligence | Establish AI vendor due diligence processes for foundation and upstream model providers covering data handling, PII controls, security and compliance | Mandatory | Every 12 months | Universal |  |
+| Accountability | E007 | [Retired] Document system change approvals | Merged with E004 - see changelog (Q1 2026 update) | Optional | Every 12 months | Universal |  |
+| Accountability | E008 | Review internal processes | Establish regular internal reviews of key processes and document review records and approvals | Mandatory | Every 12 months | Universal |  |
+| Accountability | E009 | Monitor third-party access | Implement systems to monitor third party access | Optional | Every 12 months | Universal |  |
+| Accountability | E010 | Establish AI acceptable use policy | Establish and implement an AI acceptable use policy | Mandatory | Every 12 months | Universal |  |
+| Accountability | E011 | Record processing locations | Document AI data processing locations | Mandatory | Every 12 months | Universal |  |
+| Accountability | E012 | Document regulatory compliance | Document applicable AI laws and standards, required data protections, and strategies for compliance | Mandatory | Every 6 months | Universal |  |
+| Accountability | E013 | Implement quality management system | Establish a quality management system for AI systems proportionate to the size of the organization | Optional | Every 12 months | Universal |  |
+| Accountability | E014 | Share transparency reports | Merged with E017 - see changelog (Q1 2026 update) | Optional | Every 12 months | Universal |  |
+| Accountability | E015 | Log model activity | Maintain logs of AI system processes, actions, and model outputs where permitted to support incident investigation, auditing, and explanation of AI system behavior | Mandatory | Every 12 months | Universal |  |
+| Accountability | E016 | Implement AI disclosure mechanisms | Implement clear disclosure mechanisms to inform users when they are interacting with AI systems rather than humans | Mandatory | Every 12 months | Universal |  |
+| Accountability | E017 | Document system transparency policy | Establish a system transparency policy and maintain a repository of model cards, datasheets, and interpretability reports for major systems | Optional | Every 12 months | Universal |  |
+| Society | F001 | Prevent AI cyber misuse | Implement or document guardrails to prevent AI-enabled misuse for cyber attacks and exploitation | Mandatory | Every 12 months | Text-generation, Automation, Voice-generation |  |
+| Society | F002 | Prevent catastrophic misuse | Implement or document guardrails to prevent AI-enabled catastrophic system misuse (chemical / bio / radio / nuclear) | Mandatory | Every 12 months | Text-generation, Voice-generation, Image-generation |  |
 
 # Controls & Evidence
 
@@ -1273,11 +1273,13 @@ AIUC-1 is designed to be:
 
 **Predictable.** We review the standard in partnership with our technical contributors and push updates on January 15, April 15, July 15, and October 15 of each year.
 
-In practice, this means that **AIUC-1 builds on other AI frameworks** including the [EU AI Act](/crosswalks/eu-ai-act), the [NIST AI RMF](/crosswalks/nist-ai-rmf), [ISO 42001](/crosswalks/iso-42001), [MITRE ATLAS](/crosswalks/mitre-atlas), and [OWASP AIVSS](/crosswalks/owasp-aivss). The regular update cadence will mean AIUC-1 updates also reflect changes to these frameworks.
+In practice, this means that **AIUC-1 builds on other AI frameworks** including the [EU AI Act](/crosswalks/eu-ai-act), the [NIST AI RMF](/crosswalks/nist-ai-rmf), [ISO 42001](/crosswalks/iso-42001), [MITRE ATLAS](/crosswalks/mitre-atlas), [CSA AICM](/crosswalks/csa-aicm), and the [OWASP Top 10 for agentic AI](/crosswalks/owasp-top-10).
 
 **AIUC-1 does not duplicate the work of non-AI frameworks like SOC 2, ISO 27001, or GDPR.** Companies should ensure compliance with these frameworks as needed independently of AIUC-1.
 
 AIUC-1 is already being adopted by multiple AI vendors to address enterprise concerns. It has been developed with technical contributors from MITRE, Cisco, MIT, Stanford, Google Cloud, Orrick, and more.
+
+Regional U.S. AI legislation (e.g. [NYC Local Law 144](/crosswalks/nyc-ll-144), [California's Transparency in Frontier AI Act (TFAIA)](/crosswalks/california-sb-53), [Colorado AI Act](/crosswalks/colorado-ai-act))
 
 AICPA SOC 2
 
@@ -1286,8 +1288,6 @@ EU GDPR
 Canada Artificial Intelligence and Data Act (AIDA)
 
 ISO 27001
-
-More detail on how each of these frameworks is addressed by AIUC-1 is available in the "crosswalk" section of each requirement.
 
 ### AIUC-1 operationalizes emerging AI legislation and best practices
 
@@ -1303,15 +1303,15 @@ EU AI Act
 
 Description
 
-EU regulation classifying AI systems by risk levels (minimal, limited, high, unacceptable) with corresponding compliance obligations
+EU regulation classifying AI systems by risk levels (minimal, limited, high, unacceptable) with corresponding obligations
 
 How AIUC-1 compares
 
 Operationalizes the EU AI Act by aligning with its requirements. Certification against AIUC-1 is a strong step towards compliance with the EU AI Act as it:
 
-Enables compliance for _minimal_ and _limited_ risk systems
+Enables alignment towards _minimal_ and _limited_ risk systems
 
-Enables compliance for _high risk_ systems only if specific control activities are met (AIUC can help guide AI companies through this process)
+Enables alignment towards _high risk_ systems only if specific control activities are met (AIUC can help guide AI companies through this process)
 
 Provides documentation for internal conformity assessments for _high risk_ systems as required in _Annex VI_
 
@@ -1407,6 +1407,42 @@ Incorporates AIVSS agent risk amplification factors in standard requirements
 
 Framework
 
+IBM AI Risk Atlas
+
+Description
+
+Comprehensive taxonomy of risks associated with ML models, GenAI, and AI Agents from IBM Research
+
+How AIUC-1 compares
+
+Integrates IBM Research's AI Risk Atlas, where IBM Research is a technical contributor to AIUC-1. Certification against AIUC-1:
+
+Maps AI Risk Atlas risks to concrete requirements and controls
+
+Strengthens robustness against risks with concrete requirements and controls
+
+Goes beyond AI Risk Atlas's risk identification alone
+
+Framework
+
+Cisco AI Security & Safety Framework
+
+Description
+
+Comprehensive AI threat landscape taxonomy identifying 19 attacker objectives with 150+ subtechniques
+
+How AIUC-1 compares
+
+Integrates Cisco's AI Security Framework, where Cisco is a technical contributor to AIUC-1. Certification against AIUC-1:
+
+Maps Cisco's AI threat taxonomy to concrete requirements and controls
+
+Strengthens robustness against the attacker objectives and subtechniques identified by Cisco
+
+Goes beyond threat identification to provide actionable, auditable requirements
+
+Framework
+
 CSA AI Controls Matrix
 
 Description
@@ -1425,17 +1461,21 @@ Avoids duplicating controls in areas where CSA is industry-leading, such as data
 
 Framework
 
-Regional US regulation
+Regional U.S. regulation
 
 Description
 
-e.g. California SB 1001, New York City Local Law 144, Colorado AI Act
+e.g. NYC Local Law 144, California TFAIA, Colorado AI Act (SB 24-205)
 
 How AIUC-1 compares
 
-Simplifies compliance with regional regulation. AIUC can help guide AI companies through the process of meeting California SB 1001, the Colorado AI Act, and New York City Local Law 144 through optional requirements.
+Simplifies alignment with regional U.S. regulation. Certification against AIUC-1:
 
-AIUC-1 already addresses top concerns in emerging regional regulations such as discrimination and bias, human-in-the-loop, and data handling.
+Addresses top concerns of emerging regional U.S. regulations such as the Colorado AI Act (SB 24-205) and NYC Local Law 144
+
+Integrates controls for compliance obligations such as human-in-the-loop, appropriate data handling, and labelling AI clearly
+
+Helps organizations proactively prepare for obligations from emerging AI legislation before entering into force
 
 Framework
 
@@ -1445,7 +1485,7 @@ e.g. HIPAA, Fair Credit Reporting Act, Fair Housing Act, FTC guidance on AI & al
 
 How AIUC-1 compares
 
-Simplifies compliance with AI requirements in sector-specific regulation. Certification against AIUC-1:
+Simplifies alignment with AI requirements in sector-specific regulation. Certification against AIUC-1:
 
 Prepares organizations to comply with, e.g., FTC guidance on AI & algorithms
 
@@ -1541,9 +1581,2376 @@ AIUC can help with guidance on how to meet AIDA once passed having incorporated 
 
 AIUC-1 is continuously updated as new legislation, frameworks, threat patterns and best practices emerge — in collaboration with our network of technical contributors and experts from leading institutions within AI safety, security and reliability. This ensures that the standard stays current, comprehensive and enables easy compliance with applicable frameworks.
 
-Last updated March 2, 2026.
+_Crosswalks are provided for informational purposes only and does not constitute legal advice._
 
-# Diff: 2025-Q1 → 2026-Q1
+Last updated April 13, 2026.
 
-Unchanged: index, data-and-privacy, security, safety, reliability, accountability, society, crosswalks
+# Diff: 2026-Q1 → 2026-Q2
+
+## index
+
+**141 additions, 19 removals**
+
+```diff
+--- 2026-Q1/index.md+++ 2026-Q2/index.md@@ -6,33 +6,107 @@ 
+ [Framework comparisons](/crosswalks)
+ 
++[EU AI Act](/crosswalks/eu-ai-act)[ISO 42001](/crosswalks/iso-42001)[MITRE ATLAS](/crosswalks/mitre-atlas)[NIST AI RMF](/crosswalks/nist-ai-rmf)[OWASP Top 10 for LLM Applications](/crosswalks/owasp-top-10)[OWASP AIVSS](/crosswalks/owasp-aivss)[IBM AI Risk Atlas](/crosswalks/ibm-ai-risk-atlas)[Cisco AI Security & Safety](/crosswalks/cisco-ai-security-safety-framework)[CSA AICM](/crosswalks/csa-aicm)
++
+ [Changelog](/changelog)[AIUC-1 Consortium](/consortium)[Provide input on AIUC-1](/learn/contribute)[Contact](/contact)
+ 
+ Standard
+ 
+ [A. Data & Privacy](/data-and-privacy)
+ 
++[Establish input data policy](/data-and-privacy/establish-data-use-policy)[Establish output data policy](/data-and-privacy/define-output-rights)[Limit AI agent data access](/data-and-privacy/implement-contextual-data-safeguards)[Protect IP & trade secrets](/data-and-privacy/protect-ip-trade-secrets)[Prevent cross-customer data exposure](/data-and-privacy/prevent-cross-customer-data-exposure)[Prevent PII leakage](/data-and-privacy/prevent-pii-leakage)[Prevent IP violations](/data-and-privacy/prevent-ip-violations)
++
+ [B. Security](/security)
+ 
++[Third-party testing of adversarial robustness](/security/test-adversarial-robustness)[Detect adversarial input](/security/detect-adversarial-input)[Manage public release of technical details](/security/limit-technical-over-disclosure)[Prevent AI endpoint scraping](/security/prevent-ai-endpoint-scraping)[Implement real-time input filtering](/security/implement-real-time-input-filtering)[Prevent unauthorized AI agent actions](/security/enforce-contextual-access-controls)[Enforce user access privileges to AI systems](/security/enforce-ai-access-privileges)[Protect AI system deployment environment](/security/protect-model-deployment-environment)[Limit output over-exposure](/security/limit-output-over-exposure)
++
+ [C. Safety](/safety)
+ 
++[Define AI risk taxonomy](/safety/define-ai-risk-taxonomy)[Conduct pre-deployment testing](/safety/conduct-pre-deployment-testing)[Prevent harmful outputs](/safety/prevent-harmful-outputs)[Prevent out-of-scope outputs](/safety/prevent-out-of-scope-outputs)[Prevent customer-defined high risk outputs](/safety/prevent-other-high-risk-outputs)[Prevent output vulnerabilities](/safety/prevent-output-vulnerabilities)[Flag high risk outputs for human review](/safety/flag-high-risk-recommendations)[Monitor AI risk categories](/safety/monitor-ai-risk-categories)[Enable real-time feedback and intervention](/safety/collect-real-time-feedback)[Third-party testing for harmful outputs](/safety/3rd-party-testing-for-harmful-outputs)[Third-party testing for out-of-scope outputs](/safety/3rd-party-testing-for-out-of-scope-outputs)[Third-party testing for customer-defined risk](/safety/3rd-party-testing-for-other-risk)
++
+ [D. Reliability](/reliability)
+ 
++[Prevent hallucinated outputs](/reliability/prevent-hallucinated-outputs)[Third-party testing for hallucinations](/reliability/3rd-party-testing-for-hallucinations)[Restrict unsafe tool calls](/reliability/restrict-unsafe-tool-calls)[Third-party testing of tool calls](/reliability/3rd-party-testing-of-tool-calls)
++
+ [E. Accountability](/accountability)
+ 
++[AI failure plan for security breaches](/accountability/ai-failure-plan-for-security-breaches)[AI failure plan for harmful outputs](/accountability/ai-failure-plan-for-harmful-outputs)[AI failure plan for hallucinations](/accountability/ai-failure-plan-for-hallucinations)[Assign accountability](/accountability/assign-accountability)[Document data storage security](/accountability/assess-cloud-vs-on-prem-processing)[Conduct vendor due diligence](/accountability/conduct-vendor-due-diligence)[[Retired] Document system change approvals](/accountability/document-system-change-approvals)[Review internal processes](/accountability/review-internal-processes)[Monitor third-party access](/accountability/monitor-3rd-party-access)[Establish AI acceptable use policy](/accountability/establish-ai-acceptable-use-policy)[Record processing locations](/accountability/record-processing-locations)[Document regulatory compliance](/accountability/document-regulatory-compliance)[Implement quality management system](/accountability/implement-quality-management-system)[[Retired] Share transparency reports](/accountability/share-transparency-reports)[Log AI system activity](/accountability/log-model-activity)[Implement AI disclosure mechanisms](/accountability/implement-ai-disclosure-mechanisms)[Document system transparency policy](/accountability/document-system-transparency-policy)
++
+ [F. Society](/society)
+ 
++[Prevent AI cyber misuse](/society/prevent-ai-cyber-misuse)[Prevent catastrophic misuse](/society/prevent-catastrophic-misuse)
++
+ Certification
+ 
+ [ AIUC-1 certification](/aiuc-1-certification)[ Scoping](/scoping)[ Accredited auditors](/accredited-auditors)[ FAQ](/faq)
+ 
+ [Evidence overview](/evidence)
+ 
++[Full evidence list](/evidence)[Technical evidence](/evidence/technical)[Legal evidence](/evidence/legal)[Operational evidence](/evidence/operational)[Third-party evals](/evidence/third-party)[Capability-specific evidence](/evidence/capability)
++
+ [](/)
+ 
+-Menu 
+-
+-[Adopt AIUC-1](/contact)
++Get in TouchClose
++
++Share your details and let us know how you hope to use AIUC-1
++
++Name
++
++Work email
++
++I am interested in...
++
++Certifying an AI agentIntegrating AIUC-1 in vendor assessmentJoining the AIUC-1 contributor communityPartnering with AIUC-1Learning more
++
++Submit
++
++Menu
++
++Context
++
++[Introduction](/)[Certificate overview](/learn/certificate)
++
++[Framework comparisons](/crosswalks)
++
++[EU AI Act](/crosswalks/eu-ai-act)[ISO 42001](/crosswalks/iso-42001)[MITRE ATLAS](/crosswalks/mitre-atlas)[NIST AI RMF](/crosswalks/nist-ai-rmf)[OWASP Top 10 for LLM Applications](/crosswalks/owasp-top-10)[OWASP AIVSS](/crosswalks/owasp-aivss)[IBM AI Risk Atlas](/crosswalks/ibm-ai-risk-atlas)[Cisco AI Security & Safety](/crosswalks/cisco-ai-security-safety-framework)[CSA AICM](/crosswalks/csa-aicm)
++
++[Changelog](/changelog)[AIUC-1 Consortium](/consortium)[Provide input on AIUC-1](/learn/contribute)[Contact](/contact)
++
++Standard
++
++[A. Data & Privacy](/data-and-privacy)
++
++[Establish input data policy](/data-and-privacy/establish-data-use-policy)[Establish output data policy](/data-and-privacy/define-output-rights)[Limit AI agent data access](/data-and-privacy/implement-contextual-data-safeguards)[Protect IP & trade secrets](/data-and-privacy/protect-ip-trade-secrets)[Prevent cross-customer data exposure](/data-and-privacy/prevent-cross-customer-data-exposure)[Prevent PII leakage](/data-and-privacy/prevent-pii-leakage)[Prevent IP violations](/data-and-privacy/prevent-ip-violations)
++
++[B. Security](/security)
++
++[Third-party testing of adversarial robustness](/security/test-adversarial-robustness)[Detect adversarial input](/security/detect-adversarial-input)[Manage public release of technical details](/security/limit-technical-over-disclosure)[Prevent AI endpoint scraping](/security/prevent-ai-endpoint-scraping)[Implement real-time input filtering](/security/implement-real-time-input-filtering)[Prevent unauthorized AI agent actions](/security/enforce-contextual-access-controls)[Enforce user access privileges to AI systems](/security/enforce-ai-access-privileges)[Protect AI system deployment environment](/security/protect-model-deployment-environment)[Limit output over-exposure](/security/limit-output-over-exposure)
++
++[C. Safety](/safety)
++
++[Define AI risk taxonomy](/safety/define-ai-risk-taxonomy)[Conduct pre-deployment testing](/safety/conduct-pre-deployment-testing)[Prevent harmful outputs](/safety/prevent-harmful-outputs)[Prevent out-of-scope outputs](/safety/prevent-out-of-scope-outputs)[Prevent customer-defined high risk outputs](/safety/prevent-other-high-risk-outputs)[Prevent output vulnerabilities](/safety/prevent-output-vulnerabilities)[Flag high risk outputs for human review](/safety/flag-high-risk-recommendations)[Monitor AI risk categories](/safety/monitor-ai-risk-categories)[Enable real-time feedback and intervention](/safety/collect-real-time-feedback)[Third-party testing for harmful outputs](/safety/3rd-party-testing-for-harmful-outputs)[Third-party testing for out-of-scope outputs](/safety/3rd-party-testing-for-out-of-scope-outputs)[Third-party testing for customer-defined risk](/safety/3rd-party-testing-for-other-risk)
++
++[D. Reliability](/reliability)
++
++[Prevent hallucinated outputs](/reliability/prevent-hallucinated-outputs)[Third-party testing for hallucinations](/reliability/3rd-party-testing-for-hallucinations)[Restrict unsafe tool calls](/reliability/restrict-unsafe-tool-calls)[Third-party testing of tool calls](/reliability/3rd-party-testing-of-tool-calls)
++
++[E. Accountability](/accountability)
++
++[AI failure plan for security breaches](/accountability/ai-failure-plan-for-security-breaches)[AI failure plan for harmful outputs](/accountability/ai-failure-plan-for-harmful-outputs)[AI failure plan for hallucinations](/accountability/ai-failure-plan-for-hallucinations)[Assign accountability](/accountability/assign-accountability)[Document data storage security](/accountability/assess-cloud-vs-on-prem-processing)[Conduct vendor due diligence](/accountability/conduct-vendor-due-diligence)[[Retired] Document system change approvals](/accountability/document-system-change-approvals)[Review internal processes](/accountability/review-internal-processes)[Monitor third-party access](/accountability/monitor-3rd-party-access)[Establish AI acceptable use policy](/accountability/establish-ai-acceptable-use-policy)[Record processing locations](/accountability/record-processing-locations)[Document regulatory compliance](/accountability/document-regulatory-compliance)[Implement quality management system](/accountability/implement-quality-management-system)[[Retired] Share transparency reports](/accountability/share-transparency-reports)[Log AI system activity](/accountability/log-model-activity)[Implement AI disclosure mechanisms](/accountability/implement-ai-disclosure-mechanisms)[Document system transparency policy](/accountability/document-system-transparency-policy)
++
++[F. Society](/society)
++
++[Prevent AI cyber misuse](/society/prevent-ai-cyber-misuse)[Prevent catastrophic misuse](/society/prevent-catastrophic-misuse)
++
++Certification
++
++[ AIUC-1 certification](/aiuc-1-certification)[ Scoping](/scoping)[ Accredited auditors](/accredited-auditors)[ FAQ](/faq)
++
++[Evidence overview](/evidence)
++
++[Full evidence list](/evidence)[Technical evidence](/evidence/technical)[Legal evidence](/evidence/legal)[Operational evidence](/evidence/operational)[Third-party evals](/evidence/third-party)[Capability-specific evidence](/evidence/capability)
++
++Get in TouchClose
+ 
+ # The standard for AI agent security, safety and reliability
+ 
+@@ -113,7 +187,7 @@ 
+ Gagandeep Singh, VP of Global Compliance & Certifications
+ 
+-## Introducing AUIC-1
++## Introducing AIUC-1
+ 
+ ## Built with industry leaders
+ 
+@@ -207,30 +281,78 @@ 
+ ## Learn more about AIUC-1
+ 
++Research[](/research/2026-q2-standard-update)
++
++#### [Q2-2026 update: Strengthening MCP security, agent permissions & third-party riskAI capabilities are reshaping cybersecurity faster than most frameworks can adapt - Mythos Preview is the latest proof point. AIUC-1 is updated quarterly to keep pace with shifts in technology, risk, and regulation. This quarter's refresh focused on MCP security, third-party risk management, and agent identity and permissions.](/research/2026-q2-standard-update)
++
++[Read more](/research/2026-q2-standard-update)
++
++Research[](/research/setting-the-standard-for-agentic-development)
++
++#### [Whitepaper: Setting the standard for agentic developmentMore than half of all LLM tokens now go to writing code - and coding agent adoption is growing rapidly across the enterprise. In this whitepaper, co-authored with Lovable, we show how AIUC-1 addresses the unique risks of agentic development](/research/setting-the-standard-for-agentic-development)
++
++[Read more](/research/setting-the-standard-for-agentic-development)
++
++Research[](/research/consortium-feedback-shaping-the-q3-2026-update)
++
++#### [Looking ahead: Consortium feedback shaping the Q3-2026 update Over 200 peer-review comments were exchanged in the Q2 2026 update of AIUC-1. Many were implemented in the update, while other areas required more work and were carried forward as priority areas for the Q3 update. ](/research/consortium-feedback-shaping-the-q3-2026-update)
++
++[Read more](/research/consortium-feedback-shaping-the-q3-2026-update)
++
++Research[](/research/aiuc-1-quarterly-update-process)
++
++#### [From Consortium input to new controls: AIUC-1 quarterly update processAIUC-1's quarterly cadence is deliberately faster than traditional standard-setting processes, enabled by a structured, repeatable process grounded in contributions from AIUC-1 consortium members, technical peer-review, and transparent change management. This quarter, over 120 Consortium members contributed through a series of technical sessions and 200+ peer-review comments. ](/research/aiuc-1-quarterly-update-process)
++
++[Read more](/research/aiuc-1-quarterly-update-process)
++
+ Research[](/research/whitepaper-the-end-of-vibe-adoption)
+ 
+ #### [Whitepaper: 2026 - The End of Vibe AdoptionExecutive briefing on AI security & latest research, presented by Sanmi Koyejo (Stanford Trustworthy AI Research Lab) & the AIUC-1 Consortium](/research/whitepaper-the-end-of-vibe-adoption)
+ 
+ [Read more](/research/whitepaper-the-end-of-vibe-adoption)
+ 
++Research[](/research/regional-US-crosswalks)
++
++#### [AIUC-1 prepares organizations to meet emerging state and local AI lawsCrosswalks mapping AIUC-1 to local and regional AI legislation from New York City, Colorado and California are now available, offering organizations a clear pathway to begin preparing for upcoming legal obligations](/research/regional-US-crosswalks)
++
++[Read more](/research/regional-US-crosswalks)
++
++Research[](/research/setting-the-standard-for-agentic-automation)
++
++#### [Setting the standard for agentic automationAgentic automation is transforming enterprise operations. But the capabilities that drive the value - autonomy, speed, and system access - are the same ones driving the risk. This is how we evolved AIUC-1 to address the unique challenges of agentic automation, drawing on Consortium member insights and Technical Contributors. ](/research/setting-the-standard-for-agentic-automation)
++
++[Read more](/research/setting-the-standard-for-agentic-automation)
++
++Research[](/research/aiuc-1-certification-covers-all-owasp-agentic-top-10-threats)
++
++#### [AIUC-1 certification covers all OWASP Agentic Top 10 threatsSecurity leaders already rely on the OWASP Agentic Top 10 as the reference point for understanding the highest-impact agentic AI risk. Through AIUC-1’s partnership with the OWASP GenAI Security Project, we bring the latest community-led, expert-backed research and guidelines on agentic AI security into the standard.](/research/aiuc-1-certification-covers-all-owasp-agentic-top-10-threats)
++
++[Read more](/research/aiuc-1-certification-covers-all-owasp-agentic-top-10-threats)
++
++Research[](/research/aiuc-1-integrated-into-ibm-research-ai-governance-solutions)
++
++#### [AIUC-1 is integrated into IBM Research AI governance solutionsToday we announce that AIUC-1 has been integrated into IBM Research’s AI Risk Atlas Nexus, creating a clear path for organizations to move from AI risk identification to certifiable, agent-specific controls. This marks the first step toward deeper integration with IBM watsonx.governance.](/research/aiuc-1-integrated-into-ibm-research-ai-governance-solutions)
++
++[Read more](/research/aiuc-1-integrated-into-ibm-research-ai-governance-solutions)
++
++Research[](/research/elevenlabs-achieves-aiuc-1-certification)
++
++#### [ElevenLabs achieves AIUC-1 certificationElevenLabs becomes the first voice AI company to achieve AIUC-1 certification and joins as Technical Contributor to bring security expertise to voice-specific requirements. ](/research/elevenlabs-achieves-aiuc-1-certification)
++
++[Read more](/research/elevenlabs-achieves-aiuc-1-certification)
++
++Research[](/research/owasp-ai-vulnerability-scoring-system-integrates-aiuc-1)
++
++#### [OWASP AI Vulnerability Scoring System integrates AIUC-1The partnership enables organizations to quickly identify risks associated with AI agent deployments, quantify those risks, and prioritize mitigations with AIUC-1](/research/owasp-ai-vulnerability-scoring-system-integrates-aiuc-1)
++
++[Read more](/research/owasp-ai-vulnerability-scoring-system-integrates-aiuc-1)
++
+ Research[](/research/setting-the-standard-for-voice-ai-agents)
+ 
+ #### [Setting the standard for voice AI agentsVoice agents are growing rapidly in demand – but come with their own unique risks that must be managed appropriately. This is how we evolved AIUC-1 to cover voice agent security, safety and reliability, working with Technical Contributors from Stanford University, ElevenLabs and Gray Swan. ](/research/setting-the-standard-for-voice-ai-agents)
+ 
+ [Read more](/research/setting-the-standard-for-voice-ai-agents)
+ 
+-Research[](/research/owasp-ai-vulnerability-scoring-system-integrates-aiuc-1)
+-
+-#### [OWASP AI Vulnerability Scoring System integrates AIUC-1The partnership enables organizations to quickly identify risks associated with AI agent deployments, quantify those risks, and prioritize mitigations with AIUC-1](/research/owasp-ai-vulnerability-scoring-system-integrates-aiuc-1)
+-
+-[Read more](/research/owasp-ai-vulnerability-scoring-system-integrates-aiuc-1)
+-
+-Research[](/research/elevenlabs-achieves-aiuc-1-certification)
+-
+-#### [ElevenLabs achieves AIUC-1 certificationElevenLabs becomes the first voice AI company to achieve AIUC-1 certification and joins as Technical Contributor to bring security expertise to voice-specific requirements. ](/research/elevenlabs-achieves-aiuc-1-certification)
+-
+-[Read more](/research/elevenlabs-achieves-aiuc-1-certification)
+-
+ Research[](/research/contributor-community)
+ 
+ #### [Join the AIUC-1 communityShape the new standard for AI agents as part of the AIUC-1 community, working alongside other AI builders, enterprise security leaders, and practitioners. ](/research/contributor-community)
+@@ -251,7 +373,7 @@ 
+ Research[](/research/quarterly-update-of-aiuc-1-q1-2026)
+ 
+-#### [Quarterly update of AIUC-1 - Q1, 2026AIUC-1 is updated formally each quarter to ensure that the standard evolves as technology, risk, and regulation evolves. The standard is updated in collaboration with AIUC-1 Technical Contributors, the AIUC-1 Consortium and external peer-reviewers.](/research/quarterly-update-of-aiuc-1-q1-2026)
++#### [Q1-2026 update: Detailed evidence requirements AIUC-1 is updated formally each quarter to ensure that the standard evolves as technology, risk, and regulation evolves. The standard is updated in collaboration with AIUC-1 Technical Contributors, the AIUC-1 Consortium and external peer-reviewers.](/research/quarterly-update-of-aiuc-1-q1-2026)
+ 
+ [Read more](/research/quarterly-update-of-aiuc-1-q1-2026)
+ 
+@@ -281,11 +403,11 @@ 
+ Research[](/research/ai-proofing-the-board-and-c-suite)
+ 
+-#### [AI-Proofing The Board and C-suiteDr. Keri Pearlson at MIT Sloan and Rajiv Dattani at AIUC have written a paper to AI-proof the Board and the C-Suite. The focus is on developing a new framework to enable at-scale enteprise AI adoption.](/research/ai-proofing-the-board-and-c-suite)
++#### [AI-Proofing The Board and C-suiteDr. Keri Pearlson at MIT Sloan and Rajiv Dattani at AIUC have written a paper to AI-proof the Board and the C-Suite. The focus is on developing a new framework to enable at-scale enterprise AI adoption.](/research/ai-proofing-the-board-and-c-suite)
+ 
+ [Read more](/research/ai-proofing-the-board-and-c-suite)
+ 
+-The Security, Safety, and Reliability standard for AI agents 
++The Security, Safety, and Reliability standard for AI agents
+ 
+ Stay up to date with AIUC-1
+ 
+
+```
+
+
+## data-and-privacy
+
+**85 additions, 111 removals**
+
+```diff
+--- 2026-Q1/data-and-privacy.md+++ 2026-Q2/data-and-privacy.md@@ -6,23 +6,35 @@ 
+ [Framework comparisons](/crosswalks)
+ 
++[EU AI Act](/crosswalks/eu-ai-act)[ISO 42001](/crosswalks/iso-42001)[MITRE ATLAS](/crosswalks/mitre-atlas)[NIST AI RMF](/crosswalks/nist-ai-rmf)[OWASP Top 10 for LLM Applications](/crosswalks/owasp-top-10)[OWASP AIVSS](/crosswalks/owasp-aivss)[IBM AI Risk Atlas](/crosswalks/ibm-ai-risk-atlas)[Cisco AI Security & Safety](/crosswalks/cisco-ai-security-safety-framework)[CSA AICM](/crosswalks/csa-aicm)
++
+ [Changelog](/changelog)[AIUC-1 Consortium](/consortium)[Provide input on AIUC-1](/learn/contribute)[Contact](/contact)
+ 
+ Standard
+ 
+ [A. Data & Privacy](/data-and-privacy)
+ 
+-[Establish input data policy](/data-and-privacy/establish-data-use-policy)[Establish output data policy](/data-and-privacy/define-output-rights)[Limit AI agent data collection](/data-and-privacy/implement-contextual-data-safeguards)[Protect IP & trade secrets](/data-and-privacy/protect-ip-trade-secrets)[Prevent cross-customer data exposure](/data-and-privacy/prevent-cross-customer-data-exposure)[Prevent PII leakage](/data-and-privacy/prevent-pii-leakage)[Prevent IP violations](/data-and-privacy/prevent-ip-violations)
++[Establish input data policy](/data-and-privacy/establish-data-use-policy)[Establish output data policy](/data-and-privacy/define-output-rights)[Limit AI agent data access](/data-and-privacy/implement-contextual-data-safeguards)[Protect IP & trade secrets](/data-and-privacy/protect-ip-trade-secrets)[Prevent cross-customer data exposure](/data-and-privacy/prevent-cross-customer-data-exposure)[Prevent PII leakage](/data-and-privacy/prevent-pii-leakage)[Prevent IP violations](/data-and-privacy/prevent-ip-violations)
+ 
+ [B. Security](/security)
+ 
++[Third-party testing of adversarial robustness](/security/test-adversarial-robustness)[Detect adversarial input](/security/detect-adversarial-input)[Manage public release of technical details](/security/limit-technical-over-disclosure)[Prevent AI endpoint scraping](/security/prevent-ai-endpoint-scraping)[Implement real-time input filtering](/security/implement-real-time-input-filtering)[Prevent unauthorized AI agent actions](/security/enforce-contextual-access-controls)[Enforce user access privileges to AI systems](/security/enforce-ai-access-privileges)[Protect AI system deployment environment](/security/protect-model-deployment-environment)[Limit output over-exposure](/security/limit-output-over-exposure)
++
+ [C. Safety](/safety)
++
++[Define AI risk taxonomy](/safety/define-ai-risk-taxonomy)[Conduct pre-deployment testing](/safety/conduct-pre-deployment-testing)[Prevent harmful outputs](/safety/prevent-harmful-outputs)[Prevent out-of-scope outputs](/safety/prevent-out-of-scope-outputs)[Prevent customer-defined high risk outputs](/safety/prevent-other-high-risk-outputs)[Prevent output vulnerabilities](/safety/prevent-output-vulnerabilities)[Flag high risk outputs for human review](/safety/flag-high-risk-recommendations)[Monitor AI risk categories](/safety/monitor-ai-risk-categories)[Enable real-time feedback and intervention](/safety/collect-real-time-feedback)[Third-party testing for harmful outputs](/safety/3rd-party-testing-for-harmful-outputs)[Third-party testing for out-of-scope outputs](/safety/3rd-party-testing-for-out-of-scope-outputs)[Third-party testing for customer-defined risk](/safety/3rd-party-testing-for-other-risk)
+ 
+ [D. Reliability](/reliability)
+ 
++[Prevent hallucinated outputs](/reliability/prevent-hallucinated-outputs)[Third-party testing for hallucinations](/reliability/3rd-party-testing-for-hallucinations)[Restrict unsafe tool calls](/reliability/restrict-unsafe-tool-calls)[Third-party testing of tool calls](/reliability/3rd-party-testing-of-tool-calls)
++
+ [E. Accountability](/accountability)
+ 
++[AI failure plan for security breaches](/accountability/ai-failure-plan-for-security-breaches)[AI failure plan for harmful outputs](/accountability/ai-failure-plan-for-harmful-outputs)[AI failure plan for hallucinations](/accountability/ai-failure-plan-for-hallucinations)[Assign accountability](/accountability/assign-accountability)[Document data storage security](/accountability/assess-cloud-vs-on-prem-processing)[Conduct vendor due diligence](/accountability/conduct-vendor-due-diligence)[[Retired] Document system change approvals](/accountability/document-system-change-approvals)[Review internal processes](/accountability/review-internal-processes)[Monitor third-party access](/accountability/monitor-3rd-party-access)[Establish AI acceptable use policy](/accountability/establish-ai-acceptable-use-policy)[Record processing locations](/accountability/record-processing-locations)[Document regulatory compliance](/accountability/document-regulatory-compliance)[Implement quality management system](/accountability/implement-quality-management-system)[[Retired] Share transparency reports](/accountability/share-transparency-reports)[Log AI system activity](/accountability/log-model-activity)[Implement AI disclosure mechanisms](/accountability/implement-ai-disclosure-mechanisms)[Document system transparency policy](/accountability/document-system-transparency-policy)
++
+ [F. Society](/society)
++
++[Prevent AI cyber misuse](/society/prevent-ai-cyber-misuse)[Prevent catastrophic misuse](/society/prevent-catastrophic-misuse)
+ 
+ Certification
+ 
+@@ -30,11 +42,71 @@ 
+ [Evidence overview](/evidence)
+ 
++[Full evidence list](/evidence)[Technical evidence](/evidence/technical)[Legal evidence](/evidence/legal)[Operational evidence](/evidence/operational)[Third-party evals](/evidence/third-party)[Capability-specific evidence](/evidence/capability)
++
+ [](/)
+ 
+-Menu 
++Get in TouchClose
+ 
+-[Adopt AIUC-1](/contact)
++Share your details and let us know how you hope to use AIUC-1
++
++Name
++
++Work email
++
++I am interested in...
++
++Certifying an AI agentIntegrating AIUC-1 in vendor assessmentJoining the AIUC-1 contributor communityPartnering with AIUC-1Learning more
++
++Submit
++
++Menu
++
++Context
++
++[Introduction](/)[Certificate overview](/learn/certificate)
++
++[Framework comparisons](/crosswalks)
++
++[EU AI Act](/crosswalks/eu-ai-act)[ISO 42001](/crosswalks/iso-42001)[MITRE ATLAS](/crosswalks/mitre-atlas)[NIST AI RMF](/crosswalks/nist-ai-rmf)[OWASP Top 10 for LLM Applications](/crosswalks/owasp-top-10)[OWASP AIVSS](/crosswalks/owasp-aivss)[IBM AI Risk Atlas](/crosswalks/ibm-ai-risk-atlas)[Cisco AI Security & Safety](/crosswalks/cisco-ai-security-safety-framework)[CSA AICM](/crosswalks/csa-aicm)
++
++[Changelog](/changelog)[AIUC-1 Consortium](/consortium)[Provide input on AIUC-1](/learn/contribute)[Contact](/contact)
++
++Standard
++
++[A. Data & Privacy](/data-and-privacy)
++
++[Establish input data policy](/data-and-privacy/establish-data-use-policy)[Establish output data policy](/data-and-privacy/define-output-rights)[Limit AI agent data access](/data-and-privacy/implement-contextual-data-safeguards)[Protect IP & trade secrets](/data-and-privacy/protect-ip-trade-secrets)[Prevent cross-customer data exposure](/data-and-privacy/prevent-cross-customer-data-exposure)[Prevent PII leakage](/data-and-privacy/prevent-pii-leakage)[Prevent IP violations](/data-and-privacy/prevent-ip-violations)
++
++[B. Security](/security)
++
++[Third-party testing of adversarial robustness](/security/test-adversarial-robustness)[Detect adversarial input](/security/detect-adversarial-input)[Manage public release of technical details](/security/limit-technical-over-disclosure)[Prevent AI endpoint scraping](/security/prevent-ai-endpoint-scraping)[Implement real-time input filtering](/security/implement-real-time-input-filtering)[Prevent unauthorized AI agent actions](/security/enforce-contextual-access-controls)[Enforce user access privileges to AI systems](/security/enforce-ai-access-privileges)[Protect AI system deployment environment](/security/protect-model-deployment-environment)[Limit output over-exposure](/security/limit-output-over-exposure)
++
++[C. Safety](/safety)
++
++[Define AI risk taxonomy](/safety/define-ai-risk-taxonomy)[Conduct pre-deployment testing](/safety/conduct-pre-deployment-testing)[Prevent harmful outputs](/safety/prevent-harmful-outputs)[Prevent out-of-scope outputs](/safety/prevent-out-of-scope-outputs)[Prevent customer-defined high risk outputs](/safety/prevent-other-high-risk-outputs)[Prevent output vulnerabilities](/safety/prevent-output-vulnerabilities)[Flag high risk outputs for human review](/safety/flag-high-risk-recommendations)[Monitor AI risk categories](/safety/monitor-ai-risk-categories)[Enable real-time feedback and intervention](/safety/collect-real-time-feedback)[Third-party testing for harmful outputs](/safety/3rd-party-testing-for-harmful-outputs)[Third-party testing for out-of-scope outputs](/safety/3rd-party-testing-for-out-of-scope-outputs)[Third-party testing for customer-defined risk](/safety/3rd-party-testing-for-other-risk)
++
++[D. Reliability](/reliability)
++
++[Prevent hallucinated outputs](/reliability/prevent-hallucinated-outputs)[Third-party testing for hallucinations](/reliability/3rd-party-testing-for-hallucinations)[Restrict unsafe tool calls](/reliability/restrict-unsafe-tool-calls)[Third-party testing of tool calls](/reliability/3rd-party-testing-of-tool-calls)
++
++[E. Accountability](/accountability)
++
++[AI failure plan for security breaches](/accountability/ai-failure-plan-for-security-breaches)[AI failure plan for harmful outputs](/accountability/ai-failure-plan-for-harmful-outputs)[AI failure plan for hallucinations](/accountability/ai-failure-plan-for-hallucinations)[Assign accountability](/accountability/assign-accountability)[Document data storage security](/accountability/assess-cloud-vs-on-prem-processing)[Conduct vendor due diligence](/accountability/conduct-vendor-due-diligence)[[Retired] Document system change approvals](/accountability/document-system-change-approvals)[Review internal processes](/accountability/review-internal-processes)[Monitor third-party access](/accountability/monitor-3rd-party-access)[Establish AI acceptable use policy](/accountability/establish-ai-acceptable-use-policy)[Record processing locations](/accountability/record-processing-locations)[Document regulatory compliance](/accountability/document-regulatory-compliance)[Implement quality management system](/accountability/implement-quality-management-system)[[Retired] Share transparency reports](/accountability/share-transparency-reports)[Log AI system activity](/accountability/log-model-activity)[Implement AI disclosure mechanisms](/accountability/implement-ai-disclosure-mechanisms)[Document system transparency policy](/accountability/document-system-transparency-policy)
++
++[F. Society](/society)
++
++[Prevent AI cyber misuse](/society/prevent-ai-cyber-misuse)[Prevent catastrophic misuse](/society/prevent-catastrophic-misuse)
++
++Certification
++
++[ AIUC-1 certification](/aiuc-1-certification)[ Scoping](/scoping)[ Accredited auditors](/accredited-auditors)[ FAQ](/faq)
++
++[Evidence overview](/evidence)
++
++[Full evidence list](/evidence)[Technical evidence](/evidence/technical)[Legal evidence](/evidence/legal)[Operational evidence](/evidence/operational)[Third-party evals](/evidence/third-party)[Capability-specific evidence](/evidence/capability)
++
++Get in TouchClose
+ 
+ [AIUC-1 Standard](/)
+ 
+@@ -50,117 +122,19 @@ 
+ ## Requirements
+ 
+-### [Establish input data policy →A001·Mandatory](/data-and-privacy/establish-data-use-policy)
++### [Establish input data policyA001·MandatoryEstablish and communicate AI input data policies covering how customer data is used for model training, inference processing, data retention periods, and customer data rightsKeywordsData RetentionModel Training DataOpt-OutCapabilitiesUniversal](/data-and-privacy/establish-data-use-policy)
+ 
+-Establish and communicate AI input data policies covering how customer data is used for model training, inference processing, data retention periods, and customer data rights
++### [Establish output data policyA002·MandatoryEstablish AI output ownership, usage, opt-in/out and deletion policies to customers and communicate these policiesKeywordsData OwnershipUsageDeletionConsentOpt-OutCapabilitiesUniversal](/data-and-privacy/define-output-rights)
+ 
+-Keywords
++### [Limit AI agent data accessA003·MandatoryImplement safeguards to limit AI agent data access based on task, user role, agent role and contextKeywordsData CollectionData AccessAgent PermissionsAccess PermissionsCapabilitiesUniversal](/data-and-privacy/implement-contextual-data-safeguards)
+ 
+-Data Retention
++### [Protect IP & trade secretsA004·MandatoryImplement safeguards or technical controls to prevent AI systems from leaking company intellectual property or confidential informationKeywordsIntellectual PropertyConfidential InformationData ProtectionsCapabilitiesUniversal](/data-and-privacy/protect-ip-trade-secrets)
+ 
+-Model Training Data
++### [Prevent cross-customer data exposureA005·MandatoryImplement safeguards to prevent cross-customer data exposure when combining customer data from multiple sourcesKeywordsCross-Customer DataModel TrainingData RightsCapabilitiesUniversal](/data-and-privacy/prevent-cross-customer-data-exposure)
+ 
+-Opt-Out
++### [Prevent PII leakageA006·MandatoryEstablish safeguards to prevent personal data leakage through AI outputs and logsKeywordsPersonal Data LeakageCapabilitiesUniversal](/data-and-privacy/prevent-pii-leakage)
+ 
+-Capabilities
+-
+-Universal
+-
+-### [Establish output data policy →A002·Mandatory](/data-and-privacy/define-output-rights)
+-
+-Establish AI output ownership, usage, opt-out and deletion policies to customers and communicate these policies
+-
+-Keywords
+-
+-Data Ownership
+-
+-Usage
+-
+-Deletion
+-
+-Consent
+-
+-Opt-Out
+-
+-Capabilities
+-
+-Universal
+-
+-### [Limit AI agent data collection →A003·Mandatory](/data-and-privacy/implement-contextual-data-safeguards)
+-
+-Implement safeguards to limit AI agent data access to task-relevant information based on user roles and context
+-
+-Keywords
+-
+-Data Collection
+-
+-Data Access
+-
+-Agent Permissions
+-
+-Access Permissions
+-
+-Capabilities
+-
+-Universal
+-
+-### [Protect IP & trade secrets →A004·Mandatory](/data-and-privacy/protect-ip-trade-secrets)
+-
+-Implement safeguards or technical controls to prevent AI systems from leaking company intellectual property or confidential information
+-
+-Keywords
+-
+-Intellectual Property
+-
+-Confidential Information
+-
+-Data Protections
+-
+-Capabilities
+-
+-Universal
+-
+-### [Prevent cross-customer data exposure →A005·Mandatory](/data-and-privacy/prevent-cross-customer-data-exposure)
+-
+-Implement safeguards to prevent cross-customer data exposure when combining customer data from multiple sources
+-
+-Keywords
+-
+-Cross-Customer Data
+-
+-Model Training
+-
+-Data Rights
+-
+-Capabilities
+-
+-Universal
+-
+-### [Prevent PII leakage →A006·Mandatory](/data-and-privacy/prevent-pii-leakage)
+-
+-Establish safeguards to prevent personal data leakage through AI outputs and logs
+-
+-Keywords
+-
+-Personal Data Leakage
+-
+-Capabilities
+-
+-Universal
+-
+-### [Prevent IP violations →A007·Mandatory](/data-and-privacy/prevent-ip-violations)
+-
+-Implement safeguards and technical controls to prevent AI outputs from violating copyrights, trademarks, or other third-party intellectual property rights
+-
+-Keywords
+-
+-Intellectual Property
+-
+-Copyright Protection
+-
+-Capabilities
+-
+-External-facing
++### [Prevent IP violationsA007·MandatoryImplement safeguards and technical controls to prevent AI outputs from violating copyrights, trademarks, or other third-party intellectual property rightsKeywordsIntellectual PropertyCopyright ProtectionCapabilitiesText-generationVoice-generationImage-generation](/data-and-privacy/prevent-ip-violations)
+ 
+ ## AIUC-1 is built with industry leaders
+ 
+@@ -188,19 +162,19 @@ 
+ Lead for Stanford Trustworthy AI Research
+ 
+-"AIUC-1 standardizes how AI is adopted. That's powerful."
++"AIUC-1standardizes how AI is adopted. That's powerful."
+ 
+ John Bautista
+ 
+ Partner at Orrick
+ 
+-"An AIUC-1 certificate enables me to sign contracts much faster— it's a clear signal I can trust."
++"An AIUC-1certificate enables me to sign contracts much faster— it's a clear signal I can trust."
+ 
+ Lena Smart
+ 
+ Head of Trust for SecurityPal and former CISO of MongoDB
+ 
+-The Security, Safety, and Reliability standard for AI agents 
++The Security, Safety, and Reliability standard for AI agents
+ 
+ Stay up to date with AIUC-1
+ 
+
+```
+
+
+## security
+
+**87 additions, 155 removals**
+
+```diff
+--- 2026-Q1/security.md+++ 2026-Q2/security.md@@ -6,23 +6,35 @@ 
+ [Framework comparisons](/crosswalks)
+ 
++[EU AI Act](/crosswalks/eu-ai-act)[ISO 42001](/crosswalks/iso-42001)[MITRE ATLAS](/crosswalks/mitre-atlas)[NIST AI RMF](/crosswalks/nist-ai-rmf)[OWASP Top 10 for LLM Applications](/crosswalks/owasp-top-10)[OWASP AIVSS](/crosswalks/owasp-aivss)[IBM AI Risk Atlas](/crosswalks/ibm-ai-risk-atlas)[Cisco AI Security & Safety](/crosswalks/cisco-ai-security-safety-framework)[CSA AICM](/crosswalks/csa-aicm)
++
+ [Changelog](/changelog)[AIUC-1 Consortium](/consortium)[Provide input on AIUC-1](/learn/contribute)[Contact](/contact)
+ 
+ Standard
+ 
+ [A. Data & Privacy](/data-and-privacy)
+ 
++[Establish input data policy](/data-and-privacy/establish-data-use-policy)[Establish output data policy](/data-and-privacy/define-output-rights)[Limit AI agent data access](/data-and-privacy/implement-contextual-data-safeguards)[Protect IP & trade secrets](/data-and-privacy/protect-ip-trade-secrets)[Prevent cross-customer data exposure](/data-and-privacy/prevent-cross-customer-data-exposure)[Prevent PII leakage](/data-and-privacy/prevent-pii-leakage)[Prevent IP violations](/data-and-privacy/prevent-ip-violations)
++
+ [B. Security](/security)
+ 
+-[Third-party testing of adversarial robustness](/security/test-adversarial-robustness)[Detect adversarial input](/security/detect-adversarial-input)[Manage public release of technical details](/security/limit-technical-over-disclosure)[Prevent AI endpoint scraping](/security/prevent-ai-endpoint-scraping)[Implement real-time input filtering](/security/implement-real-time-input-filtering)[Prevent unauthorized AI agent actions](/security/enforce-contextual-access-controls)[Enforce user access privileges to AI systems](/security/enforce-ai-access-privileges)[Protect model deployment environment](/security/protect-model-deployment-environment)[Limit output over-exposure](/security/limit-output-over-exposure)
++[Third-party testing of adversarial robustness](/security/test-adversarial-robustness)[Detect adversarial input](/security/detect-adversarial-input)[Manage public release of technical details](/security/limit-technical-over-disclosure)[Prevent AI endpoint scraping](/security/prevent-ai-endpoint-scraping)[Implement real-time input filtering](/security/implement-real-time-input-filtering)[Prevent unauthorized AI agent actions](/security/enforce-contextual-access-controls)[Enforce user access privileges to AI systems](/security/enforce-ai-access-privileges)[Protect AI system deployment environment](/security/protect-model-deployment-environment)[Limit output over-exposure](/security/limit-output-over-exposure)
+ 
+ [C. Safety](/safety)
+ 
++[Define AI risk taxonomy](/safety/define-ai-risk-taxonomy)[Conduct pre-deployment testing](/safety/conduct-pre-deployment-testing)[Prevent harmful outputs](/safety/prevent-harmful-outputs)[Prevent out-of-scope outputs](/safety/prevent-out-of-scope-outputs)[Prevent customer-defined high risk outputs](/safety/prevent-other-high-risk-outputs)[Prevent output vulnerabilities](/safety/prevent-output-vulnerabilities)[Flag high risk outputs for human review](/safety/flag-high-risk-recommendations)[Monitor AI risk categories](/safety/monitor-ai-risk-categories)[Enable real-time feedback and intervention](/safety/collect-real-time-feedback)[Third-party testing for harmful outputs](/safety/3rd-party-testing-for-harmful-outputs)[Third-party testing for out-of-scope outputs](/safety/3rd-party-testing-for-out-of-scope-outputs)[Third-party testing for customer-defined risk](/safety/3rd-party-testing-for-other-risk)
++
+ [D. Reliability](/reliability)
++
++[Prevent hallucinated outputs](/reliability/prevent-hallucinated-outputs)[Third-party testing for hallucinations](/reliability/3rd-party-testing-for-hallucinations)[Restrict unsafe tool calls](/reliability/restrict-unsafe-tool-calls)[Third-party testing of tool calls](/reliability/3rd-party-testing-of-tool-calls)
+ 
+ [E. Accountability](/accountability)
+ 
++[AI failure plan for security breaches](/accountability/ai-failure-plan-for-security-breaches)[AI failure plan for harmful outputs](/accountability/ai-failure-plan-for-harmful-outputs)[AI failure plan for hallucinations](/accountability/ai-failure-plan-for-hallucinations)[Assign accountability](/accountability/assign-accountability)[Document data storage security](/accountability/assess-cloud-vs-on-prem-processing)[Conduct vendor due diligence](/accountability/conduct-vendor-due-diligence)[[Retired] Document system change approvals](/accountability/document-system-change-approvals)[Review internal processes](/accountability/review-internal-processes)[Monitor third-party access](/accountability/monitor-3rd-party-access)[Establish AI acceptable use policy](/accountability/establish-ai-acceptable-use-policy)[Record processing locations](/accountability/record-processing-locations)[Document regulatory compliance](/accountability/document-regulatory-compliance)[Implement quality management system](/accountability/implement-quality-management-system)[[Retired] Share transparency reports](/accountability/share-transparency-reports)[Log AI system activity](/accountability/log-model-activity)[Implement AI disclosure mechanisms](/accountability/implement-ai-disclosure-mechanisms)[Document system transparency policy](/accountability/document-system-transparency-policy)
++
+ [F. Society](/society)
++
++[Prevent AI cyber misuse](/society/prevent-ai-cyber-misuse)[Prevent catastrophic misuse](/society/prevent-catastrophic-misuse)
+ 
+ Certification
+ 
+@@ -30,11 +42,71 @@ 
+ [Evidence overview](/evidence)
+ 
++[Full evidence list](/evidence)[Technical evidence](/evidence/technical)[Legal evidence](/evidence/legal)[Operational evidence](/evidence/operational)[Third-party evals](/evidence/third-party)[Capability-specific evidence](/evidence/capability)
++
+ [](/)
+ 
+-Menu 
++Get in TouchClose
+ 
+-[Adopt AIUC-1](/contact)
++Share your details and let us know how you hope to use AIUC-1
++
++Name
++
++Work email
++
++I am interested in...
++
++Certifying an AI agentIntegrating AIUC-1 in vendor assessmentJoining the AIUC-1 contributor communityPartnering with AIUC-1Learning more
++
++Submit
++
++Menu
++
++Context
++
++[Introduction](/)[Certificate overview](/learn/certificate)
++
++[Framework comparisons](/crosswalks)
++
++[EU AI Act](/crosswalks/eu-ai-act)[ISO 42001](/crosswalks/iso-42001)[MITRE ATLAS](/crosswalks/mitre-atlas)[NIST AI RMF](/crosswalks/nist-ai-rmf)[OWASP Top 10 for LLM Applications](/crosswalks/owasp-top-10)[OWASP AIVSS](/crosswalks/owasp-aivss)[IBM AI Risk Atlas](/crosswalks/ibm-ai-risk-atlas)[Cisco AI Security & Safety](/crosswalks/cisco-ai-security-safety-framework)[CSA AICM](/crosswalks/csa-aicm)
++
++[Changelog](/changelog)[AIUC-1 Consortium](/consortium)[Provide input on AIUC-1](/learn/contribute)[Contact](/contact)
++
++Standard
++
++[A. Data & Privacy](/data-and-privacy)
++
++[Establish input data policy](/data-and-privacy/establish-data-use-policy)[Establish output data policy](/data-and-privacy/define-output-rights)[Limit AI agent data access](/data-and-privacy/implement-contextual-data-safeguards)[Protect IP & trade secrets](/data-and-privacy/protect-ip-trade-secrets)[Prevent cross-customer data exposure](/data-and-privacy/prevent-cross-customer-data-exposure)[Prevent PII leakage](/data-and-privacy/prevent-pii-leakage)[Prevent IP violations](/data-and-privacy/prevent-ip-violations)
++
++[B. Security](/security)
++
++[Third-party testing of adversarial robustness](/security/test-adversarial-robustness)[Detect adversarial input](/security/detect-adversarial-input)[Manage public release of technical details](/security/limit-technical-over-disclosure)[Prevent AI endpoint scraping](/security/prevent-ai-endpoint-scraping)[Implement real-time input filtering](/security/implement-real-time-input-filtering)[Prevent unauthorized AI agent actions](/security/enforce-contextual-access-controls)[Enforce user access privileges to AI systems](/security/enforce-ai-access-privileges)[Protect AI system deployment environment](/security/protect-model-deployment-environment)[Limit output over-exposure](/security/limit-output-over-exposure)
++
++[C. Safety](/safety)
++
++[Define AI risk taxonomy](/safety/define-ai-risk-taxonomy)[Conduct pre-deployment testing](/safety/conduct-pre-deployment-testing)[Prevent harmful outputs](/safety/prevent-harmful-outputs)[Prevent out-of-scope outputs](/safety/prevent-out-of-scope-outputs)[Prevent customer-defined high risk outputs](/safety/prevent-other-high-risk-outputs)[Prevent output vulnerabilities](/safety/prevent-output-vulnerabilities)[Flag high risk outputs for human review](/safety/flag-high-risk-recommendations)[Monitor AI risk categories](/safety/monitor-ai-risk-categories)[Enable real-time feedback and intervention](/safety/collect-real-time-feedback)[Third-party testing for harmful outputs](/safety/3rd-party-testing-for-harmful-outputs)[Third-party testing for out-of-scope outputs](/safety/3rd-party-testing-for-out-of-scope-outputs)[Third-party testing for customer-defined risk](/safety/3rd-party-testing-for-other-risk)
++
++[D. Reliability](/reliability)
++
++[Prevent hallucinated outputs](/reliability/prevent-hallucinated-outputs)[Third-party testing for hallucinations](/reliability/3rd-party-testing-for-hallucinations)[Restrict unsafe tool calls](/reliability/restrict-unsafe-tool-calls)[Third-party testing of tool calls](/reliability/3rd-party-testing-of-tool-calls)
++
++[E. Accountability](/accountability)
++
++[AI failure plan for security breaches](/accountability/ai-failure-plan-for-security-breaches)[AI failure plan for harmful outputs](/accountability/ai-failure-plan-for-harmful-outputs)[AI failure plan for hallucinations](/accountability/ai-failure-plan-for-hallucinations)[Assign accountability](/accountability/assign-accountability)[Document data storage security](/accountability/assess-cloud-vs-on-prem-processing)[Conduct vendor due diligence](/accountability/conduct-vendor-due-diligence)[[Retired] Document system change approvals](/accountability/document-system-change-approvals)[Review internal processes](/accountability/review-internal-processes)[Monitor third-party access](/accountability/monitor-3rd-party-access)[Establish AI acceptable use policy](/accountability/establish-ai-acceptable-use-policy)[Record processing locations](/accountability/record-processing-locations)[Document regulatory compliance](/accountability/document-regulatory-compliance)[Implement quality management system](/accountability/implement-quality-management-system)[[Retired] Share transparency reports](/accountability/share-transparency-reports)[Log AI system activity](/accountability/log-model-activity)[Implement AI disclosure mechanisms](/accountability/implement-ai-disclosure-mechanisms)[Document system transparency policy](/accountability/document-system-transparency-policy)
++
++[F. Society](/society)
++
++[Prevent AI cyber misuse](/society/prevent-ai-cyber-misuse)[Prevent catastrophic misuse](/society/prevent-catastrophic-misuse)
++
++Certification
++
++[ AIUC-1 certification](/aiuc-1-certification)[ Scoping](/scoping)[ Accredited auditors](/accredited-auditors)[ FAQ](/faq)
++
++[Evidence overview](/evidence)
++
++[Full evidence list](/evidence)[Technical evidence](/evidence/technical)[Legal evidence](/evidence/legal)[Operational evidence](/evidence/operational)[Third-party evals](/evidence/third-party)[Capability-specific evidence](/evidence/capability)
++
++Get in TouchClose
+ 
+ [AIUC-1 Standard](/)
+ 
+@@ -50,163 +122,23 @@ 
+ ## Requirements
+ 
+-### [Third-party testing of adversarial robustness →B001·Mandatory](/security/test-adversarial-robustness)
++### [Third-party testing of adversarial robustnessB001·MandatoryImplement adversarial testing program to validate system resilience against adversarial inputs and prompt injection attempts in line with adversarial threat taxonomyKeywordsAdversarial TestingRed TeamingPrompt InjectionJailbreakCapabilitiesUniversal](/security/test-adversarial-robustness)
+ 
+-Implement adversarial testing program to validate system resilience against adversarial inputs and prompt injection attempts in line with adversarial threat taxonomy
++### [Detect adversarial inputB002·OptionalImplement monitoring capabilities to detect and enable responding to adversarial inputs and prompt injection attemptsKeywordsMonitorAdversarialJailbreakPrompt InjectionCapabilitiesUniversal](/security/detect-adversarial-input)
+ 
+-Keywords
++### [Manage public release of technical detailsB003·OptionalImplement controls to prevent over-disclosure of technical information about AI systems and organizational details that could enable adversarial targetingKeywordsPublic DisclosureOpen-SourceExternal ThreatsCapabilitiesUniversal](/security/limit-technical-over-disclosure)
+ 
+-Adversarial Testing
++### [Prevent AI endpoint scrapingB004·MandatoryImplement safeguards to prevent probing or scraping of external AI endpointsKeywordsScrapingProbingRate LimitingQuery QuotasZero TrustCapabilitiesUniversal](/security/prevent-ai-endpoint-scraping)
+ 
+-Red Teaming
++### [Implement real-time input filteringB005·OptionalImplement real-time input filtering using automated moderation toolsKeywordsPrompt InjectionJailbreakAdversarial Input ProtectionCapabilitiesText-generationVoice-generationImage-generation](/security/implement-real-time-input-filtering)
+ 
+-Prompt Injection
++### [Prevent unauthorized AI agent actionsB006·MandatoryImplement safeguards to prevent AI agents from performing actions beyond intended scope and authorized privilegesKeywordsAccess PermissionsAgent PermissionsCapabilitiesAutomation](/security/enforce-contextual-access-controls)
+ 
+-Jailbreak
++### [Enforce user access privileges to AI systemsB007·MandatoryEstablish and maintain user access controls and admin privileges for AI systems in line with policyKeywordsAccess ControlsOrganizational PolicyCapabilitiesUniversal](/security/enforce-ai-access-privileges)
+ 
+-Capabilities
++### [Protect AI system deployment environmentB008·MandatoryImplement security measures for AI system deployment environments including encryption, access controls and authorizationKeywordsModel EnvironmentEncryptionAccess ControlsCapabilitiesUniversal](/security/protect-model-deployment-environment)
+ 
+-Universal
+-
+-### [Detect adversarial input →B002·Optional](/security/detect-adversarial-input)
+-
+-Implement monitoring capabilities to detect and respond to adversarial inputs and prompt injection attempts
+-
+-Keywords
+-
+-Monitor
+-
+-Adversarial
+-
+-Jailbreak
+-
+-Prompt Injection
+-
+-Capabilities
+-
+-Universal
+-
+-### [Manage public release of technical details →B003·Optional](/security/limit-technical-over-disclosure)
+-
+-Implement controls to prevent over-disclosure of technical information about AI systems and organizational details that could enable adversarial targeting
+-
+-Keywords
+-
+-Public Disclosure
+-
+-Open-Source
+-
+-External Threats
+-
+-Capabilities
+-
+-Universal
+-
+-### [Prevent AI endpoint scraping →B004·Mandatory](/security/prevent-ai-endpoint-scraping)
+-
+-Implement safeguards to prevent probing or scraping of external AI endpoints
+-
+-Keywords
+-
+-Scraping
+-
+-Probing
+-
+-Rate Limiting
+-
+-Query Quotas
+-
+-Zero Trust
+-
+-Capabilities
+-
+-Universal
+-
+-### [Implement real-time input filtering →B005·Optional](/security/implement-real-time-input-filtering)
+-
+-Implement real-time input filtering using automated moderation tools
+-
+-Keywords
+-
+-Prompt Injection
+-
+-Jailbreak
+-
+-Adversarial Input Protection
+-
+-Capabilities
+-
+-Text-generation
+-
+-Voice-generation
+-
+-Image-generation
+-
+-### [Prevent unauthorized AI agent actions →B006·Mandatory](/security/enforce-contextual-access-controls)
+-
+-Implement safeguards to prevent AI agents from performing actions beyond intended scope and authorized privileges
+-
+-Keywords
+-
+-Access Permissions
+-
+-Agent Permissions
+-
+-Capabilities
+-
+-Automation
+-
+-### [Enforce user access privileges to AI systems →B007·Mandatory](/security/enforce-ai-access-privileges)
+-
+-Establish and maintain user access controls and admin privileges for AI systems in line with policy
+-
+-Keywords
+-
+-Access Controls
+-
+-Organizational Policy
+-
+-Capabilities
+-
+-Universal
+-
+-### [Protect model deployment environment →B008·Mandatory](/security/protect-model-deployment-environment)
+-
+-Implement security measures for AI model deployment environments including encryption, access controls and authorization
+-
+-Keywords
+-
+-Model Environment
+-
+-Encryption
+-
+-Access Controls
+-
+-Capabilities
+-
+-Universal
+-
+-### [Limit output over-exposure →B009·Mandatory](/security/limit-output-over-exposure)
+-
+-Implement output limitations and obfuscation techniques to safeguard against information leakage
+-
+-Keywords
+-
+-Output Obfuscation
+-
+-Fidelity Reduction
+-
+-Information Leakage
+-
+-Adversarial Use
+-
+-Response Filtering
+-
+-Capabilities
+-
+-Text-generation
+-
+-Voice-generation
++### [Limit output over-exposureB009·MandatoryImplement output limitations and obfuscation techniques to safeguard against information leakageKeywordsOutput ObfuscationFidelity ReductionInformation LeakageAdversarial UseResponse FilteringCapabilitiesText-generationVoice-generation](/security/limit-output-over-exposure)
+ 
+ ## AIUC-1 is built with industry leaders
+ 
+@@ -234,19 +166,19 @@ 
+ Lead for Stanford Trustworthy AI Research
+ 
+-"AIUC-1 standardizes how AI is adopted. That's powerful."
++"AIUC-1standardizes how AI is adopted. That's powerful."
+ 
+ John Bautista
+ 
+ Partner at Orrick
+ 
+-"An AIUC-1 certificate enables me to sign contracts much faster— it's a clear signal I can trust."
++"An AIUC-1certificate enables me to sign contracts much faster— it's a clear signal I can trust."
+ 
+ Lena Smart
+ 
+ Head of Trust for SecurityPal and former CISO of MongoDB
+ 
+-The Security, Safety, and Reliability standard for AI agents 
++The Security, Safety, and Reliability standard for AI agents
+ 
+ Stay up to date with AIUC-1
+ 
+
+```
+
+
+## safety
+
+**102 additions, 222 removals**
+
+```diff
+--- 2026-Q1/safety.md+++ 2026-Q2/safety.md@@ -6,35 +6,107 @@ 
+ [Framework comparisons](/crosswalks)
+ 
++[EU AI Act](/crosswalks/eu-ai-act)[ISO 42001](/crosswalks/iso-42001)[MITRE ATLAS](/crosswalks/mitre-atlas)[NIST AI RMF](/crosswalks/nist-ai-rmf)[OWASP Top 10 for LLM Applications](/crosswalks/owasp-top-10)[OWASP AIVSS](/crosswalks/owasp-aivss)[IBM AI Risk Atlas](/crosswalks/ibm-ai-risk-atlas)[Cisco AI Security & Safety](/crosswalks/cisco-ai-security-safety-framework)[CSA AICM](/crosswalks/csa-aicm)
++
+ [Changelog](/changelog)[AIUC-1 Consortium](/consortium)[Provide input on AIUC-1](/learn/contribute)[Contact](/contact)
+ 
+ Standard
+ 
+ [A. Data & Privacy](/data-and-privacy)
+ 
++[Establish input data policy](/data-and-privacy/establish-data-use-policy)[Establish output data policy](/data-and-privacy/define-output-rights)[Limit AI agent data access](/data-and-privacy/implement-contextual-data-safeguards)[Protect IP & trade secrets](/data-and-privacy/protect-ip-trade-secrets)[Prevent cross-customer data exposure](/data-and-privacy/prevent-cross-customer-data-exposure)[Prevent PII leakage](/data-and-privacy/prevent-pii-leakage)[Prevent IP violations](/data-and-privacy/prevent-ip-violations)
++
+ [B. Security](/security)
+ 
++[Third-party testing of adversarial robustness](/security/test-adversarial-robustness)[Detect adversarial input](/security/detect-adversarial-input)[Manage public release of technical details](/security/limit-technical-over-disclosure)[Prevent AI endpoint scraping](/security/prevent-ai-endpoint-scraping)[Implement real-time input filtering](/security/implement-real-time-input-filtering)[Prevent unauthorized AI agent actions](/security/enforce-contextual-access-controls)[Enforce user access privileges to AI systems](/security/enforce-ai-access-privileges)[Protect AI system deployment environment](/security/protect-model-deployment-environment)[Limit output over-exposure](/security/limit-output-over-exposure)
++
+ [C. Safety](/safety)
+ 
+-[Define AI risk taxonomy](/safety/define-ai-risk-taxonomy)[Conduct pre-deployment testing](/safety/conduct-pre-deployment-testing)[Prevent harmful outputs](/safety/prevent-harmful-outputs)[Prevent out-of-scope outputs](/safety/prevent-out-of-scope-outputs)[Prevent customer-defined high risk outputs](/safety/prevent-other-high-risk-outputs)[Prevent output vulnerabilities](/safety/prevent-output-vulnerabilities)[Flag high risk outputs](/safety/flag-high-risk-recommendations)[Monitor AI risk categories](/safety/monitor-ai-risk-categories)[Enable real-time feedback and intervention](/safety/collect-real-time-feedback)[Third-party testing for harmful outputs](/safety/3rd-party-testing-for-harmful-outputs)[Third-party testing for out-of-scope outputs](/safety/3rd-party-testing-for-out-of-scope-outputs)[Third-party testing for customer-defined risk](/safety/3rd-party-testing-for-other-risk)
++[Define AI risk taxonomy](/safety/define-ai-risk-taxonomy)[Conduct pre-deployment testing](/safety/conduct-pre-deployment-testing)[Prevent harmful outputs](/safety/prevent-harmful-outputs)[Prevent out-of-scope outputs](/safety/prevent-out-of-scope-outputs)[Prevent customer-defined high risk outputs](/safety/prevent-other-high-risk-outputs)[Prevent output vulnerabilities](/safety/prevent-output-vulnerabilities)[Flag high risk outputs for human review](/safety/flag-high-risk-recommendations)[Monitor AI risk categories](/safety/monitor-ai-risk-categories)[Enable real-time feedback and intervention](/safety/collect-real-time-feedback)[Third-party testing for harmful outputs](/safety/3rd-party-testing-for-harmful-outputs)[Third-party testing for out-of-scope outputs](/safety/3rd-party-testing-for-out-of-scope-outputs)[Third-party testing for customer-defined risk](/safety/3rd-party-testing-for-other-risk)
+ 
+ [D. Reliability](/reliability)
+ 
++[Prevent hallucinated outputs](/reliability/prevent-hallucinated-outputs)[Third-party testing for hallucinations](/reliability/3rd-party-testing-for-hallucinations)[Restrict unsafe tool calls](/reliability/restrict-unsafe-tool-calls)[Third-party testing of tool calls](/reliability/3rd-party-testing-of-tool-calls)
++
+ [E. Accountability](/accountability)
+ 
++[AI failure plan for security breaches](/accountability/ai-failure-plan-for-security-breaches)[AI failure plan for harmful outputs](/accountability/ai-failure-plan-for-harmful-outputs)[AI failure plan for hallucinations](/accountability/ai-failure-plan-for-hallucinations)[Assign accountability](/accountability/assign-accountability)[Document data storage security](/accountability/assess-cloud-vs-on-prem-processing)[Conduct vendor due diligence](/accountability/conduct-vendor-due-diligence)[[Retired] Document system change approvals](/accountability/document-system-change-approvals)[Review internal processes](/accountability/review-internal-processes)[Monitor third-party access](/accountability/monitor-3rd-party-access)[Establish AI acceptable use policy](/accountability/establish-ai-acceptable-use-policy)[Record processing locations](/accountability/record-processing-locations)[Document regulatory compliance](/accountability/document-regulatory-compliance)[Implement quality management system](/accountability/implement-quality-management-system)[[Retired] Share transparency reports](/accountability/share-transparency-reports)[Log AI system activity](/accountability/log-model-activity)[Implement AI disclosure mechanisms](/accountability/implement-ai-disclosure-mechanisms)[Document system transparency policy](/accountability/document-system-transparency-policy)
++
+ [F. Society](/society)
+ 
++[Prevent AI cyber misuse](/society/prevent-ai-cyber-misuse)[Prevent catastrophic misuse](/society/prevent-catastrophic-misuse)
++
+ Certification
+ 
+ [ AIUC-1 certification](/aiuc-1-certification)[ Scoping](/scoping)[ Accredited auditors](/accredited-auditors)[ FAQ](/faq)
+ 
+ [Evidence overview](/evidence)
+ 
++[Full evidence list](/evidence)[Technical evidence](/evidence/technical)[Legal evidence](/evidence/legal)[Operational evidence](/evidence/operational)[Third-party evals](/evidence/third-party)[Capability-specific evidence](/evidence/capability)
++
+ [](/)
+ 
+-Menu 
+-
+-[Adopt AIUC-1](/contact)
++Get in TouchClose
++
++Share your details and let us know how you hope to use AIUC-1
++
++Name
++
++Work email
++
++I am interested in...
++
++Certifying an AI agentIntegrating AIUC-1 in vendor assessmentJoining the AIUC-1 contributor communityPartnering with AIUC-1Learning more
++
++Submit
++
++Menu
++
++Context
++
++[Introduction](/)[Certificate overview](/learn/certificate)
++
++[Framework comparisons](/crosswalks)
++
++[EU AI Act](/crosswalks/eu-ai-act)[ISO 42001](/crosswalks/iso-42001)[MITRE ATLAS](/crosswalks/mitre-atlas)[NIST AI RMF](/crosswalks/nist-ai-rmf)[OWASP Top 10 for LLM Applications](/crosswalks/owasp-top-10)[OWASP AIVSS](/crosswalks/owasp-aivss)[IBM AI Risk Atlas](/crosswalks/ibm-ai-risk-atlas)[Cisco AI Security & Safety](/crosswalks/cisco-ai-security-safety-framework)[CSA AICM](/crosswalks/csa-aicm)
++
++[Changelog](/changelog)[AIUC-1 Consortium](/consortium)[Provide input on AIUC-1](/learn/contribute)[Contact](/contact)
++
++Standard
++
++[A. Data & Privacy](/data-and-privacy)
++
++[Establish input data policy](/data-and-privacy/establish-data-use-policy)[Establish output data policy](/data-and-privacy/define-output-rights)[Limit AI agent data access](/data-and-privacy/implement-contextual-data-safeguards)[Protect IP & trade secrets](/data-and-privacy/protect-ip-trade-secrets)[Prevent cross-customer data exposure](/data-and-privacy/prevent-cross-customer-data-exposure)[Prevent PII leakage](/data-and-privacy/prevent-pii-leakage)[Prevent IP violations](/data-and-privacy/prevent-ip-violations)
++
++[B. Security](/security)
++
++[Third-party testing of adversarial robustness](/security/test-adversarial-robustness)[Detect adversarial input](/security/detect-adversarial-input)[Manage public release of technical details](/security/limit-technical-over-disclosure)[Prevent AI endpoint scraping](/security/prevent-ai-endpoint-scraping)[Implement real-time input filtering](/security/implement-real-time-input-filtering)[Prevent unauthorized AI agent actions](/security/enforce-contextual-access-controls)[Enforce user access privileges to AI systems](/security/enforce-ai-access-privileges)[Protect AI system deployment environment](/security/protect-model-deployment-environment)[Limit output over-exposure](/security/limit-output-over-exposure)
++
++[C. Safety](/safety)
++
++[Define AI risk taxonomy](/safety/define-ai-risk-taxonomy)[Conduct pre-deployment testing](/safety/conduct-pre-deployment-testing)[Prevent harmful outputs](/safety/prevent-harmful-outputs)[Prevent out-of-scope outputs](/safety/prevent-out-of-scope-outputs)[Prevent customer-defined high risk outputs](/safety/prevent-other-high-risk-outputs)[Prevent output vulnerabilities](/safety/prevent-output-vulnerabilities)[Flag high risk outputs for human review](/safety/flag-high-risk-recommendations)[Monitor AI risk categories](/safety/monitor-ai-risk-categories)[Enable real-time feedback and intervention](/safety/collect-real-time-feedback)[Third-party testing for harmful outputs](/safety/3rd-party-testing-for-harmful-outputs)[Third-party testing for out-of-scope outputs](/safety/3rd-party-testing-for-out-of-scope-outputs)[Third-party testing for customer-defined risk](/safety/3rd-party-testing-for-other-risk)
++
++[D. Reliability](/reliability)
++
++[Prevent hallucinated outputs](/reliability/prevent-hallucinated-outputs)[Third-party testing for hallucinations](/reliability/3rd-party-testing-for-hallucinations)[Restrict unsafe tool calls](/reliability/restrict-unsafe-tool-calls)[Third-party testing of tool calls](/reliability/3rd-party-testing-of-tool-calls)
++
++[E. Accountability](/accountability)
++
++[AI failure plan for security breaches](/accountability/ai-failure-plan-for-security-breaches)[AI failure plan for harmful outputs](/accountability/ai-failure-plan-for-harmful-outputs)[AI failure plan for hallucinations](/accountability/ai-failure-plan-for-hallucinations)[Assign accountability](/accountability/assign-accountability)[Document data storage security](/accountability/assess-cloud-vs-on-prem-processing)[Conduct vendor due diligence](/accountability/conduct-vendor-due-diligence)[[Retired] Document system change approvals](/accountability/document-system-change-approvals)[Review internal processes](/accountability/review-internal-processes)[Monitor third-party access](/accountability/monitor-3rd-party-access)[Establish AI acceptable use policy](/accountability/establish-ai-acceptable-use-policy)[Record processing locations](/accountability/record-processing-locations)[Document regulatory compliance](/accountability/document-regulatory-compliance)[Implement quality management system](/accountability/implement-quality-management-system)[[Retired] Share transparency reports](/accountability/share-transparency-reports)[Log AI system activity](/accountability/log-model-activity)[Implement AI disclosure mechanisms](/accountability/implement-ai-disclosure-mechanisms)[Document system transparency policy](/accountability/document-system-transparency-policy)
++
++[F. Society](/society)
++
++[Prevent AI cyber misuse](/society/prevent-ai-cyber-misuse)[Prevent catastrophic misuse](/society/prevent-catastrophic-misuse)
++
++Certification
++
++[ AIUC-1 certification](/aiuc-1-certification)[ Scoping](/scoping)[ Accredited auditors](/accredited-auditors)[ FAQ](/faq)
++
++[Evidence overview](/evidence)
++
++[Full evidence list](/evidence)[Technical evidence](/evidence/technical)[Legal evidence](/evidence/legal)[Operational evidence](/evidence/operational)[Third-party evals](/evidence/third-party)[Capability-specific evidence](/evidence/capability)
++
++Get in TouchClose
+ 
+ [AIUC-1 Standard](/)
+ 
+@@ -50,221 +122,29 @@ 
+ ## Requirements
+ 
+-### [Define AI risk taxonomy →C001·Mandatory](/safety/define-ai-risk-taxonomy)
+-
+-Establish a risk taxonomy that categorizes risks within harmful, out-of-scope, and hallucinated outputs, tool calls, and other risks based on application-specific usage
+-
+-Keywords
+-
+-Risk Taxonomy
+-
+-Severity Rating
+-
+-Capabilities
+-
+-Universal
+-
+-### [Conduct pre-deployment testing →C002·Mandatory](/safety/conduct-pre-deployment-testing)
+-
+-Conduct internal testing of AI systems prior to deployment across risk categories for system changes requiring formal review or approval
+-
+-Keywords
+-
+-Internal Testing
+-
+-Pre-Deployment Testing
+-
+-Capabilities
+-
+-Universal
+-
+-### [Prevent harmful outputs →C003·Mandatory](/safety/prevent-harmful-outputs)
+-
+-Implement safeguards or technical controls to prevent harmful outputs including distressed outputs, angry responses, high-risk advice, offensive content, bias, and deception
+-
+-Keywords
+-
+-Harmful Outputs
+-
+-Distressed
+-
+-Angry
+-
+-Advice
+-
+-Offensive
+-
+-Bias
+-
+-Capabilities
+-
+-Text-generation
+-
+-Voice-generation
+-
+-Image-generation
+-
+-### [Prevent out-of-scope outputs →C004·Mandatory](/safety/prevent-out-of-scope-outputs)
+-
+-Implement safeguards or technical controls to prevent out-of-scope outputs (e.g. political discussion, healthcare advice)
+-
+-Keywords
+-
+-Out-of-Scope
+-
+-Political Discussion
+-
+-Technical Controls
+-
+-Capabilities
+-
+-Text-generation
+-
+-Voice-generation
+-
+-### [Prevent customer-defined high risk outputs →C005·Mandatory](/safety/prevent-other-high-risk-outputs)
+-
+-Implement safeguards or technical controls to prevent additional high risk outputs as defined in risk taxonomy
+-
+-Keywords
+-
+-High-Risk Outputs
+-
+-Risk Taxonomy
+-
+-Technical Controls
+-
+-Capabilities
+-
+-Universal
+-
+-### [Prevent output vulnerabilities →C006·Mandatory](/safety/prevent-output-vulnerabilities)
+-
+-Implement safeguards to prevent security vulnerabilities in outputs from impacting users
+-
+-Keywords
+-
+-Harmful Outputs
+-
+-Code Injection
+-
+-Data Exfiltration
+-
+-Capabilities
+-
+-Universal
+-
+-### [Flag high risk outputs →C007·Optional](/safety/flag-high-risk-recommendations)
+-
+-Implement an alerting system that flags high-risk outputs for human review
+-
+-Keywords
+-
+-Human Review
+-
+-Escalation
+-
+-Capabilities
+-
+-Universal
+-
+-### [Monitor AI risk categories →C008·Optional](/safety/monitor-ai-risk-categories)
+-
+-Implement monitoring of AI systems across risk categories
+-
+-Keywords
+-
+-Monitoring
+-
+-High-Risk Outputs
+-
+-Capabilities
+-
+-Universal
+-
+-### [Enable real-time feedback and intervention →C009·Optional](/safety/collect-real-time-feedback)
+-
+-Implement mechanisms to enable real-time user feedback collection and intervention mechanisms
+-
+-Keywords
+-
+-Feedback
+-
+-Intervention
+-
+-User Control
+-
+-Transparency
+-
+-Capabilities
+-
+-Universal
+-
+-### [Third-party testing for harmful outputs →C010·Mandatory](/safety/3rd-party-testing-for-harmful-outputs)
+-
+-Appoint expert third parties to evaluate system robustness to harmful outputs including distressed outputs, angry responses, high-risk advice, offensive content, bias, and deception at least every 3 months
+-
+-Keywords
+-
+-Harmful Outputs
+-
+-Distressed
+-
+-Angry
+-
+-Advice
+-
+-Offensive
+-
+-Bias
+-
+-Risk Severity
+-
+-Toxigen
+-
+-Third-Party Testing
+-
+-Capabilities
+-
+-Text-generation
+-
+-Voice-generation
+-
+-Image-generation
+-
+-### [Third-party testing for out-of-scope outputs →C011·Mandatory](/safety/3rd-party-testing-for-out-of-scope-outputs)
+-
+-Appoint expert third parties to evaluate system robustness to out-of-scope outputs at least every 3 months (e.g. political discussion, healthcare advice)
+-
+-Keywords
+-
+-Out-of-Scope
+-
+-Political Discussion
+-
+-Third-Party Testing
+-
+-Capabilities
+-
+-Text-generation
+-
+-Voice-generation
+-
+-### [Third-party testing for customer-defined risk →C012·Mandatory](/safety/3rd-party-testing-for-other-risk)
+-
+-Appoint expert third-parties to evaluate system robustness to additional high-risk outputs as defined in risk taxonomy at least every 3 months
+-
+-Keywords
+-
+-High-Risk Outputs
+-
+-Risk Taxonomy
+-
+-Third-Party Testing
+-
+-Capabilities
+-
+-Universal
++### [Define AI risk taxonomyC001·MandatoryEstablish a risk taxonomy based on system capabilites and deployment contextKeywordsRisk TaxonomySeverity RatingCapabilitiesUniversal](/safety/define-ai-risk-taxonomy)
++
++### [Conduct pre-deployment testingC002·MandatoryConduct internal testing of AI systems prior to deployment across risk categories for system changes requiring formal review or approvalKeywordsInternal TestingPre-Deployment TestingCapabilitiesUniversal](/safety/conduct-pre-deployment-testing)
++
++### [Prevent harmful outputsC003·MandatoryImplement safeguards or technical controls to prevent harmful outputs including distressed outputs, angry responses, high-risk advice, offensive content, bias, and deceptionKeywordsHarmful OutputsDistressedAngryAdviceOffensiveBiasCapabilitiesText-generationVoice-generationImage-generation](/safety/prevent-harmful-outputs)
++
++### [Prevent out-of-scope outputsC004·MandatoryImplement safeguards or technical controls to prevent out-of-scope outputs (e.g. political discussion, healthcare advice)KeywordsOut-of-ScopePolitical DiscussionTechnical ControlsCapabilitiesText-generationVoice-generation](/safety/prevent-out-of-scope-outputs)
++
++### [Prevent customer-defined high risk outputsC005·MandatoryImplement safeguards or technical controls to prevent additional high risk outputs as defined in risk taxonomyKeywordsHigh-Risk OutputsRisk TaxonomyTechnical ControlsCapabilitiesUniversal](/safety/prevent-other-high-risk-outputs)
++
++### [Prevent output vulnerabilitiesC006·MandatoryImplement safeguards to prevent security vulnerabilities in outputs from impacting usersKeywordsHarmful OutputsCode InjectionData ExfiltrationCapabilitiesCode-generationText-generationVoice-generation](/safety/prevent-output-vulnerabilities)
++
++### [Flag high risk outputs for human reviewC007·OptionalImplement an alerting system that flags high-risk outputs for human reviewKeywordsHuman ReviewEscalationCapabilitiesUniversal](/safety/flag-high-risk-recommendations)
++
++### [Monitor AI risk categoriesC008·OptionalImplement monitoring of AI systems across risk categoriesKeywordsMonitoringHigh-Risk OutputsCapabilitiesUniversal](/safety/monitor-ai-risk-categories)
++
++### [Enable real-time feedback and interventionC009·OptionalImplement mechanisms to enable real-time user feedback collection, intervention and actioning mechanismsKeywordsFeedbackInterventionUser ControlTransparencyCapabilitiesUniversal](/safety/collect-real-time-feedback)
++
++### [Third-party testing for harmful outputsC010·MandatoryAppoint expert third parties to evaluate system robustness to harmful outputs including distressed outputs, angry responses, high-risk advice, offensive content, bias, and deception at least every 3 monthsKeywordsHarmful OutputsDistressedAngryAdviceOffensiveBiasRisk SeverityToxigenThird-Party TestingCapabilitiesText-generationVoice-generationImage-generation](/safety/3rd-party-testing-for-harmful-outputs)
++
++### [Third-party testing for out-of-scope outputsC011·MandatoryAppoint expert third parties to evaluate system robustness to out-of-scope outputs at least every 3 months (e.g. political discussion, healthcare advice)KeywordsOut-of-ScopePolitical DiscussionThird-Party TestingCapabilitiesText-generationVoice-generation](/safety/3rd-party-testing-for-out-of-scope-outputs)
++
++### [Third-party testing for customer-defined riskC012·MandatoryAppoint expert third-parties to evaluate system robustness to additional high-risk outputs as defined in risk taxonomy at least every 3 monthsKeywordsHigh-Risk OutputsRisk TaxonomyThird-Party TestingCapabilitiesUniversal](/safety/3rd-party-testing-for-other-risk)
+ 
+ ## AIUC-1 is built with industry leaders
+ 
+@@ -292,19 +172,19 @@ 
+ Lead for Stanford Trustworthy AI Research
+ 
+-"AIUC-1 standardizes how AI is adopted. That's powerful."
++"AIUC-1standardizes how AI is adopted. That's powerful."
+ 
+ John Bautista
+ 
+ Partner at Orrick
+ 
+-"An AIUC-1 certificate enables me to sign contracts much faster— it's a clear signal I can trust."
++"An AIUC-1certificate enables me to sign contracts much faster— it's a clear signal I can trust."
+ 
+ Lena Smart
+ 
+ Head of Trust for SecurityPal and former CISO of MongoDB
+ 
+-The Security, Safety, and Reliability standard for AI agents 
++The Security, Safety, and Reliability standard for AI agents
+ 
+ Stay up to date with AIUC-1
+ 
+
+```
+
+
+## reliability
+
+**81 additions, 65 removals**
+
+```diff
+--- 2026-Q1/reliability.md+++ 2026-Q2/reliability.md@@ -6,15 +6,23 @@ 
+ [Framework comparisons](/crosswalks)
+ 
++[EU AI Act](/crosswalks/eu-ai-act)[ISO 42001](/crosswalks/iso-42001)[MITRE ATLAS](/crosswalks/mitre-atlas)[NIST AI RMF](/crosswalks/nist-ai-rmf)[OWASP Top 10 for LLM Applications](/crosswalks/owasp-top-10)[OWASP AIVSS](/crosswalks/owasp-aivss)[IBM AI Risk Atlas](/crosswalks/ibm-ai-risk-atlas)[Cisco AI Security & Safety](/crosswalks/cisco-ai-security-safety-framework)[CSA AICM](/crosswalks/csa-aicm)
++
+ [Changelog](/changelog)[AIUC-1 Consortium](/consortium)[Provide input on AIUC-1](/learn/contribute)[Contact](/contact)
+ 
+ Standard
+ 
+ [A. Data & Privacy](/data-and-privacy)
+ 
++[Establish input data policy](/data-and-privacy/establish-data-use-policy)[Establish output data policy](/data-and-privacy/define-output-rights)[Limit AI agent data access](/data-and-privacy/implement-contextual-data-safeguards)[Protect IP & trade secrets](/data-and-privacy/protect-ip-trade-secrets)[Prevent cross-customer data exposure](/data-and-privacy/prevent-cross-customer-data-exposure)[Prevent PII leakage](/data-and-privacy/prevent-pii-leakage)[Prevent IP violations](/data-and-privacy/prevent-ip-violations)
++
+ [B. Security](/security)
+ 
++[Third-party testing of adversarial robustness](/security/test-adversarial-robustness)[Detect adversarial input](/security/detect-adversarial-input)[Manage public release of technical details](/security/limit-technical-over-disclosure)[Prevent AI endpoint scraping](/security/prevent-ai-endpoint-scraping)[Implement real-time input filtering](/security/implement-real-time-input-filtering)[Prevent unauthorized AI agent actions](/security/enforce-contextual-access-controls)[Enforce user access privileges to AI systems](/security/enforce-ai-access-privileges)[Protect AI system deployment environment](/security/protect-model-deployment-environment)[Limit output over-exposure](/security/limit-output-over-exposure)
++
+ [C. Safety](/safety)
++
++[Define AI risk taxonomy](/safety/define-ai-risk-taxonomy)[Conduct pre-deployment testing](/safety/conduct-pre-deployment-testing)[Prevent harmful outputs](/safety/prevent-harmful-outputs)[Prevent out-of-scope outputs](/safety/prevent-out-of-scope-outputs)[Prevent customer-defined high risk outputs](/safety/prevent-other-high-risk-outputs)[Prevent output vulnerabilities](/safety/prevent-output-vulnerabilities)[Flag high risk outputs for human review](/safety/flag-high-risk-recommendations)[Monitor AI risk categories](/safety/monitor-ai-risk-categories)[Enable real-time feedback and intervention](/safety/collect-real-time-feedback)[Third-party testing for harmful outputs](/safety/3rd-party-testing-for-harmful-outputs)[Third-party testing for out-of-scope outputs](/safety/3rd-party-testing-for-out-of-scope-outputs)[Third-party testing for customer-defined risk](/safety/3rd-party-testing-for-other-risk)
+ 
+ [D. Reliability](/reliability)
+ 
+@@ -22,7 +30,11 @@ 
+ [E. Accountability](/accountability)
+ 
++[AI failure plan for security breaches](/accountability/ai-failure-plan-for-security-breaches)[AI failure plan for harmful outputs](/accountability/ai-failure-plan-for-harmful-outputs)[AI failure plan for hallucinations](/accountability/ai-failure-plan-for-hallucinations)[Assign accountability](/accountability/assign-accountability)[Document data storage security](/accountability/assess-cloud-vs-on-prem-processing)[Conduct vendor due diligence](/accountability/conduct-vendor-due-diligence)[[Retired] Document system change approvals](/accountability/document-system-change-approvals)[Review internal processes](/accountability/review-internal-processes)[Monitor third-party access](/accountability/monitor-3rd-party-access)[Establish AI acceptable use policy](/accountability/establish-ai-acceptable-use-policy)[Record processing locations](/accountability/record-processing-locations)[Document regulatory compliance](/accountability/document-regulatory-compliance)[Implement quality management system](/accountability/implement-quality-management-system)[[Retired] Share transparency reports](/accountability/share-transparency-reports)[Log AI system activity](/accountability/log-model-activity)[Implement AI disclosure mechanisms](/accountability/implement-ai-disclosure-mechanisms)[Document system transparency policy](/accountability/document-system-transparency-policy)
++
+ [F. Society](/society)
++
++[Prevent AI cyber misuse](/society/prevent-ai-cyber-misuse)[Prevent catastrophic misuse](/society/prevent-catastrophic-misuse)
+ 
+ Certification
+ 
+@@ -30,11 +42,71 @@ 
+ [Evidence overview](/evidence)
+ 
++[Full evidence list](/evidence)[Technical evidence](/evidence/technical)[Legal evidence](/evidence/legal)[Operational evidence](/evidence/operational)[Third-party evals](/evidence/third-party)[Capability-specific evidence](/evidence/capability)
++
+ [](/)
+ 
+-Menu 
++Get in TouchClose
+ 
+-[Adopt AIUC-1](/contact)
++Share your details and let us know how you hope to use AIUC-1
++
++Name
++
++Work email
++
++I am interested in...
++
++Certifying an AI agentIntegrating AIUC-1 in vendor assessmentJoining the AIUC-1 contributor communityPartnering with AIUC-1Learning more
++
++Submit
++
++Menu
++
++Context
++
++[Introduction](/)[Certificate overview](/learn/certificate)
++
++[Framework comparisons](/crosswalks)
++
++[EU AI Act](/crosswalks/eu-ai-act)[ISO 42001](/crosswalks/iso-42001)[MITRE ATLAS](/crosswalks/mitre-atlas)[NIST AI RMF](/crosswalks/nist-ai-rmf)[OWASP Top 10 for LLM Applications](/crosswalks/owasp-top-10)[OWASP AIVSS](/crosswalks/owasp-aivss)[IBM AI Risk Atlas](/crosswalks/ibm-ai-risk-atlas)[Cisco AI Security & Safety](/crosswalks/cisco-ai-security-safety-framework)[CSA AICM](/crosswalks/csa-aicm)
++
++[Changelog](/changelog)[AIUC-1 Consortium](/consortium)[Provide input on AIUC-1](/learn/contribute)[Contact](/contact)
++
++Standard
++
++[A. Data & Privacy](/data-and-privacy)
++
++[Establish input data policy](/data-and-privacy/establish-data-use-policy)[Establish output data policy](/data-and-privacy/define-output-rights)[Limit AI agent data access](/data-and-privacy/implement-contextual-data-safeguards)[Protect IP & trade secrets](/data-and-privacy/protect-ip-trade-secrets)[Prevent cross-customer data exposure](/data-and-privacy/prevent-cross-customer-data-exposure)[Prevent PII leakage](/data-and-privacy/prevent-pii-leakage)[Prevent IP violations](/data-and-privacy/prevent-ip-violations)
++
++[B. Security](/security)
++
++[Third-party testing of adversarial robustness](/security/test-adversarial-robustness)[Detect adversarial input](/security/detect-adversarial-input)[Manage public release of technical details](/security/limit-technical-over-disclosure)[Prevent AI endpoint scraping](/security/prevent-ai-endpoint-scraping)[Implement real-time input filtering](/security/implement-real-time-input-filtering)[Prevent unauthorized AI agent actions](/security/enforce-contextual-access-controls)[Enforce user access privileges to AI systems](/security/enforce-ai-access-privileges)[Protect AI system deployment environment](/security/protect-model-deployment-environment)[Limit output over-exposure](/security/limit-output-over-exposure)
++
++[C. Safety](/safety)
++
++[Define AI risk taxonomy](/safety/define-ai-risk-taxonomy)[Conduct pre-deployment testing](/safety/conduct-pre-deployment-testing)[Prevent harmful outputs](/safety/prevent-harmful-outputs)[Prevent out-of-scope outputs](/safety/prevent-out-of-scope-outputs)[Prevent customer-defined high risk outputs](/safety/prevent-other-high-risk-outputs)[Prevent output vulnerabilities](/safety/prevent-output-vulnerabilities)[Flag high risk outputs for human review](/safety/flag-high-risk-recommendations)[Monitor AI risk categories](/safety/monitor-ai-risk-categories)[Enable real-time feedback and intervention](/safety/collect-real-time-feedback)[Third-party testing for harmful outputs](/safety/3rd-party-testing-for-harmful-outputs)[Third-party testing for out-of-scope outputs](/safety/3rd-party-testing-for-out-of-scope-outputs)[Third-party testing for customer-defined risk](/safety/3rd-party-testing-for-other-risk)
++
++[D. Reliability](/reliability)
++
++[Prevent hallucinated outputs](/reliability/prevent-hallucinated-outputs)[Third-party testing for hallucinations](/reliability/3rd-party-testing-for-hallucinations)[Restrict unsafe tool calls](/reliability/restrict-unsafe-tool-calls)[Third-party testing of tool calls](/reliability/3rd-party-testing-of-tool-calls)
++
++[E. Accountability](/accountability)
++
++[AI failure plan for security breaches](/accountability/ai-failure-plan-for-security-breaches)[AI failure plan for harmful outputs](/accountability/ai-failure-plan-for-harmful-outputs)[AI failure plan for hallucinations](/accountability/ai-failure-plan-for-hallucinations)[Assign accountability](/accountability/assign-accountability)[Document data storage security](/accountability/assess-cloud-vs-on-prem-processing)[Conduct vendor due diligence](/accountability/conduct-vendor-due-diligence)[[Retired] Document system change approvals](/accountability/document-system-change-approvals)[Review internal processes](/accountability/review-internal-processes)[Monitor third-party access](/accountability/monitor-3rd-party-access)[Establish AI acceptable use policy](/accountability/establish-ai-acceptable-use-policy)[Record processing locations](/accountability/record-processing-locations)[Document regulatory compliance](/accountability/document-regulatory-compliance)[Implement quality management system](/accountability/implement-quality-management-system)[[Retired] Share transparency reports](/accountability/share-transparency-reports)[Log AI system activity](/accountability/log-model-activity)[Implement AI disclosure mechanisms](/accountability/implement-ai-disclosure-mechanisms)[Document system transparency policy](/accountability/document-system-transparency-policy)
++
++[F. Society](/society)
++
++[Prevent AI cyber misuse](/society/prevent-ai-cyber-misuse)[Prevent catastrophic misuse](/society/prevent-catastrophic-misuse)
++
++Certification
++
++[ AIUC-1 certification](/aiuc-1-certification)[ Scoping](/scoping)[ Accredited auditors](/accredited-auditors)[ FAQ](/faq)
++
++[Evidence overview](/evidence)
++
++[Full evidence list](/evidence)[Technical evidence](/evidence/technical)[Legal evidence](/evidence/legal)[Operational evidence](/evidence/operational)[Third-party evals](/evidence/third-party)[Capability-specific evidence](/evidence/capability)
++
++Get in TouchClose
+ 
+ [AIUC-1 Standard](/)
+ 
+@@ -50,69 +122,13 @@ 
+ ## Requirements
+ 
+-### [Prevent hallucinated outputs →D001·Mandatory](/reliability/prevent-hallucinated-outputs)
++### [Prevent hallucinated outputsD001·MandatoryImplement safeguards or technical controls to prevent hallucinated outputsKeywordsHallucinationsTechnical ControlsCapabilitiesText-generationVoice-generationCode-generation](/reliability/prevent-hallucinated-outputs)
+ 
+-Implement safeguards or technical controls to prevent hallucinated outputs
++### [Third-party testing for hallucinationsD002·MandatoryAppoint expert third-parties to evaluate hallucinated outputs at least every 3 monthsKeywordsHallucinationsThird-Party TestingCapabilitiesText-generationVoice-generationCode-generation](/reliability/3rd-party-testing-for-hallucinations)
+ 
+-Keywords
++### [Restrict unsafe tool callsD003·MandatoryImplement safeguards or technical controls to prevent tool calls in AI systems from executing unauthorized actions, accessing restricted information, or making decisions beyond their intended scopeKeywordsTool CallsTool SelectionTechnical ControlsCapabilitiesAutomation](/reliability/restrict-unsafe-tool-calls)
+ 
+-Hallucinations
+-
+-Technical Controls
+-
+-Capabilities
+-
+-Text-generation
+-
+-Voice-generation
+-
+-### [Third-party testing for hallucinations →D002·Mandatory](/reliability/3rd-party-testing-for-hallucinations)
+-
+-Appoint expert third-parties to evaluate hallucinated outputs at least every 3 months
+-
+-Keywords
+-
+-Hallucinations
+-
+-Third-Party Testing
+-
+-Capabilities
+-
+-Text-generation
+-
+-Voice-generation
+-
+-### [Restrict unsafe tool calls →D003·Mandatory](/reliability/restrict-unsafe-tool-calls)
+-
+-Implement safeguards or technical controls to prevent tool calls in AI systems from executing unauthorized actions, accessing restricted information, or making decisions beyond their intended scope
+-
+-Keywords
+-
+-Tool Calls
+-
+-Tool Selection
+-
+-Technical Controls
+-
+-Capabilities
+-
+-Automation
+-
+-### [Third-party testing of tool calls →D004·Mandatory](/reliability/3rd-party-testing-of-tool-calls)
+-
+-Appoint expert third-parties to evaluate tool calls in AI systems, including executing unauthorized actions, accessing restricted information, or making decisions beyond their intended scope at least every 3 months
+-
+-Keywords
+-
+-Tool Calls
+-
+-Tool Selection
+-
+-Third-Party Testing
+-
+-Capabilities
+-
+-Automation
++### [Third-party testing of tool callsD004·MandatoryAppoint expert third-parties to evaluate tool calls in AI systems, including executing unauthorized actions, accessing restricted information, or making decisions beyond their intended scope at least every 3 monthsKeywordsTool CallsTool SelectionThird-Party TestingCapabilitiesAutomation](/reliability/3rd-party-testing-of-tool-calls)
+ 
+ ## AIUC-1 is built with industry leaders
+ 
+@@ -140,19 +156,19 @@ 
+ Lead for Stanford Trustworthy AI Research
+ 
+-"AIUC-1 standardizes how AI is adopted. That's powerful."
++"AIUC-1standardizes how AI is adopted. That's powerful."
+ 
+ John Bautista
+ 
+ Partner at Orrick
+ 
+-"An AIUC-1 certificate enables me to sign contracts much faster— it's a clear signal I can trust."
++"An AIUC-1certificate enables me to sign contracts much faster— it's a clear signal I can trust."
+ 
+ Lena Smart
+ 
+ Head of Trust for SecurityPal and former CISO of MongoDB
+ 
+-The Security, Safety, and Reliability standard for AI agents 
++The Security, Safety, and Reliability standard for AI agents
+ 
+ Stay up to date with AIUC-1
+ 
+
+```
+
+
+## accountability
+
+**112 additions, 280 removals**
+
+```diff
+--- 2026-Q1/accountability.md+++ 2026-Q2/accountability.md@@ -6,35 +6,107 @@ 
+ [Framework comparisons](/crosswalks)
+ 
++[EU AI Act](/crosswalks/eu-ai-act)[ISO 42001](/crosswalks/iso-42001)[MITRE ATLAS](/crosswalks/mitre-atlas)[NIST AI RMF](/crosswalks/nist-ai-rmf)[OWASP Top 10 for LLM Applications](/crosswalks/owasp-top-10)[OWASP AIVSS](/crosswalks/owasp-aivss)[IBM AI Risk Atlas](/crosswalks/ibm-ai-risk-atlas)[Cisco AI Security & Safety](/crosswalks/cisco-ai-security-safety-framework)[CSA AICM](/crosswalks/csa-aicm)
++
+ [Changelog](/changelog)[AIUC-1 Consortium](/consortium)[Provide input on AIUC-1](/learn/contribute)[Contact](/contact)
+ 
+ Standard
+ 
+ [A. Data & Privacy](/data-and-privacy)
+ 
++[Establish input data policy](/data-and-privacy/establish-data-use-policy)[Establish output data policy](/data-and-privacy/define-output-rights)[Limit AI agent data access](/data-and-privacy/implement-contextual-data-safeguards)[Protect IP & trade secrets](/data-and-privacy/protect-ip-trade-secrets)[Prevent cross-customer data exposure](/data-and-privacy/prevent-cross-customer-data-exposure)[Prevent PII leakage](/data-and-privacy/prevent-pii-leakage)[Prevent IP violations](/data-and-privacy/prevent-ip-violations)
++
+ [B. Security](/security)
+ 
++[Third-party testing of adversarial robustness](/security/test-adversarial-robustness)[Detect adversarial input](/security/detect-adversarial-input)[Manage public release of technical details](/security/limit-technical-over-disclosure)[Prevent AI endpoint scraping](/security/prevent-ai-endpoint-scraping)[Implement real-time input filtering](/security/implement-real-time-input-filtering)[Prevent unauthorized AI agent actions](/security/enforce-contextual-access-controls)[Enforce user access privileges to AI systems](/security/enforce-ai-access-privileges)[Protect AI system deployment environment](/security/protect-model-deployment-environment)[Limit output over-exposure](/security/limit-output-over-exposure)
++
+ [C. Safety](/safety)
+ 
++[Define AI risk taxonomy](/safety/define-ai-risk-taxonomy)[Conduct pre-deployment testing](/safety/conduct-pre-deployment-testing)[Prevent harmful outputs](/safety/prevent-harmful-outputs)[Prevent out-of-scope outputs](/safety/prevent-out-of-scope-outputs)[Prevent customer-defined high risk outputs](/safety/prevent-other-high-risk-outputs)[Prevent output vulnerabilities](/safety/prevent-output-vulnerabilities)[Flag high risk outputs for human review](/safety/flag-high-risk-recommendations)[Monitor AI risk categories](/safety/monitor-ai-risk-categories)[Enable real-time feedback and intervention](/safety/collect-real-time-feedback)[Third-party testing for harmful outputs](/safety/3rd-party-testing-for-harmful-outputs)[Third-party testing for out-of-scope outputs](/safety/3rd-party-testing-for-out-of-scope-outputs)[Third-party testing for customer-defined risk](/safety/3rd-party-testing-for-other-risk)
++
+ [D. Reliability](/reliability)
+ 
++[Prevent hallucinated outputs](/reliability/prevent-hallucinated-outputs)[Third-party testing for hallucinations](/reliability/3rd-party-testing-for-hallucinations)[Restrict unsafe tool calls](/reliability/restrict-unsafe-tool-calls)[Third-party testing of tool calls](/reliability/3rd-party-testing-of-tool-calls)
++
+ [E. Accountability](/accountability)
+ 
+-[AI failure plan for security breaches](/accountability/ai-failure-plan-for-security-breaches)[AI failure plan for harmful outputs](/accountability/ai-failure-plan-for-harmful-outputs)[AI failure plan for hallucinations](/accountability/ai-failure-plan-for-hallucinations)[Assign accountability](/accountability/assign-accountability)[Assess cloud vs on-prem processing](/accountability/assess-cloud-vs-on-prem-processing)[Conduct vendor due diligence](/accountability/conduct-vendor-due-diligence)[Document system change approvals](/accountability/document-system-change-approvals)[Review internal processes](/accountability/review-internal-processes)[Monitor third-party access](/accountability/monitor-3rd-party-access)[Establish AI acceptable use policy](/accountability/establish-ai-acceptable-use-policy)[Record processing locations](/accountability/record-processing-locations)[Document regulatory compliance](/accountability/document-regulatory-compliance)[Implement quality management system](/accountability/implement-quality-management-system)[Share transparency reports](/accountability/share-transparency-reports)[Log model activity](/accountability/log-model-activity)[Implement AI disclosure mechanisms](/accountability/implement-ai-disclosure-mechanisms)[Document system transparency policy](/accountability/document-system-transparency-policy)
++[AI failure plan for security breaches](/accountability/ai-failure-plan-for-security-breaches)[AI failure plan for harmful outputs](/accountability/ai-failure-plan-for-harmful-outputs)[AI failure plan for hallucinations](/accountability/ai-failure-plan-for-hallucinations)[Assign accountability](/accountability/assign-accountability)[Document data storage security](/accountability/assess-cloud-vs-on-prem-processing)[Conduct vendor due diligence](/accountability/conduct-vendor-due-diligence)[[Retired] Document system change approvals](/accountability/document-system-change-approvals)[Review internal processes](/accountability/review-internal-processes)[Monitor third-party access](/accountability/monitor-3rd-party-access)[Establish AI acceptable use policy](/accountability/establish-ai-acceptable-use-policy)[Record processing locations](/accountability/record-processing-locations)[Document regulatory compliance](/accountability/document-regulatory-compliance)[Implement quality management system](/accountability/implement-quality-management-system)[[Retired] Share transparency reports](/accountability/share-transparency-reports)[Log AI system activity](/accountability/log-model-activity)[Implement AI disclosure mechanisms](/accountability/implement-ai-disclosure-mechanisms)[Document system transparency policy](/accountability/document-system-transparency-policy)
+ 
+ [F. Society](/society)
+ 
++[Prevent AI cyber misuse](/society/prevent-ai-cyber-misuse)[Prevent catastrophic misuse](/society/prevent-catastrophic-misuse)
++
+ Certification
+ 
+ [ AIUC-1 certification](/aiuc-1-certification)[ Scoping](/scoping)[ Accredited auditors](/accredited-auditors)[ FAQ](/faq)
+ 
+ [Evidence overview](/evidence)
+ 
++[Full evidence list](/evidence)[Technical evidence](/evidence/technical)[Legal evidence](/evidence/legal)[Operational evidence](/evidence/operational)[Third-party evals](/evidence/third-party)[Capability-specific evidence](/evidence/capability)
++
+ [](/)
+ 
+-Menu 
+-
+-[Adopt AIUC-1](/contact)
++Get in TouchClose
++
++Share your details and let us know how you hope to use AIUC-1
++
++Name
++
++Work email
++
++I am interested in...
++
++Certifying an AI agentIntegrating AIUC-1 in vendor assessmentJoining the AIUC-1 contributor communityPartnering with AIUC-1Learning more
++
++Submit
++
++Menu
++
++Context
++
++[Introduction](/)[Certificate overview](/learn/certificate)
++
++[Framework comparisons](/crosswalks)
++
++[EU AI Act](/crosswalks/eu-ai-act)[ISO 42001](/crosswalks/iso-42001)[MITRE ATLAS](/crosswalks/mitre-atlas)[NIST AI RMF](/crosswalks/nist-ai-rmf)[OWASP Top 10 for LLM Applications](/crosswalks/owasp-top-10)[OWASP AIVSS](/crosswalks/owasp-aivss)[IBM AI Risk Atlas](/crosswalks/ibm-ai-risk-atlas)[Cisco AI Security & Safety](/crosswalks/cisco-ai-security-safety-framework)[CSA AICM](/crosswalks/csa-aicm)
++
++[Changelog](/changelog)[AIUC-1 Consortium](/consortium)[Provide input on AIUC-1](/learn/contribute)[Contact](/contact)
++
++Standard
++
++[A. Data & Privacy](/data-and-privacy)
++
++[Establish input data policy](/data-and-privacy/establish-data-use-policy)[Establish output data policy](/data-and-privacy/define-output-rights)[Limit AI agent data access](/data-and-privacy/implement-contextual-data-safeguards)[Protect IP & trade secrets](/data-and-privacy/protect-ip-trade-secrets)[Prevent cross-customer data exposure](/data-and-privacy/prevent-cross-customer-data-exposure)[Prevent PII leakage](/data-and-privacy/prevent-pii-leakage)[Prevent IP violations](/data-and-privacy/prevent-ip-violations)
++
++[B. Security](/security)
++
++[Third-party testing of adversarial robustness](/security/test-adversarial-robustness)[Detect adversarial input](/security/detect-adversarial-input)[Manage public release of technical details](/security/limit-technical-over-disclosure)[Prevent AI endpoint scraping](/security/prevent-ai-endpoint-scraping)[Implement real-time input filtering](/security/implement-real-time-input-filtering)[Prevent unauthorized AI agent actions](/security/enforce-contextual-access-controls)[Enforce user access privileges to AI systems](/security/enforce-ai-access-privileges)[Protect AI system deployment environment](/security/protect-model-deployment-environment)[Limit output over-exposure](/security/limit-output-over-exposure)
++
++[C. Safety](/safety)
++
++[Define AI risk taxonomy](/safety/define-ai-risk-taxonomy)[Conduct pre-deployment testing](/safety/conduct-pre-deployment-testing)[Prevent harmful outputs](/safety/prevent-harmful-outputs)[Prevent out-of-scope outputs](/safety/prevent-out-of-scope-outputs)[Prevent customer-defined high risk outputs](/safety/prevent-other-high-risk-outputs)[Prevent output vulnerabilities](/safety/prevent-output-vulnerabilities)[Flag high risk outputs for human review](/safety/flag-high-risk-recommendations)[Monitor AI risk categories](/safety/monitor-ai-risk-categories)[Enable real-time feedback and intervention](/safety/collect-real-time-feedback)[Third-party testing for harmful outputs](/safety/3rd-party-testing-for-harmful-outputs)[Third-party testing for out-of-scope outputs](/safety/3rd-party-testing-for-out-of-scope-outputs)[Third-party testing for customer-defined risk](/safety/3rd-party-testing-for-other-risk)
++
++[D. Reliability](/reliability)
++
++[Prevent hallucinated outputs](/reliability/prevent-hallucinated-outputs)[Third-party testing for hallucinations](/reliability/3rd-party-testing-for-hallucinations)[Restrict unsafe tool calls](/reliability/restrict-unsafe-tool-calls)[Third-party testing of tool calls](/reliability/3rd-party-testing-of-tool-calls)
++
++[E. Accountability](/accountability)
++
++[AI failure plan for security breaches](/accountability/ai-failure-plan-for-security-breaches)[AI failure plan for harmful outputs](/accountability/ai-failure-plan-for-harmful-outputs)[AI failure plan for hallucinations](/accountability/ai-failure-plan-for-hallucinations)[Assign accountability](/accountability/assign-accountability)[Document data storage security](/accountability/assess-cloud-vs-on-prem-processing)[Conduct vendor due diligence](/accountability/conduct-vendor-due-diligence)[[Retired] Document system change approvals](/accountability/document-system-change-approvals)[Review internal processes](/accountability/review-internal-processes)[Monitor third-party access](/accountability/monitor-3rd-party-access)[Establish AI acceptable use policy](/accountability/establish-ai-acceptable-use-policy)[Record processing locations](/accountability/record-processing-locations)[Document regulatory compliance](/accountability/document-regulatory-compliance)[Implement quality management system](/accountability/implement-quality-management-system)[[Retired] Share transparency reports](/accountability/share-transparency-reports)[Log AI system activity](/accountability/log-model-activity)[Implement AI disclosure mechanisms](/accountability/implement-ai-disclosure-mechanisms)[Document system transparency policy](/accountability/document-system-transparency-policy)
++
++[F. Society](/society)
++
++[Prevent AI cyber misuse](/society/prevent-ai-cyber-misuse)[Prevent catastrophic misuse](/society/prevent-catastrophic-misuse)
++
++Certification
++
++[ AIUC-1 certification](/aiuc-1-certification)[ Scoping](/scoping)[ Accredited auditors](/accredited-auditors)[ FAQ](/faq)
++
++[Evidence overview](/evidence)
++
++[Full evidence list](/evidence)[Technical evidence](/evidence/technical)[Legal evidence](/evidence/legal)[Operational evidence](/evidence/operational)[Third-party evals](/evidence/third-party)[Capability-specific evidence](/evidence/capability)
++
++Get in TouchClose
+ 
+ [AIUC-1 Standard](/)
+ 
+@@ -50,279 +122,39 @@ 
+ ## Requirements
+ 
+-### [AI failure plan for security breaches →E001·Mandatory](/accountability/ai-failure-plan-for-security-breaches)
+-
+-Document AI failure plan for AI privacy and security breaches assigning accountable owners and establishing notification and remediation with third-party support as needed (e.g. legal, PR, insurers)
+-
+-Keywords
+-
+-Incident Response
+-
+-Security
+-
+-Privacy
+-
+-Regulatory Deadlines
+-
+-Capabilities
+-
+-Universal
+-
+-### [AI failure plan for harmful outputs →E002·Mandatory](/accountability/ai-failure-plan-for-harmful-outputs)
+-
+-Document AI failure plan for harmful AI outputs that cause significant customer harm assigning accountable owners and establishing remediation with third-party support as needed (e.g. legal, PR, insurers)
+-
+-Keywords
+-
+-Incident Response
+-
+-Emergency Response
+-
+-Harmful Outputs
+-
+-Hallucinations
+-
+-Vendors
+-
+-Capabilities
+-
+-Text-generation
+-
+-Voice-generation
+-
+-Image-generation
+-
+-### [AI failure plan for hallucinations →E003·Mandatory](/accountability/ai-failure-plan-for-hallucinations)
+-
+-Document AI failure plan for hallucinated AI outputs that cause substantial customer financial loss assigning accountable owners and establishing remediation with third-party support as needed (e.g. legal, PR, insurers)
+-
+-Keywords
+-
+-Hallucinations
+-
+-Incident Response
+-
+-Customer Loss
+-
+-Capabilities
+-
+-Text-generation
+-
+-Voice-generation
+-
+-### [Assign accountability →E004·Mandatory](/accountability/assign-accountability)
+-
+-Document which AI system changes across the development & deployment lifecycle require formal review or approval, assign a lead accountable for each, and document their approval with supporting evidence
+-
+-Keywords
+-
+-Decision Owners
+-
+-Deployment
+-
+-Capabilities
+-
+-Universal
+-
+-### [Assess cloud vs on-prem processing →E005·Mandatory](/accountability/assess-cloud-vs-on-prem-processing)
+-
+-Establish criteria for selecting cloud provider, and circumstances for on-premises processing considering data sensitivity, regulatory requirements, security controls, and operational needs
+-
+-Keywords
+-
+-Deployment
+-
+-Cloud Security
+-
+-On-Premise Security
+-
+-Data Residency
+-
+-Capabilities
+-
+-Universal
+-
+-### [Conduct vendor due diligence →E006·Mandatory](/accountability/conduct-vendor-due-diligence)
+-
+-Establish AI vendor due diligence processes for foundation and upstream model providers covering data handling, PII controls, security and compliance
+-
+-Keywords
+-
+-Vendor Due Diligence
+-
+-Open-Source
+-
+-Foundation Models
+-
+-Upstream Models
+-
+-Capabilities
+-
+-Universal
+-
+-### [Document system change approvals →E007·Optional](/accountability/document-system-change-approvals)
+-
+-Merged with E004 - see changelog (Q1 2026 update)
+-
+-Keywords
+-
+-Approvals
+-
+-Workflows
+-
+-Capabilities
+-
+-Universal
+-
+-### [Review internal processes →E008·Mandatory](/accountability/review-internal-processes)
+-
+-Establish regular internal reviews of key processes and document review records and approvals
+-
+-Keywords
+-
+-Internal Reviews
+-
+-Documentation
+-
+-Capabilities
+-
+-Universal
+-
+-### [Monitor third-party access →E009·Optional](/accountability/monitor-3rd-party-access)
+-
+-Implement systems to monitor third party access
+-
+-Keywords
+-
+-Access
+-
+-Logins
+-
+-Capabilities
+-
+-Universal
+-
+-### [Establish AI acceptable use policy →E010·Mandatory](/accountability/establish-ai-acceptable-use-policy)
+-
+-Establish and implement an AI acceptable use policy
+-
+-Keywords
+-
+-Acceptable Use
+-
+-Breach
+-
+-Capabilities
+-
+-Universal
+-
+-### [Record processing locations →E011·Mandatory](/accountability/record-processing-locations)
+-
+-Document AI data processing locations
+-
+-Keywords
+-
+-Data Processing
+-
+-Storage Location
+-
+-Data Protections
+-
+-Capabilities
+-
+-Universal
+-
+-### [Document regulatory compliance →E012·Mandatory](/accountability/document-regulatory-compliance)
+-
+-Document applicable AI laws and standards, required data protections, and strategies for compliance
+-
+-Keywords
+-
+-Regulatory
+-
+-EU
+-
+-NY
+-
+-NIST
+-
+-ISO
+-
+-GDPR
+-
+-Capabilities
+-
+-Universal
+-
+-### [Implement quality management system →E013·Optional](/accountability/implement-quality-management-system)
+-
+-Establish a quality management system for AI systems proportionate to the size of the organization
+-
+-Keywords
+-
+-EU
+-
+-Quality management
+-
+-Regulatory
+-
+-Capabilities
+-
+-Universal
+-
+-### [Share transparency reports →E014·Optional](/accountability/share-transparency-reports)
+-
+-Merged with E017 - see changelog (Q1 2026 update)
+-
+-Keywords
+-
+-Transparency
+-
+-Capabilities
+-
+-Universal
+-
+-### [Log model activity →E015·Mandatory](/accountability/log-model-activity)
+-
+-Maintain logs of AI system processes, actions, and model outputs where permitted to support incident investigation, auditing, and explanation of AI system behavior
+-
+-Keywords
+-
+-Explainability
+-
+-Logs
+-
+-Capabilities
+-
+-Universal
+-
+-### [Implement AI disclosure mechanisms →E016·Mandatory](/accountability/implement-ai-disclosure-mechanisms)
+-
+-Implement clear disclosure mechanisms to inform users when they are interacting with AI systems rather than humans
+-
+-Keywords
+-
+-Labelling
+-
+-Transparency
+-
+-Capabilities
+-
+-Universal
+-
+-### [Document system transparency policy →E017·Optional](/accountability/document-system-transparency-policy)
+-
+-Establish a system transparency policy and maintain a repository of model cards, datasheets, and interpretability reports for major systems
+-
+-Keywords
+-
+-Transparency
+-
+-System Cards
+-
+-Capabilities
+-
+-Universal
++### [AI failure plan for security breachesE001·MandatoryDocument AI failure plan for AI privacy and security breaches assigning accountable owners and establishing notification and remediation with third-party support as needed (e.g. legal, PR, insurers)KeywordsIncident ResponseSecurityPrivacyRegulatory DeadlinesCapabilitiesUniversal](/accountability/ai-failure-plan-for-security-breaches)
++
++### [AI failure plan for harmful outputsE002·MandatoryDocument AI failure plan for harmful AI outputs that cause significant customer harm assigning accountable owners and establishing remediation with third-party support as needed (e.g. legal, PR, insurers)KeywordsIncident ResponseEmergency ResponseHarmful OutputsHallucinationsVendorsCapabilitiesText-generationVoice-generationImage-generation](/accountability/ai-failure-plan-for-harmful-outputs)
++
++### [AI failure plan for hallucinationsE003·MandatoryDocument AI failure plan for hallucinated AI outputs that cause substantial customer financial loss assigning accountable owners and establishing remediation with third-party support as needed (e.g. legal, PR, insurers)KeywordsHallucinationsIncident ResponseCustomer LossCapabilitiesText-generationVoice-generation](/accountability/ai-failure-plan-for-hallucinations)
++
++### [Assign accountabilityE004·MandatoryDocument which AI system changes across the development & deployment lifecycle require formal review or approval, assign a lead accountable for each, and document their approval with supporting evidenceKeywordsDecision OwnersDeploymentCapabilitiesUniversal](/accountability/assign-accountability)
++
++### [Document data storage securityE005·MandatoryDocument data storage security practices considering data sensitivity, regulatory requirements, security controls, and operational needsKeywordsDeploymentCloud SecurityOn-Premise SecurityData ResidencyCapabilitiesUniversal](/accountability/assess-cloud-vs-on-prem-processing)
++
++### [Conduct vendor due diligenceE006·MandatoryEstablish AI vendor due diligence processes for foundation and upstream model providers covering data handling, PII controls, security and complianceKeywordsVendor Due DiligenceOpen-SourceFoundation ModelsUpstream ModelsCapabilitiesUniversal](/accountability/conduct-vendor-due-diligence)
++
++### [[Retired] Document system change approvalsE007·OptionalMerged with E004 - see changelog (Q1 2026 update)KeywordsApprovalsWorkflowsCapabilitiesUniversal](/accountability/document-system-change-approvals)
++
++### [Review internal processesE008·MandatoryEstablish regular internal reviews of key processes and document review records and approvalsKeywordsInternal ReviewsDocumentationCapabilitiesUniversal](/accountability/review-internal-processes)
++
++### [Monitor third-party accessE009·MandatoryImplement systems to monitor third party accessKeywordsAccessLoginsCapabilitiesUniversal](/accountability/monitor-3rd-party-access)
++
++### [Establish AI acceptable use policyE010·MandatoryEstablish and implement an AI acceptable use policyKeywordsAcceptable UseBreachCapabilitiesUniversal](/accountability/establish-ai-acceptable-use-policy)
++
++### [Record processing locationsE011·MandatoryDocument AI data processing locationsKeywordsData ProcessingStorage LocationData ProtectionsCapabilitiesUniversal](/accountability/record-processing-locations)
++
++### [Document regulatory complianceE012·MandatoryDocument applicable AI laws and standards, required data protections, and strategies for complianceKeywordsRegulatoryEUNYNISTISOGDPRCapabilitiesUniversal](/accountability/document-regulatory-compliance)
++
++### [Implement quality management systemE013·OptionalEstablish a quality management system for AI systems proportionate to the size of the organizationKeywordsEUQuality managementRegulatoryCapabilitiesUniversal](/accountability/implement-quality-management-system)
++
++### [[Retired] Share transparency reportsE014·OptionalMerged with E017 - see changelog (Q1 2026 update)KeywordsTransparencyCapabilitiesUniversal](/accountability/share-transparency-reports)
++
++### [Log AI system activityE015·MandatoryMaintain logs of AI system processes, actions, and agent outputs where permitted to support incident investigation, auditing, and explanation of AI system behaviorKeywordsExplainabilityLogsCapabilitiesUniversal](/accountability/log-model-activity)
++
++### [Implement AI disclosure mechanismsE016·MandatoryImplement clear disclosure mechanisms to inform users when they are interacting with AI systems rather than humansKeywordsLabellingTransparencyCapabilitiesUniversal](/accountability/implement-ai-disclosure-mechanisms)
++
++### [Document system transparency policyE017·OptionalEstablish a system transparency policy and maintain a repository of model cards, datasheets, and interpretability reports for major systemsKeywordsTransparencySystem CardsCapabilitiesUniversal](/accountability/document-system-transparency-policy)
+ 
+ ## AIUC-1 is built with industry leaders
+ 
+@@ -350,19 +182,19 @@ 
+ Lead for Stanford Trustworthy AI Research
+ 
+-"AIUC-1 standardizes how AI is adopted. That's powerful."
++"AIUC-1standardizes how AI is adopted. That's powerful."
+ 
+ John Bautista
+ 
+ Partner at Orrick
+ 
+-"An AIUC-1 certificate enables me to sign contracts much faster— it's a clear signal I can trust."
++"An AIUC-1certificate enables me to sign contracts much faster— it's a clear signal I can trust."
+ 
+ Lena Smart
+ 
+ Head of Trust for SecurityPal and former CISO of MongoDB
+ 
+-The Security, Safety, and Reliability standard for AI agents 
++The Security, Safety, and Reliability standard for AI agents
+ 
+ Stay up to date with AIUC-1
+ 
+
+```
+
+
+## society
+
+**79 additions, 43 removals**
+
+```diff
+--- 2026-Q1/society.md+++ 2026-Q2/society.md@@ -6,19 +6,31 @@ 
+ [Framework comparisons](/crosswalks)
+ 
++[EU AI Act](/crosswalks/eu-ai-act)[ISO 42001](/crosswalks/iso-42001)[MITRE ATLAS](/crosswalks/mitre-atlas)[NIST AI RMF](/crosswalks/nist-ai-rmf)[OWASP Top 10 for LLM Applications](/crosswalks/owasp-top-10)[OWASP AIVSS](/crosswalks/owasp-aivss)[IBM AI Risk Atlas](/crosswalks/ibm-ai-risk-atlas)[Cisco AI Security & Safety](/crosswalks/cisco-ai-security-safety-framework)[CSA AICM](/crosswalks/csa-aicm)
++
+ [Changelog](/changelog)[AIUC-1 Consortium](/consortium)[Provide input on AIUC-1](/learn/contribute)[Contact](/contact)
+ 
+ Standard
+ 
+ [A. Data & Privacy](/data-and-privacy)
+ 
++[Establish input data policy](/data-and-privacy/establish-data-use-policy)[Establish output data policy](/data-and-privacy/define-output-rights)[Limit AI agent data access](/data-and-privacy/implement-contextual-data-safeguards)[Protect IP & trade secrets](/data-and-privacy/protect-ip-trade-secrets)[Prevent cross-customer data exposure](/data-and-privacy/prevent-cross-customer-data-exposure)[Prevent PII leakage](/data-and-privacy/prevent-pii-leakage)[Prevent IP violations](/data-and-privacy/prevent-ip-violations)
++
+ [B. Security](/security)
++
++[Third-party testing of adversarial robustness](/security/test-adversarial-robustness)[Detect adversarial input](/security/detect-adversarial-input)[Manage public release of technical details](/security/limit-technical-over-disclosure)[Prevent AI endpoint scraping](/security/prevent-ai-endpoint-scraping)[Implement real-time input filtering](/security/implement-real-time-input-filtering)[Prevent unauthorized AI agent actions](/security/enforce-contextual-access-controls)[Enforce user access privileges to AI systems](/security/enforce-ai-access-privileges)[Protect AI system deployment environment](/security/protect-model-deployment-environment)[Limit output over-exposure](/security/limit-output-over-exposure)
+ 
+ [C. Safety](/safety)
+ 
++[Define AI risk taxonomy](/safety/define-ai-risk-taxonomy)[Conduct pre-deployment testing](/safety/conduct-pre-deployment-testing)[Prevent harmful outputs](/safety/prevent-harmful-outputs)[Prevent out-of-scope outputs](/safety/prevent-out-of-scope-outputs)[Prevent customer-defined high risk outputs](/safety/prevent-other-high-risk-outputs)[Prevent output vulnerabilities](/safety/prevent-output-vulnerabilities)[Flag high risk outputs for human review](/safety/flag-high-risk-recommendations)[Monitor AI risk categories](/safety/monitor-ai-risk-categories)[Enable real-time feedback and intervention](/safety/collect-real-time-feedback)[Third-party testing for harmful outputs](/safety/3rd-party-testing-for-harmful-outputs)[Third-party testing for out-of-scope outputs](/safety/3rd-party-testing-for-out-of-scope-outputs)[Third-party testing for customer-defined risk](/safety/3rd-party-testing-for-other-risk)
++
+ [D. Reliability](/reliability)
+ 
++[Prevent hallucinated outputs](/reliability/prevent-hallucinated-outputs)[Third-party testing for hallucinations](/reliability/3rd-party-testing-for-hallucinations)[Restrict unsafe tool calls](/reliability/restrict-unsafe-tool-calls)[Third-party testing of tool calls](/reliability/3rd-party-testing-of-tool-calls)
++
+ [E. Accountability](/accountability)
++
++[AI failure plan for security breaches](/accountability/ai-failure-plan-for-security-breaches)[AI failure plan for harmful outputs](/accountability/ai-failure-plan-for-harmful-outputs)[AI failure plan for hallucinations](/accountability/ai-failure-plan-for-hallucinations)[Assign accountability](/accountability/assign-accountability)[Document data storage security](/accountability/assess-cloud-vs-on-prem-processing)[Conduct vendor due diligence](/accountability/conduct-vendor-due-diligence)[[Retired] Document system change approvals](/accountability/document-system-change-approvals)[Review internal processes](/accountability/review-internal-processes)[Monitor third-party access](/accountability/monitor-3rd-party-access)[Establish AI acceptable use policy](/accountability/establish-ai-acceptable-use-policy)[Record processing locations](/accountability/record-processing-locations)[Document regulatory compliance](/accountability/document-regulatory-compliance)[Implement quality management system](/accountability/implement-quality-management-system)[[Retired] Share transparency reports](/accountability/share-transparency-reports)[Log AI system activity](/accountability/log-model-activity)[Implement AI disclosure mechanisms](/accountability/implement-ai-disclosure-mechanisms)[Document system transparency policy](/accountability/document-system-transparency-policy)
+ 
+ [F. Society](/society)
+ 
+@@ -30,11 +42,71 @@ 
+ [Evidence overview](/evidence)
+ 
++[Full evidence list](/evidence)[Technical evidence](/evidence/technical)[Legal evidence](/evidence/legal)[Operational evidence](/evidence/operational)[Third-party evals](/evidence/third-party)[Capability-specific evidence](/evidence/capability)
++
+ [](/)
+ 
+-Menu 
++Get in TouchClose
+ 
+-[Adopt AIUC-1](/contact)
++Share your details and let us know how you hope to use AIUC-1
++
++Name
++
++Work email
++
++I am interested in...
++
++Certifying an AI agentIntegrating AIUC-1 in vendor assessmentJoining the AIUC-1 contributor communityPartnering with AIUC-1Learning more
++
++Submit
++
++Menu
++
++Context
++
++[Introduction](/)[Certificate overview](/learn/certificate)
++
++[Framework comparisons](/crosswalks)
++
++[EU AI Act](/crosswalks/eu-ai-act)[ISO 42001](/crosswalks/iso-42001)[MITRE ATLAS](/crosswalks/mitre-atlas)[NIST AI RMF](/crosswalks/nist-ai-rmf)[OWASP Top 10 for LLM Applications](/crosswalks/owasp-top-10)[OWASP AIVSS](/crosswalks/owasp-aivss)[IBM AI Risk Atlas](/crosswalks/ibm-ai-risk-atlas)[Cisco AI Security & Safety](/crosswalks/cisco-ai-security-safety-framework)[CSA AICM](/crosswalks/csa-aicm)
++
++[Changelog](/changelog)[AIUC-1 Consortium](/consortium)[Provide input on AIUC-1](/learn/contribute)[Contact](/contact)
++
++Standard
++
++[A. Data & Privacy](/data-and-privacy)
++
++[Establish input data policy](/data-and-privacy/establish-data-use-policy)[Establish output data policy](/data-and-privacy/define-output-rights)[Limit AI agent data access](/data-and-privacy/implement-contextual-data-safeguards)[Protect IP & trade secrets](/data-and-privacy/protect-ip-trade-secrets)[Prevent cross-customer data exposure](/data-and-privacy/prevent-cross-customer-data-exposure)[Prevent PII leakage](/data-and-privacy/prevent-pii-leakage)[Prevent IP violations](/data-and-privacy/prevent-ip-violations)
++
++[B. Security](/security)
++
++[Third-party testing of adversarial robustness](/security/test-adversarial-robustness)[Detect adversarial input](/security/detect-adversarial-input)[Manage public release of technical details](/security/limit-technical-over-disclosure)[Prevent AI endpoint scraping](/security/prevent-ai-endpoint-scraping)[Implement real-time input filtering](/security/implement-real-time-input-filtering)[Prevent unauthorized AI agent actions](/security/enforce-contextual-access-controls)[Enforce user access privileges to AI systems](/security/enforce-ai-access-privileges)[Protect AI system deployment environment](/security/protect-model-deployment-environment)[Limit output over-exposure](/security/limit-output-over-exposure)
++
++[C. Safety](/safety)
++
++[Define AI risk taxonomy](/safety/define-ai-risk-taxonomy)[Conduct pre-deployment testing](/safety/conduct-pre-deployment-testing)[Prevent harmful outputs](/safety/prevent-harmful-outputs)[Prevent out-of-scope outputs](/safety/prevent-out-of-scope-outputs)[Prevent customer-defined high risk outputs](/safety/prevent-other-high-risk-outputs)[Prevent output vulnerabilities](/safety/prevent-output-vulnerabilities)[Flag high risk outputs for human review](/safety/flag-high-risk-recommendations)[Monitor AI risk categories](/safety/monitor-ai-risk-categories)[Enable real-time feedback and intervention](/safety/collect-real-time-feedback)[Third-party testing for harmful outputs](/safety/3rd-party-testing-for-harmful-outputs)[Third-party testing for out-of-scope outputs](/safety/3rd-party-testing-for-out-of-scope-outputs)[Third-party testing for customer-defined risk](/safety/3rd-party-testing-for-other-risk)
++
++[D. Reliability](/reliability)
++
++[Prevent hallucinated outputs](/reliability/prevent-hallucinated-outputs)[Third-party testing for hallucinations](/reliability/3rd-party-testing-for-hallucinations)[Restrict unsafe tool calls](/reliability/restrict-unsafe-tool-calls)[Third-party testing of tool calls](/reliability/3rd-party-testing-of-tool-calls)
++
++[E. Accountability](/accountability)
++
++[AI failure plan for security breaches](/accountability/ai-failure-plan-for-security-breaches)[AI failure plan for harmful outputs](/accountability/ai-failure-plan-for-harmful-outputs)[AI failure plan for hallucinations](/accountability/ai-failure-plan-for-hallucinations)[Assign accountability](/accountability/assign-accountability)[Document data storage security](/accountability/assess-cloud-vs-on-prem-processing)[Conduct vendor due diligence](/accountability/conduct-vendor-due-diligence)[[Retired] Document system change approvals](/accountability/document-system-change-approvals)[Review internal processes](/accountability/review-internal-processes)[Monitor third-party access](/accountability/monitor-3rd-party-access)[Establish AI acceptable use policy](/accountability/establish-ai-acceptable-use-policy)[Record processing locations](/accountability/record-processing-locations)[Document regulatory compliance](/accountability/document-regulatory-compliance)[Implement quality management system](/accountability/implement-quality-management-system)[[Retired] Share transparency reports](/accountability/share-transparency-reports)[Log AI system activity](/accountability/log-model-activity)[Implement AI disclosure mechanisms](/accountability/implement-ai-disclosure-mechanisms)[Document system transparency policy](/accountability/document-system-transparency-policy)
++
++[F. Society](/society)
++
++[Prevent AI cyber misuse](/society/prevent-ai-cyber-misuse)[Prevent catastrophic misuse](/society/prevent-catastrophic-misuse)
++
++Certification
++
++[ AIUC-1 certification](/aiuc-1-certification)[ Scoping](/scoping)[ Accredited auditors](/accredited-auditors)[ FAQ](/faq)
++
++[Evidence overview](/evidence)
++
++[Full evidence list](/evidence)[Technical evidence](/evidence/technical)[Legal evidence](/evidence/legal)[Operational evidence](/evidence/operational)[Third-party evals](/evidence/third-party)[Capability-specific evidence](/evidence/capability)
++
++Get in TouchClose
+ 
+ [AIUC-1 Standard](/)
+ 
+@@ -50,45 +122,9 @@ 
+ ## Requirements
+ 
+-### [Prevent AI cyber misuse →F001·Mandatory](/society/prevent-ai-cyber-misuse)
++### [Prevent AI cyber misuseF001·MandatoryImplement or document guardrails to prevent AI-enabled misuse for cyber attacks and exploitationKeywordsCyber AttacksCapabilitiesText-generationAutomationVoice-generationCode-generation](/society/prevent-ai-cyber-misuse)
+ 
+-Implement or document guardrails to prevent AI-enabled misuse for cyber attacks and exploitation
+-
+-Keywords
+-
+-Cyber Attacks
+-
+-Capabilities
+-
+-Text-generation
+-
+-Automation
+-
+-Voice-generation
+-
+-### [Prevent catastrophic misuse →F002·Mandatory](/society/prevent-catastrophic-misuse)
+-
+-Implement or document guardrails to prevent AI-enabled catastrophic system misuse (chemical / bio / radio / nuclear)
+-
+-Keywords
+-
+-CBRN
+-
+-Chemical
+-
+-Bioweapon
+-
+-Radioactive
+-
+-Nuclear
+-
+-Capabilities
+-
+-Text-generation
+-
+-Voice-generation
+-
+-Image-generation
++### [Prevent catastrophic misuseF002·MandatoryImplement or document guardrails to prevent AI-enabled catastrophic system misuse (chemical / bio / radio / nuclear)KeywordsCBRNChemicalBioweaponRadioactiveNuclearCapabilitiesText-generationVoice-generationImage-generation](/society/prevent-catastrophic-misuse)
+ 
+ ## AIUC-1 is built with industry leaders
+ 
+@@ -116,19 +152,19 @@ 
+ Lead for Stanford Trustworthy AI Research
+ 
+-"AIUC-1 standardizes how AI is adopted. That's powerful."
++"AIUC-1standardizes how AI is adopted. That's powerful."
+ 
+ John Bautista
+ 
+ Partner at Orrick
+ 
+-"An AIUC-1 certificate enables me to sign contracts much faster— it's a clear signal I can trust."
++"An AIUC-1certificate enables me to sign contracts much faster— it's a clear signal I can trust."
+ 
+ Lena Smart
+ 
+ Head of Trust for SecurityPal and former CISO of MongoDB
+ 
+-The Security, Safety, and Reliability standard for AI agents 
++The Security, Safety, and Reliability standard for AI agents
+ 
+ Stay up to date with AIUC-1
+ 
+
+```
+
+
+## crosswalks
+
+**163 additions, 37 removals**
+
+```diff
+--- 2026-Q1/crosswalks.md+++ 2026-Q2/crosswalks.md@@ -6,7 +6,7 @@ 
+ [Framework comparisons](/crosswalks)
+ 
+-[EU AI Act](/crosswalks/eu-ai-act)[ISO 42001](/crosswalks/iso-42001)[MITRE ATLAS](/crosswalks/mitre-atlas)[NIST AI RMF](/crosswalks/nist-ai-rmf)[OWASP Top 10 for LLM Applications](/crosswalks/owasp-top-10)[OWASP AIVSS](/crosswalks/owasp-aivss)[CSA AICM](/crosswalks/csa-aicm)
++[EU AI Act](/crosswalks/eu-ai-act)[ISO 42001](/crosswalks/iso-42001)[MITRE ATLAS](/crosswalks/mitre-atlas)[NIST AI RMF](/crosswalks/nist-ai-rmf)[OWASP Top 10 for LLM Applications](/crosswalks/owasp-top-10)[OWASP AIVSS](/crosswalks/owasp-aivss)[IBM AI Risk Atlas](/crosswalks/ibm-ai-risk-atlas)[Cisco AI Security & Safety](/crosswalks/cisco-ai-security-safety-framework)[CSA AICM](/crosswalks/csa-aicm)
+ 
+ [Changelog](/changelog)[AIUC-1 Consortium](/consortium)[Provide input on AIUC-1](/learn/contribute)[Contact](/contact)
+ 
+@@ -14,27 +14,99 @@ 
+ [A. Data & Privacy](/data-and-privacy)
+ 
++[Establish input data policy](/data-and-privacy/establish-data-use-policy)[Establish output data policy](/data-and-privacy/define-output-rights)[Limit AI agent data access](/data-and-privacy/implement-contextual-data-safeguards)[Protect IP & trade secrets](/data-and-privacy/protect-ip-trade-secrets)[Prevent cross-customer data exposure](/data-and-privacy/prevent-cross-customer-data-exposure)[Prevent PII leakage](/data-and-privacy/prevent-pii-leakage)[Prevent IP violations](/data-and-privacy/prevent-ip-violations)
++
+ [B. Security](/security)
+ 
++[Third-party testing of adversarial robustness](/security/test-adversarial-robustness)[Detect adversarial input](/security/detect-adversarial-input)[Manage public release of technical details](/security/limit-technical-over-disclosure)[Prevent AI endpoint scraping](/security/prevent-ai-endpoint-scraping)[Implement real-time input filtering](/security/implement-real-time-input-filtering)[Prevent unauthorized AI agent actions](/security/enforce-contextual-access-controls)[Enforce user access privileges to AI systems](/security/enforce-ai-access-privileges)[Protect AI system deployment environment](/security/protect-model-deployment-environment)[Limit output over-exposure](/security/limit-output-over-exposure)
++
+ [C. Safety](/safety)
+ 
++[Define AI risk taxonomy](/safety/define-ai-risk-taxonomy)[Conduct pre-deployment testing](/safety/conduct-pre-deployment-testing)[Prevent harmful outputs](/safety/prevent-harmful-outputs)[Prevent out-of-scope outputs](/safety/prevent-out-of-scope-outputs)[Prevent customer-defined high risk outputs](/safety/prevent-other-high-risk-outputs)[Prevent output vulnerabilities](/safety/prevent-output-vulnerabilities)[Flag high risk outputs for human review](/safety/flag-high-risk-recommendations)[Monitor AI risk categories](/safety/monitor-ai-risk-categories)[Enable real-time feedback and intervention](/safety/collect-real-time-feedback)[Third-party testing for harmful outputs](/safety/3rd-party-testing-for-harmful-outputs)[Third-party testing for out-of-scope outputs](/safety/3rd-party-testing-for-out-of-scope-outputs)[Third-party testing for customer-defined risk](/safety/3rd-party-testing-for-other-risk)
++
+ [D. Reliability](/reliability)
+ 
++[Prevent hallucinated outputs](/reliability/prevent-hallucinated-outputs)[Third-party testing for hallucinations](/reliability/3rd-party-testing-for-hallucinations)[Restrict unsafe tool calls](/reliability/restrict-unsafe-tool-calls)[Third-party testing of tool calls](/reliability/3rd-party-testing-of-tool-calls)
++
+ [E. Accountability](/accountability)
+ 
++[AI failure plan for security breaches](/accountability/ai-failure-plan-for-security-breaches)[AI failure plan for harmful outputs](/accountability/ai-failure-plan-for-harmful-outputs)[AI failure plan for hallucinations](/accountability/ai-failure-plan-for-hallucinations)[Assign accountability](/accountability/assign-accountability)[Document data storage security](/accountability/assess-cloud-vs-on-prem-processing)[Conduct vendor due diligence](/accountability/conduct-vendor-due-diligence)[[Retired] Document system change approvals](/accountability/document-system-change-approvals)[Review internal processes](/accountability/review-internal-processes)[Monitor third-party access](/accountability/monitor-3rd-party-access)[Establish AI acceptable use policy](/accountability/establish-ai-acceptable-use-policy)[Record processing locations](/accountability/record-processing-locations)[Document regulatory compliance](/accountability/document-regulatory-compliance)[Implement quality management system](/accountability/implement-quality-management-system)[[Retired] Share transparency reports](/accountability/share-transparency-reports)[Log AI system activity](/accountability/log-model-activity)[Implement AI disclosure mechanisms](/accountability/implement-ai-disclosure-mechanisms)[Document system transparency policy](/accountability/document-system-transparency-policy)
++
+ [F. Society](/society)
+ 
++[Prevent AI cyber misuse](/society/prevent-ai-cyber-misuse)[Prevent catastrophic misuse](/society/prevent-catastrophic-misuse)
++
+ Certification
+ 
+ [ AIUC-1 certification](/aiuc-1-certification)[ Scoping](/scoping)[ Accredited auditors](/accredited-auditors)[ FAQ](/faq)
+ 
+ [Evidence overview](/evidence)
+ 
++[Full evidence list](/evidence)[Technical evidence](/evidence/technical)[Legal evidence](/evidence/legal)[Operational evidence](/evidence/operational)[Third-party evals](/evidence/third-party)[Capability-specific evidence](/evidence/capability)
++
+ [](/)
+ 
+-Menu 
+-
+-[Adopt AIUC-1](/contact)
++Get in TouchClose
++
++Share your details and let us know how you hope to use AIUC-1
++
++Name
++
++Work email
++
++I am interested in...
++
++Certifying an AI agentIntegrating AIUC-1 in vendor assessmentJoining the AIUC-1 contributor communityPartnering with AIUC-1Learning more
++
++Submit
++
++Menu
++
++Context
++
++[Introduction](/)[Certificate overview](/learn/certificate)
++
++[Framework comparisons](/crosswalks)
++
++[EU AI Act](/crosswalks/eu-ai-act)[ISO 42001](/crosswalks/iso-42001)[MITRE ATLAS](/crosswalks/mitre-atlas)[NIST AI RMF](/crosswalks/nist-ai-rmf)[OWASP Top 10 for LLM Applications](/crosswalks/owasp-top-10)[OWASP AIVSS](/crosswalks/owasp-aivss)[IBM AI Risk Atlas](/crosswalks/ibm-ai-risk-atlas)[Cisco AI Security & Safety](/crosswalks/cisco-ai-security-safety-framework)[CSA AICM](/crosswalks/csa-aicm)
++
++[Changelog](/changelog)[AIUC-1 Consortium](/consortium)[Provide input on AIUC-1](/learn/contribute)[Contact](/contact)
++
++Standard
++
++[A. Data & Privacy](/data-and-privacy)
++
++[Establish input data policy](/data-and-privacy/establish-data-use-policy)[Establish output data policy](/data-and-privacy/define-output-rights)[Limit AI agent data access](/data-and-privacy/implement-contextual-data-safeguards)[Protect IP & trade secrets](/data-and-privacy/protect-ip-trade-secrets)[Prevent cross-customer data exposure](/data-and-privacy/prevent-cross-customer-data-exposure)[Prevent PII leakage](/data-and-privacy/prevent-pii-leakage)[Prevent IP violations](/data-and-privacy/prevent-ip-violations)
++
++[B. Security](/security)
++
++[Third-party testing of adversarial robustness](/security/test-adversarial-robustness)[Detect adversarial input](/security/detect-adversarial-input)[Manage public release of technical details](/security/limit-technical-over-disclosure)[Prevent AI endpoint scraping](/security/prevent-ai-endpoint-scraping)[Implement real-time input filtering](/security/implement-real-time-input-filtering)[Prevent unauthorized AI agent actions](/security/enforce-contextual-access-controls)[Enforce user access privileges to AI systems](/security/enforce-ai-access-privileges)[Protect AI system deployment environment](/security/protect-model-deployment-environment)[Limit output over-exposure](/security/limit-output-over-exposure)
++
++[C. Safety](/safety)
++
++[Define AI risk taxonomy](/safety/define-ai-risk-taxonomy)[Conduct pre-deployment testing](/safety/conduct-pre-deployment-testing)[Prevent harmful outputs](/safety/prevent-harmful-outputs)[Prevent out-of-scope outputs](/safety/prevent-out-of-scope-outputs)[Prevent customer-defined high risk outputs](/safety/prevent-other-high-risk-outputs)[Prevent output vulnerabilities](/safety/prevent-output-vulnerabilities)[Flag high risk outputs for human review](/safety/flag-high-risk-recommendations)[Monitor AI risk categories](/safety/monitor-ai-risk-categories)[Enable real-time feedback and intervention](/safety/collect-real-time-feedback)[Third-party testing for harmful outputs](/safety/3rd-party-testing-for-harmful-outputs)[Third-party testing for out-of-scope outputs](/safety/3rd-party-testing-for-out-of-scope-outputs)[Third-party testing for customer-defined risk](/safety/3rd-party-testing-for-other-risk)
++
++[D. Reliability](/reliability)
++
++[Prevent hallucinated outputs](/reliability/prevent-hallucinated-outputs)[Third-party testing for hallucinations](/reliability/3rd-party-testing-for-hallucinations)[Restrict unsafe tool calls](/reliability/restrict-unsafe-tool-calls)[Third-party testing of tool calls](/reliability/3rd-party-testing-of-tool-calls)
++
++[E. Accountability](/accountability)
++
++[AI failure plan for security breaches](/accountability/ai-failure-plan-for-security-breaches)[AI failure plan for harmful outputs](/accountability/ai-failure-plan-for-harmful-outputs)[AI failure plan for hallucinations](/accountability/ai-failure-plan-for-hallucinations)[Assign accountability](/accountability/assign-accountability)[Document data storage security](/accountability/assess-cloud-vs-on-prem-processing)[Conduct vendor due diligence](/accountability/conduct-vendor-due-diligence)[[Retired] Document system change approvals](/accountability/document-system-change-approvals)[Review internal processes](/accountability/review-internal-processes)[Monitor third-party access](/accountability/monitor-3rd-party-access)[Establish AI acceptable use policy](/accountability/establish-ai-acceptable-use-policy)[Record processing locations](/accountability/record-processing-locations)[Document regulatory compliance](/accountability/document-regulatory-compliance)[Implement quality management system](/accountability/implement-quality-management-system)[[Retired] Share transparency reports](/accountability/share-transparency-reports)[Log AI system activity](/accountability/log-model-activity)[Implement AI disclosure mechanisms](/accountability/implement-ai-disclosure-mechanisms)[Document system transparency policy](/accountability/document-system-transparency-policy)
++
++[F. Society](/society)
++
++[Prevent AI cyber misuse](/society/prevent-ai-cyber-misuse)[Prevent catastrophic misuse](/society/prevent-catastrophic-misuse)
++
++Certification
++
++[ AIUC-1 certification](/aiuc-1-certification)[ Scoping](/scoping)[ Accredited auditors](/accredited-auditors)[ FAQ](/faq)
++
++[Evidence overview](/evidence)
++
++[Full evidence list](/evidence)[Technical evidence](/evidence/technical)[Legal evidence](/evidence/legal)[Operational evidence](/evidence/operational)[Third-party evals](/evidence/third-party)[Capability-specific evidence](/evidence/capability)
++
++Get in TouchClose
+ 
+ [AIUC-1 Standard](/)
+ 
+@@ -58,7 +130,7 @@ 
+ **Predictable.** We review the standard in partnership with our technical contributors and push updates on January 15, April 15, July 15, and October 15 of each year.
+ 
+-In practice, this means that **AIUC-1 builds on other AI frameworks** including the [EU AI Act](/crosswalks/eu-ai-act), the [NIST AI RMF](/crosswalks/nist-ai-rmf), [ISO 42001](/crosswalks/iso-42001), [MITRE ATLAS](/crosswalks/mitre-atlas), and [OWASP AIVSS](/crosswalks/owasp-aivss). The regular update cadence will mean AIUC-1 updates also reflect changes to these frameworks.
++In practice, this means that **AIUC-1 builds on other AI frameworks** including the [EU AI Act](/crosswalks/eu-ai-act), the [NIST AI RMF](/crosswalks/nist-ai-rmf), [ISO 42001](/crosswalks/iso-42001), [MITRE ATLAS](/crosswalks/mitre-atlas), [CSA AICM](/crosswalks/csa-aicm), and the [OWASP Top 10 for agentic AI](/crosswalks/owasp-top-10).
+ 
+ **AIUC-1 does not duplicate the work of non-AI frameworks like SOC 2, ISO 27001, or GDPR.** Companies should ensure compliance with these frameworks as needed independently of AIUC-1.
+ 
+@@ -82,9 +154,13 @@ 
+ [OWASP AIVSS](/crosswalks/owasp-aivss)
+ 
++[IBM AI Risk Atlas](/crosswalks/ibm-ai-risk-atlas)
++
++[Cisco AI Security & Safety Framework](/crosswalks/cisco-ai-security-safety-framework)
++
+ [CSA AI Controls Matrix](/crosswalks/csa-aicm)
+ 
+-Regional AI legislation (e.g. the Colorado AI Act)
++Regional U.S. AI legislation (e.g. [NYC Local Law 144](/crosswalks/nyc-ll-144), [California's Transparency in Frontier AI Act (TFAIA)](/crosswalks/california-sb-53), [Colorado AI Act](/crosswalks/colorado-ai-act))
+ 
+ Sector-specific AI legislation
+ 
+@@ -100,8 +176,6 @@ 
+ ISO 27001
+ 
+-More detail on how each of these frameworks is addressed by AIUC-1 is available in the "crosswalk" section of each requirement.
+-
+ ### AIUC-1 operationalizes emerging AI legislation and best practices
+ 
+ Framework
+@@ -116,19 +190,19 @@ 
+ Description
+ 
+-EU regulation classifying AI systems by risk levels (minimal, limited, high, unacceptable) with corresponding compliance obligations
++EU regulation classifying AI systems by risk levels (minimal, limited, high, unacceptable) with corresponding obligations
+ 
+ How AIUC-1 compares
+ 
+ Operationalizes the EU AI Act by aligning with its requirements. Certification against AIUC-1 is a strong step towards compliance with the EU AI Act as it:
+ 
+-Enables compliance for _minimal_ and _limited_ risk systems
+-
+-Enables compliance for _high risk_ systems only if specific control activities are met (AIUC can help guide AI companies through this process)
++Enables alignment towards _minimal_ and _limited_ risk systems
++
++Enables alignment towards _high risk_ systems only if specific control activities are met (AIUC can help guide AI companies through this process)
+ 
+ Provides documentation for internal conformity assessments for _high risk_ systems as required in _Annex VI_
+ 
+-[EU AI Act crosswalks by article →](/crosswalks/eu-ai-act)
++[EU AI Act crosswalk by article →](/crosswalks/eu-ai-act)
+ 
+ Framework
+ 
+@@ -146,7 +220,7 @@ 
+ Provides concrete implementation guidance for key areas such as harmful output prevention, third-party testing and risk management practices
+ 
+-[NIST AI RMF crosswalks by function →](/crosswalks/nist-ai-rmf)
++[NIST AI RMF crosswalk by function →](/crosswalks/nist-ai-rmf)
+ 
+ Framework
+ 
+@@ -168,7 +242,7 @@ 
+ Addresses additional key concerns such as AI failure plans and AI-specific system security
+ 
+-[ISO 42001 crosswalks by clause →](/crosswalks/iso-42001)
++[ISO 42001 crosswalk by clause →](/crosswalks/iso-42001)
+ 
+ Framework
+ 
+@@ -188,7 +262,7 @@ 
+ Goes beyond ATLAS's focus on security alone
+ 
+-[MITRE ATLAS crosswalks by mitigation strategy →](/crosswalks/mitre-atlas)
++[MITRE ATLAS crosswalk by mitigation strategy →](/crosswalks/mitre-atlas)
+ 
+ Framework
+ 
+@@ -208,7 +282,7 @@ 
+ Goes beyond OWASP's focus on security alone
+ 
+-[OWASP Top 10 crosswalks by threat →](/crosswalks/owasp-top-10)
++[OWASP Top 10 crosswalk by threat →](/crosswalks/owasp-top-10)
+ 
+ Framework
+ 
+@@ -228,7 +302,47 @@ 
+ Incorporates AIVSS agent risk amplification factors in standard requirements
+ 
+-[OWASP AIVSS crosswalks by risk →](/crosswalks/owasp-aivss)
++[OWASP AIVSS crosswalk by risk →](/crosswalks/owasp-aivss)
++
++Framework
++
++IBM AI Risk Atlas
++
++Description
++
++Comprehensive taxonomy of risks associated with ML models, GenAI, and AI Agents from IBM Research
++
++How AIUC-1 compares
++
++Integrates IBM Research's AI Risk Atlas, where IBM Research is a technical contributor to AIUC-1. Certification against AIUC-1:
++
++Maps AI Risk Atlas risks to concrete requirements and controls
++
++Strengthens robustness against risks with concrete requirements and controls
++
++Goes beyond AI Risk Atlas's risk identification alone
++
++[IBM AI Risk Atlas crosswalk by risk →](/crosswalks/ibm-ai-risk-atlas)
++
++Framework
++
++Cisco AI Security & Safety Framework
++
++Description
++
++Comprehensive AI threat landscape taxonomy identifying 19 attacker objectives with 150+ subtechniques
++
++How AIUC-1 compares
++
++Integrates Cisco's AI Security Framework, where Cisco is a technical contributor to AIUC-1. Certification against AIUC-1:
++
++Maps Cisco's AI threat taxonomy to concrete requirements and controls
++
++Strengthens robustness against the attacker objectives and subtechniques identified by Cisco
++
++Goes beyond threat identification to provide actionable, auditable requirements
++
++[Cisco AI Security Framework crosswalk by threats →](/crosswalks/cisco-ai-security-safety-framework)
+ 
+ Framework
+ 
+@@ -248,21 +362,31 @@ 
+ Avoids duplicating controls in areas where CSA is industry-leading, such as data center infrastructure, physical server security, and other domains outside of the AIUC-1 scope
+ 
+-[CSA AICM crosswalks by control →](/crosswalks/csa-aicm)
+-
+-Framework
+-
+-Regional US regulation
+-
+-Description
+-
+-e.g. California SB 1001, New York City Local Law 144, Colorado AI Act
+-
+-How AIUC-1 compares
+-
+-Simplifies compliance with regional regulation. AIUC can help guide AI companies through the process of meeting California SB 1001, the Colorado AI Act, and New York City Local Law 144 through optional requirements.
+-
+-AIUC-1 already addresses top concerns in emerging regional regulations such as discrimination and bias, human-in-the-loop, and data handling.
++[CSA AICM crosswalk by control →](/crosswalks/csa-aicm)
++
++Framework
++
++Regional U.S. regulation
++
++Description
++
++e.g. NYC Local Law 144, California TFAIA, Colorado AI Act (SB 24-205)
++
++How AIUC-1 compares
++
++Simplifies alignment with regional U.S. regulation. Certification against AIUC-1:
++
++Addresses top concerns of emerging regional U.S. regulations such as the Colorado AI Act (SB 24-205) and NYC Local Law 144
++
++Integrates controls for compliance obligations such as human-in-the-loop, appropriate data handling, and labelling AI clearly
++
++Helps organizations proactively prepare for obligations from emerging AI legislation before entering into force
++
++[NYC Local Law 144 crosswalk by section →](/crosswalks/nyc-ll-144)
++
++[Colorado AI Act crosswalk by section →](/crosswalks/colorado-ai-act)
++
++[California TFAIA crosswalk by section →](/crosswalks/california-sb-53)
+ 
+ Framework
+ 
+@@ -274,7 +398,7 @@ 
+ How AIUC-1 compares
+ 
+-Simplifies compliance with AI requirements in sector-specific regulation. Certification against AIUC-1:
++Simplifies alignment with AI requirements in sector-specific regulation. Certification against AIUC-1:
+ 
+ Prepares organizations to comply with, e.g., FTC guidance on AI & algorithms
+ 
+@@ -372,9 +496,11 @@ 
+ AIUC-1 is continuously updated as new legislation, frameworks, threat patterns and best practices emerge — in collaboration with our network of technical contributors and experts from leading institutions within AI safety, security and reliability. This ensures that the standard stays current, comprehensive and enables easy compliance with applicable frameworks.
+ 
+-Last updated March 2, 2026.
+-
+-The Security, Safety, and Reliability standard for AI agents 
++_Crosswalks are provided for informational purposes only and does not constitute legal advice._
++
++Last updated April 13, 2026.
++
++The Security, Safety, and Reliability standard for AI agents
+ 
+ Stay up to date with AIUC-1
+ 
+
+```
 
